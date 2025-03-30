@@ -1,0 +1,340 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{6B709F2C-8BE6-4998-A6E8-7FA01C86F917}|CapaPresentacion\\PresentationLayer.csproj|c:\\users\\augus\\source\\repos\\proyectolucas\\capapresentacion\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B709F2C-8BE6-4998-A6E8-7FA01C86F917}|CapaPresentacion\\PresentationLayer.csproj|solutionrelative:capapresentacion\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5335C0B-8578-464B-B427-296D161D580F}|DataLayer\\DataLayer.csproj|c:\\users\\augus\\source\\repos\\proyectolucas\\datalayer\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5335C0B-8578-464B-B427-296D161D580F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\repositories\\productrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5335C0B-8578-464B-B427-296D161D580F}|DataLayer\\DataLayer.csproj|c:\\users\\augus\\source\\repos\\proyectolucas\\datalayer\\interfaces\\iproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5335C0B-8578-464B-B427-296D161D580F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\interfaces\\iproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5335C0B-8578-464B-B427-296D161D580F}|DataLayer\\DataLayer.csproj|c:\\users\\augus\\source\\repos\\proyectolucas\\datalayer\\interfaces\\isale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5335C0B-8578-464B-B427-296D161D580F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\interfaces\\isale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5335C0B-8578-464B-B427-296D161D580F}|DataLayer\\DataLayer.csproj|c:\\users\\augus\\source\\repos\\proyectolucas\\datalayer\\repositories\\salerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5335C0B-8578-464B-B427-296D161D580F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\repositories\\salerepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5335C0B-8578-464B-B427-296D161D580F}|DataLayer\\DataLayer.csproj|c:\\users\\augus\\source\\repos\\proyectolucas\\datalayer\\repositories\\paymentmethodrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5335C0B-8578-464B-B427-296D161D580F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\repositories\\paymentmethodrepository.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5335C0B-8578-464B-B427-296D161D580F}|DataLayer\\DataLayer.csproj|c:\\users\\augus\\source\\repos\\proyectolucas\\datalayer\\interfaces\\ipaymentmethods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5335C0B-8578-464B-B427-296D161D580F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\interfaces\\ipaymentmethods.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5335C0B-8578-464B-B427-296D161D580F}|DataLayer\\DataLayer.csproj|c:\\users\\augus\\source\\repos\\proyectolucas\\datalayer\\models\\sale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5335C0B-8578-464B-B427-296D161D580F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\models\\sale.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B709F2C-8BE6-4998-A6E8-7FA01C86F917}|CapaPresentacion\\PresentationLayer.csproj|c:\\users\\augus\\source\\repos\\proyectolucas\\capapresentacion\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{6B709F2C-8BE6-4998-A6E8-7FA01C86F917}|CapaPresentacion\\PresentationLayer.csproj|solutionrelative:capapresentacion\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B709F2C-8BE6-4998-A6E8-7FA01C86F917}|CapaPresentacion\\PresentationLayer.csproj|c:\\users\\augus\\source\\repos\\proyectolucas\\capapresentacion\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{6B709F2C-8BE6-4998-A6E8-7FA01C86F917}|CapaPresentacion\\PresentationLayer.csproj|solutionrelative:capapresentacion\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B709F2C-8BE6-4998-A6E8-7FA01C86F917}|CapaPresentacion\\CapaPresentacion.csproj|C:\\Users\\augus\\source\\repos\\ProyectoLucas\\capapresentacion\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form",
+      "RelativeMoniker": "D:0:0:{6B709F2C-8BE6-4998-A6E8-7FA01C86F917}|CapaPresentacion\\CapaPresentacion.csproj|solutionrelative:capapresentacion\\form1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}|Form"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{6B709F2C-8BE6-4998-A6E8-7FA01C86F917}|CapaPresentacion\\PresentationLayer.csproj|c:\\users\\augus\\source\\repos\\proyectolucas\\capapresentacion\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{6B709F2C-8BE6-4998-A6E8-7FA01C86F917}|CapaPresentacion\\PresentationLayer.csproj|solutionrelative:capapresentacion\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5335C0B-8578-464B-B427-296D161D580F}|DataLayer\\DataLayer.csproj|c:\\users\\augus\\source\\repos\\proyectolucas\\datalayer\\models\\db_context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5335C0B-8578-464B-B427-296D161D580F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\models\\db_context.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5335C0B-8578-464B-B427-296D161D580F}|DataLayer\\DataLayer.csproj|c:\\users\\augus\\source\\repos\\proyectolucas\\datalayer\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5335C0B-8578-464B-B427-296D161D580F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\models\\product.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5335C0B-8578-464B-B427-296D161D580F}|DataLayer\\DataLayer.csproj|c:\\users\\augus\\source\\repos\\proyectolucas\\datalayer\\models\\paymentmethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5335C0B-8578-464B-B427-296D161D580F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\models\\paymentmethod.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5335C0B-8578-464B-B427-296D161D580F}|DataLayer\\DataLayer.csproj|c:\\users\\augus\\source\\repos\\proyectolucas\\datalayer\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D5335C0B-8578-464B-B427-296D161D580F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\class1.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D5335C0B-8578-464B-B427-296D161D580F}|DataLayer\\DataLayer.csproj|c:\\users\\augus\\source\\repos\\proyectolucas\\datalayer\\tiendaelectronicasqlite.db||{8B382828-6202-11D1-8870-0000F87579D2}",
+      "RelativeMoniker": "D:0:0:{D5335C0B-8578-464B-B427-296D161D580F}|DataLayer\\DataLayer.csproj|solutionrelative:datalayer\\tiendaelectronicasqlite.db||{8B382828-6202-11D1-8870-0000F87579D2}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 12,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 15,
+              "Title": "Class1.cs",
+              "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\DataLayer\\Class1.cs",
+              "RelativeDocumentMoniker": "DataLayer\\Class1.cs",
+              "ToolTip": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\DataLayer\\Class1.cs",
+              "RelativeToolTip": "DataLayer\\Class1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAcAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T18:33:57.324Z",
+              "IsPinned": true,
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{aa2115a1-9712-457b-9047-dbb71ca2cdd2}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{eefa5220-e298-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{3ae79031-e1bc-11d0-8f78-00a0c9110057}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{1c4feeaa-4718-4aa9-859d-94ce25d182ba}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:129:0:{1fc202d4-d401-403c-9834-5b218574bb67}"
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:128:0:{75188d03-9892-4ae2-abf1-207126247ce5}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "ProductRepository.cs",
+              "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\DataLayer\\Repositories\\ProductRepository.cs",
+              "RelativeDocumentMoniker": "DataLayer\\Repositories\\ProductRepository.cs",
+              "ToolTip": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\DataLayer\\Repositories\\ProductRepository.cs",
+              "RelativeToolTip": "DataLayer\\Repositories\\ProductRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T20:21:05.023Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 4,
+              "Title": "SaleRepository.cs",
+              "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\DataLayer\\Repositories\\SaleRepository.cs",
+              "RelativeDocumentMoniker": "DataLayer\\Repositories\\SaleRepository.cs",
+              "ToolTip": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\DataLayer\\Repositories\\SaleRepository.cs",
+              "RelativeToolTip": "DataLayer\\Repositories\\SaleRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAgAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T20:20:49.713Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
+              "Title": "ISale.cs",
+              "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\DataLayer\\Interfaces\\ISale.cs",
+              "RelativeDocumentMoniker": "DataLayer\\Interfaces\\ISale.cs",
+              "ToolTip": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\DataLayer\\Interfaces\\ISale.cs",
+              "RelativeToolTip": "DataLayer\\Interfaces\\ISale.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAdAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T20:17:43.29Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "IProduct.cs",
+              "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\DataLayer\\Interfaces\\IProduct.cs",
+              "RelativeDocumentMoniker": "DataLayer\\Interfaces\\IProduct.cs",
+              "ToolTip": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\DataLayer\\Interfaces\\IProduct.cs",
+              "RelativeToolTip": "DataLayer\\Interfaces\\IProduct.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAAfAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T20:17:32.905Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "Program.cs",
+              "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\CapaPresentacion\\Program.cs",
+              "RelativeDocumentMoniker": "CapaPresentacion\\Program.cs",
+              "ToolTip": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\CapaPresentacion\\Program.cs",
+              "RelativeToolTip": "CapaPresentacion\\Program.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABQAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T19:55:14.305Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 5,
+              "Title": "PaymentMethodRepository.cs",
+              "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\DataLayer\\Repositories\\PaymentMethodRepository.cs",
+              "RelativeDocumentMoniker": "DataLayer\\Repositories\\PaymentMethodRepository.cs",
+              "ToolTip": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\DataLayer\\Repositories\\PaymentMethodRepository.cs",
+              "RelativeToolTip": "DataLayer\\Repositories\\PaymentMethodRepository.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAoAAAAzAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T20:22:35.981Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 6,
+              "Title": "IPaymentMethods.cs",
+              "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\DataLayer\\Interfaces\\IPaymentMethods.cs",
+              "RelativeDocumentMoniker": "DataLayer\\Interfaces\\IPaymentMethods.cs",
+              "ToolTip": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\DataLayer\\Interfaces\\IPaymentMethods.cs",
+              "RelativeToolTip": "DataLayer\\Interfaces\\IPaymentMethods.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAlAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T20:17:55.128Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 7,
+              "Title": "Sale.cs",
+              "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\DataLayer\\Models\\Sale.cs",
+              "RelativeDocumentMoniker": "DataLayer\\Models\\Sale.cs",
+              "ToolTip": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\DataLayer\\Models\\Sale.cs",
+              "RelativeToolTip": "DataLayer\\Models\\Sale.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABEAAAA4AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T19:27:30.741Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 13,
+              "Title": "Product.cs",
+              "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\DataLayer\\Models\\Product.cs",
+              "RelativeDocumentMoniker": "DataLayer\\Models\\Product.cs",
+              "ToolTip": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\DataLayer\\Models\\Product.cs",
+              "RelativeToolTip": "DataLayer\\Models\\Product.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAAtAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T19:27:21.471Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 12,
+              "Title": "Db_Context.cs",
+              "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\DataLayer\\Models\\Db_Context.cs",
+              "RelativeDocumentMoniker": "DataLayer\\Models\\Db_Context.cs",
+              "ToolTip": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\DataLayer\\Models\\Db_Context.cs",
+              "RelativeToolTip": "DataLayer\\Models\\Db_Context.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABoAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T19:23:24.317Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 14,
+              "Title": "PaymentMethod.cs",
+              "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\DataLayer\\Models\\PaymentMethod.cs",
+              "RelativeDocumentMoniker": "DataLayer\\Models\\PaymentMethod.cs",
+              "ToolTip": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\DataLayer\\Models\\PaymentMethod.cs",
+              "RelativeToolTip": "DataLayer\\Models\\PaymentMethod.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAmAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T19:27:43.766Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 16,
+              "Title": "TiendaElectronicaSqlite.db",
+              "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\DataLayer\\TiendaElectronicaSqlite.db",
+              "RelativeDocumentMoniker": "DataLayer\\TiendaElectronicaSqlite.db",
+              "ToolTip": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\DataLayer\\TiendaElectronicaSqlite.db",
+              "RelativeToolTip": "DataLayer\\TiendaElectronicaSqlite.db",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "00000000-0000-0000-0000-000000000000.000000|iVBORw0KGgoAAAANSUhEUgAAABQAAAAUCAYAAACNiR0NAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAADsMAAA7DAcdvqGQAAAICSURBVDhPrZXNa9JhAIAfx6iZBM7EpWBTpzMdW6tZsA5F0K1T3QZBHwuCgsFYTiaYRFGE7NAH0aAoYtCl/8EOoRteNkhL13TiRqMlBFux\u002BfupXRL09Wfp6Dm9H8/7wHt5XxV/mPJ5M1C2VOaNUa3IJc6HQqEFcYdyuayqjKd8t8p37t6vFRQIBvyo1eofmz\u002B3zyhF28SFZrh8ZVS7X9MR9nq9g\u002BLeroIHjaaG0V0F\u002BUu0vVarZXV9g\u002BRyDrfDgtGgA0Cr1RIM\u002BKs1bXsbYaCTRsFf2zssflqmsFNgc2uLxFKadDaHw2ZmfGJS1AkG/NrKWPHK8VSGbxt5SqUingEXxaJMdvUrubV1Ua1DMTjosiPLMnaLGeshE05bN7Is0e9yiGodisF4Ko0kFYgnv7CUzrKYSCFJEu8jMVGtQzFo7NJjNOiRJInwh3mKsoxB38nw0BFRrUMx2KXXcXp4iAGXg469e3A7bZw9dZJMLsdNX4CFj3G\u002B5/PiMWgUrNBtNjFy4RzOHitPXrzm\u002BatZ\u002BnrtPHo2w8zLN6IO/wpW43b00Ndr58boJfpdh\u002Bl12EQFWgkmPieZj8WYfvyUSHSOSDQqKtBK8OrFEcauXyManWNyfIx7wduiAq0E9Qd0eI4d5d3bWU4c96DR7BMVaCXYLP89WPViT2RA1cQXoER55cHDaSvAb9pFqY18f9aRAAAAAElFTkSuQmCC",
+              "WhenOpened": "2025-03-30T19:23:54.248Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 9,
+              "Title": "Form1.cs",
+              "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\CapaPresentacion\\Form1.cs",
+              "RelativeDocumentMoniker": "CapaPresentacion\\Form1.cs",
+              "ToolTip": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\CapaPresentacion\\Form1.cs",
+              "RelativeToolTip": "CapaPresentacion\\Form1.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T20:05:49.71Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 8,
+              "Title": "packages.config",
+              "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\CapaPresentacion\\packages.config",
+              "RelativeDocumentMoniker": "CapaPresentacion\\packages.config",
+              "ToolTip": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\CapaPresentacion\\packages.config",
+              "RelativeToolTip": "CapaPresentacion\\packages.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-03-30T19:59:16.006Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 11,
+              "Title": "App.config",
+              "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\CapaPresentacion\\App.config",
+              "RelativeDocumentMoniker": "CapaPresentacion\\App.config",
+              "ToolTip": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\CapaPresentacion\\App.config",
+              "RelativeToolTip": "CapaPresentacion\\App.config",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAQAAAACAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000601|",
+              "WhenOpened": "2025-03-30T19:48:16.676Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{269a02dc-6af8-11d3-bdc4-00c04f688e50}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 10,
+              "Title": "Form1.cs [Dise\u00F1o]",
+              "DocumentMoniker": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\CapaPresentacion\\Form1.cs",
+              "RelativeDocumentMoniker": "CapaPresentacion\\Form1.cs",
+              "ToolTip": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\CapaPresentacion\\Form1.cs [Dise\u00F1o]",
+              "RelativeToolTip": "CapaPresentacion\\Form1.cs [Dise\u00F1o]",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2025-03-30T18:27:49.031Z"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -1,0 +1,11 @@
+C:\Users\augus\source\repos\ProyectoLucas\LayerLogica\bin\Debug\net8.0\LogicLayer.deps.json
+C:\Users\augus\source\repos\ProyectoLucas\LayerLogica\bin\Debug\net8.0\LogicLayer.dll
+C:\Users\augus\source\repos\ProyectoLucas\LayerLogica\bin\Debug\net8.0\LogicLayer.pdb
+C:\Users\augus\source\repos\ProyectoLucas\LayerLogica\obj\Debug\net8.0\LogicLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\augus\source\repos\ProyectoLucas\LayerLogica\obj\Debug\net8.0\LogicLayer.AssemblyInfoInputs.cache
+C:\Users\augus\source\repos\ProyectoLucas\LayerLogica\obj\Debug\net8.0\LogicLayer.AssemblyInfo.cs
+C:\Users\augus\source\repos\ProyectoLucas\LayerLogica\obj\Debug\net8.0\LogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\augus\source\repos\ProyectoLucas\LayerLogica\obj\Debug\net8.0\LogicLayer.dll
+C:\Users\augus\source\repos\ProyectoLucas\LayerLogica\obj\Debug\net8.0\refint\LogicLayer.dll
+C:\Users\augus\source\repos\ProyectoLucas\LayerLogica\obj\Debug\net8.0\LogicLayer.pdb
+C:\Users\augus\source\repos\ProyectoLucas\LayerLogica\obj\Debug\net8.0\ref\LogicLayer.dll
