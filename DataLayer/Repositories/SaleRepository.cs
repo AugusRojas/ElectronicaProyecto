@@ -8,7 +8,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer.Repositories
 {
-    class SaleRepository : ISale
+    public class SaleRepository : ISale
     {
         public Task AddSale(Sale sale)
         {

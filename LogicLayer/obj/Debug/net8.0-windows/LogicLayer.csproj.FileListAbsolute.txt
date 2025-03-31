@@ -1,0 +1,11 @@
+C:\Users\augus\source\repos\TecnicElectronic\LogicLayer\obj\Debug\net8.0-windows\LogicLayer.csproj.AssemblyReference.cache
+C:\Users\augus\source\repos\TecnicElectronic\LogicLayer\obj\Debug\net8.0-windows\LogicLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\augus\source\repos\TecnicElectronic\LogicLayer\obj\Debug\net8.0-windows\LogicLayer.AssemblyInfoInputs.cache
+C:\Users\augus\source\repos\TecnicElectronic\LogicLayer\obj\Debug\net8.0-windows\LogicLayer.AssemblyInfo.cs
+C:\Users\augus\source\repos\TecnicElectronic\LogicLayer\obj\Debug\net8.0-windows\LogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\augus\OneDrive\Escritorio\ProyectoLucasFinal\TecnicElectronic\LogicLayer\obj\Debug\net8.0-windows\LogicLayer.csproj.AssemblyReference.cache
+C:\Users\augus\OneDrive\Escritorio\ProyectoLucasFinal\TecnicElectronic\LogicLayer\obj\Debug\net8.0-windows\LogicLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\augus\OneDrive\Escritorio\ProyectoLucasFinal\TecnicElectronic\LogicLayer\obj\Debug\net8.0-windows\LogicLayer.AssemblyInfoInputs.cache
+C:\Users\augus\OneDrive\Escritorio\ProyectoLucasFinal\TecnicElectronic\LogicLayer\obj\Debug\net8.0-windows\LogicLayer.AssemblyInfo.cs
+C:\Users\augus\OneDrive\Escritorio\ProyectoLucasFinal\TecnicElectronic\LogicLayer\obj\Debug\net8.0-windows\LogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\augus\OneDrive\Escritorio\ProyectoLucasFinal\TecnicElectronic\LogicLayer\obj\Debug\net8.0-windows\LogicLayer.sourcelink.json

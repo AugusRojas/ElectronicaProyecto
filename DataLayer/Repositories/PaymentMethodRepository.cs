@@ -8,7 +8,7 @@ using DataLayer.Models;
 
 namespace DataLayer.Repositories
 {
-    class PaymentMethodRepository : IPaymentMethods
+    public class PaymentMethodRepository : IPaymentMethods
     {
         public Task AddPayMethod(PaymentMethod payMethod)
         {

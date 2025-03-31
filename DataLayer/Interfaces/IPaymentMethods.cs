@@ -7,7 +7,7 @@ using DataLayer.Models;
 
 namespace DataLayer.Interfaces
 {
-    interface IPaymentMethods
+    public interface IPaymentMethods
     {
         Task<IEnumerable<PaymentMethod>> GetPayMethods();
         Task<PaymentMethod> GetPayMethod(int id);

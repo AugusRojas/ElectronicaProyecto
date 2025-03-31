@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "/cHOjEy/FR0=",
+  "dgSpecHash": "xKh7Hx8Srx0=",
   "success": true,
-  "projectFilePath": "C:\\Users\\augus\\source\\repos\\ProyectoLucas\\DataLayer\\DataLayer.csproj",
+  "projectFilePath": "C:\\Users\\augus\\OneDrive\\Escritorio\\ProyectoLucasFinal\\TecnicElectronic\\DataLayer\\DataLayer.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\augus\\.nuget\\packages\\humanizer.core\\2.14.1\\humanizer.core.2.14.1.nupkg.sha512",
     "C:\\Users\\augus\\.nuget\\packages\\microsoft.bcl.asyncinterfaces\\7.0.0\\microsoft.bcl.asyncinterfaces.7.0.0.nupkg.sha512",

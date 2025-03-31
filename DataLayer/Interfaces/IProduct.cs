@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer.Interfaces
 {
-    interface IProduct
+    public interface IProduct
     {
         Task<IEnumerable<Product>> GetProducts();
         Task<Product> GetProduct(int id);
