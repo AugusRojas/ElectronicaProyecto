@@ -12,7 +12,9 @@ namespace DataLayer.Models
         public string name { get; set; }
         public decimal price { get; set; }
         public int stock { get; set; }
+        public List<ProductsXSales> ProductsXSales { get; set; }
 
-        public List<Sale> Sales { get; set; }
+        public int idCategory { get; set; }
+        public Category Category { get; set; }
     }
 }

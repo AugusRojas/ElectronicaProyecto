@@ -10,11 +10,9 @@ namespace DataLayer.Models
     {
         public int idSale { get; set; }
         public int idPaymentMethod { get; set; }
+        public PaymentMethod PaymentMethod { get; set; }
         public decimal total { get; set; }
         public DateTime date { get; set; }
-
-        public List<Product> Products { get; set; }
-
-        public PaymentMethod PaymentMethod { get; set; }
+        public List<ProductsXSales> ProductsXSales { get; set; }
     }
 }

@@ -1,1 +1,7 @@
 .vs/
+*.user
+*.suo
+*.swp
+bin/
+obj/
+debug/
