@@ -6,10 +6,10 @@ using System.Threading.Tasks;
 
 namespace DataLayer.Models
 {
-    public class PaymentMethod
+    public class Category
     {
-        public int idPaymentMethod { get; set; }
+        public int idCategory { get; set; }
         public string name { get; set; }
-        public List<Sale> Sales { get; set; }
+        public List<Product> Products { get; set; }
     }
 }
