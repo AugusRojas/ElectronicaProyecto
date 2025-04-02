@@ -17,6 +17,24 @@ public partial class Db_Context : DbContext
     
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {
+        // Definiendo las claves primarias de las tablas
+        modelBuilder.Entity<Category>()
+            .HasKey(c => c.idCategory);
+
+        modelBuilder.Entity<PaymentMethod>()
+            .HasKey(p => p.idPaymentMethod);
+
+        modelBuilder.Entity<Product>()
+            .HasKey(p => p.idProduct);
+
+        modelBuilder.Entity<Sale>()
+            .HasKey(s => s.idSale);
+
+        modelBuilder.Entity<ProductsXSales>()
+            .HasKey(ps => new { ps.idProduct, ps.idSale });
+
+
+        //Definiendo las relaciones entre tablas
         modelBuilder.Entity<Product>()
             .HasMany(p => p.ProductsXSales)
             .WithOne(ps => ps.product)
