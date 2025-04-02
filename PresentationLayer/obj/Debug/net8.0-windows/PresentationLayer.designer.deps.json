@@ -40,19 +40,6 @@
         }
       },
       "Microsoft.EntityFrameworkCore.Analyzers/9.0.3": {},
-      "Microsoft.EntityFrameworkCore.InMemory/9.0.3": {
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore": "9.0.3",
-          "Microsoft.Extensions.Caching.Memory": "9.0.3",
-          "Microsoft.Extensions.Logging": "9.0.3"
-        },
-        "runtime": {
-          "lib/net8.0/Microsoft.EntityFrameworkCore.InMemory.dll": {
-            "assemblyVersion": "9.0.3.0",
-            "fileVersion": "9.0.325.11202"
-          }
-        }
-      },
       "Microsoft.EntityFrameworkCore.Relational/9.0.3": {
         "dependencies": {
           "Microsoft.EntityFrameworkCore": "9.0.3",
@@ -428,13 +415,6 @@
       "sha512": "sha512-M+iOxejD3HqPV8/KE148wIehHA3cmMF+FgnpiN8CFB7DLokVSKQPPrwtHjcrNYJ/BDEssviEPNok/jtQWxj7xA==",
       "path": "microsoft.entityframeworkcore.analyzers/9.0.3",
       "hashPath": "microsoft.entityframeworkcore.analyzers.9.0.3.nupkg.sha512"
-    },
-    "Microsoft.EntityFrameworkCore.InMemory/9.0.3": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-cSi0TzffzSN4p83qtgxhWKl+jcD17xfuTzYz6IJWVHkjQsD5gOdqpY5VBBFZhTgqdwon8LnArs9cFjd9EYCC1g==",
-      "path": "microsoft.entityframeworkcore.inmemory/9.0.3",
-      "hashPath": "microsoft.entityframeworkcore.inmemory.9.0.3.nupkg.sha512"
     },
     "Microsoft.EntityFrameworkCore.Relational/9.0.3": {
       "type": "package",

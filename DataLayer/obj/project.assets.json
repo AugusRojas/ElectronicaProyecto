@@ -447,24 +447,6 @@
           "build/net8.0/Microsoft.EntityFrameworkCore.Design.props": {}
         }
       },
-      "Microsoft.EntityFrameworkCore.InMemory/9.0.3": {
-        "type": "package",
-        "dependencies": {
-          "Microsoft.EntityFrameworkCore": "9.0.3",
-          "Microsoft.Extensions.Caching.Memory": "9.0.3",
-          "Microsoft.Extensions.Logging": "9.0.3"
-        },
-        "compile": {
-          "lib/net8.0/Microsoft.EntityFrameworkCore.InMemory.dll": {
-            "related": ".xml"
-          }
-        },
-        "runtime": {
-          "lib/net8.0/Microsoft.EntityFrameworkCore.InMemory.dll": {
-            "related": ".xml"
-          }
-        }
-      },
       "Microsoft.EntityFrameworkCore.Relational/9.0.3": {
         "type": "package",
         "dependencies": {
@@ -2241,21 +2223,6 @@
         "microsoft.entityframeworkcore.design.nuspec"
       ]
     },
-    "Microsoft.EntityFrameworkCore.InMemory/9.0.3": {
-      "sha512": "cSi0TzffzSN4p83qtgxhWKl+jcD17xfuTzYz6IJWVHkjQsD5gOdqpY5VBBFZhTgqdwon8LnArs9cFjd9EYCC1g==",
-      "type": "package",
-      "path": "microsoft.entityframeworkcore.inmemory/9.0.3",
-      "files": [
-        ".nupkg.metadata",
-        ".signature.p7s",
-        "Icon.png",
-        "PACKAGE.md",
-        "lib/net8.0/Microsoft.EntityFrameworkCore.InMemory.dll",
-        "lib/net8.0/Microsoft.EntityFrameworkCore.InMemory.xml",
-        "microsoft.entityframeworkcore.inmemory.9.0.3.nupkg.sha512",
-        "microsoft.entityframeworkcore.inmemory.nuspec"
-      ]
-    },
     "Microsoft.EntityFrameworkCore.Relational/9.0.3": {
       "sha512": "xsS+5TM7M5f3tCSRaSbzouGCoIgD2zokQxBGXvf9z3DusRztWvT1NNT9XJaY2JoK1qEEDcHah8is6azYmpZhIg==",
       "type": "package",
@@ -3258,29 +3225,28 @@
   "projectFileDependencyGroups": {
     "net8.0-windows7.0": [
       "Microsoft.EntityFrameworkCore.Design >= 9.0.3",
-      "Microsoft.EntityFrameworkCore.InMemory >= 9.0.3",
       "Microsoft.EntityFrameworkCore.Sqlite >= 9.0.3",
       "Microsoft.EntityFrameworkCore.Tools >= 9.0.3"
     ]
   },
   "packageFolders": {
-    "C:\\Users\\augus\\.nuget\\packages\\": {},
+    "C:\\Users\\Licha\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\augus\\OneDrive\\Escritorio\\ProyectoLucasFinal\\TecnicElectronic\\DataLayer\\DataLayer.csproj",
+      "projectUniqueName": "C:\\Users\\Licha\\source\\repos\\AugusRojas\\ElectronicaProyecto\\DataLayer\\DataLayer.csproj",
       "projectName": "DataLayer",
-      "projectPath": "C:\\Users\\augus\\OneDrive\\Escritorio\\ProyectoLucasFinal\\TecnicElectronic\\DataLayer\\DataLayer.csproj",
-      "packagesPath": "C:\\Users\\augus\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\augus\\OneDrive\\Escritorio\\ProyectoLucasFinal\\TecnicElectronic\\DataLayer\\obj\\",
+      "projectPath": "C:\\Users\\Licha\\source\\repos\\AugusRojas\\ElectronicaProyecto\\DataLayer\\DataLayer.csproj",
+      "packagesPath": "C:\\Users\\Licha\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\Licha\\source\\repos\\AugusRojas\\ElectronicaProyecto\\DataLayer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\augus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\Licha\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -3316,10 +3282,6 @@
           "Microsoft.EntityFrameworkCore.Design": {
             "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
             "suppressParent": "All",
-            "target": "Package",
-            "version": "[9.0.3, )"
-          },
-          "Microsoft.EntityFrameworkCore.InMemory": {
             "target": "Package",
             "version": "[9.0.3, )"
           },

@@ -4,4 +4,4 @@
 *.swp
 bin/
 obj/
-debug/
+Debug/
