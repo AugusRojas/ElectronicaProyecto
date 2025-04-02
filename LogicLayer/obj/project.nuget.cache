@@ -1,9 +1,10 @@
 {
   "version": 2,
-  "dgSpecHash": "CS9QjJAWNk8=",
+  "dgSpecHash": "3DivCPbZqpI=",
   "success": true,
   "projectFilePath": "C:\\Users\\Licha\\source\\repos\\LisandroGabrielReinoso\\ElectronicaProyecto\\LogicLayer\\LogicLayer.csproj",
   "expectedPackageFiles": [
+    "C:\\Users\\Licha\\.nuget\\packages\\fluentvalidation\\11.11.0\\fluentvalidation.11.11.0.nupkg.sha512",
     "C:\\Users\\Licha\\.nuget\\packages\\microsoft.data.sqlite.core\\9.0.3\\microsoft.data.sqlite.core.9.0.3.nupkg.sha512",
     "C:\\Users\\Licha\\.nuget\\packages\\microsoft.entityframeworkcore\\9.0.3\\microsoft.entityframeworkcore.9.0.3.nupkg.sha512",
     "C:\\Users\\Licha\\.nuget\\packages\\microsoft.entityframeworkcore.abstractions\\9.0.3\\microsoft.entityframeworkcore.abstractions.9.0.3.nupkg.sha512",
