@@ -21,5 +21,12 @@ namespace PresentationLayer
         {
 
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            emerging_products abrir = new emerging_products();
+
+            abrir.Show();
+        }
     }
 }

@@ -30,27 +30,27 @@
         {
             label1 = new Label();
             panel1 = new Panel();
-            panel2 = new Panel();
-            label2 = new Label();
+            label8 = new Label();
+            buttonPagar = new Button();
+            dataGridView1 = new DataGridView();
             label3 = new Label();
-            Codigo_txt = new TextBox();
+            label2 = new Label();
+            panel2 = new Panel();
+            textBox2 = new TextBox();
+            button1 = new Button();
+            buttonAgregar = new Button();
+            numericUpDown1 = new NumericUpDown();
+            label7 = new Label();
+            label9 = new Label();
+            label6 = new Label();
+            label5 = new Label();
             label4 = new Label();
             textBox1 = new TextBox();
-            label5 = new Label();
-            label6 = new Label();
-            label7 = new Label();
-            numericUpDown1 = new NumericUpDown();
-            buttonAgregar = new Button();
-            dataGridView1 = new DataGridView();
-            button1 = new Button();
-            buttonPagar = new Button();
-            label8 = new Label();
-            textBox2 = new TextBox();
-            label9 = new Label();
+            Codigo_txt = new TextBox();
             panel1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -77,6 +77,53 @@
             panel1.Size = new Size(808, 517);
             panel1.TabIndex = 1;
             // 
+            // label8
+            // 
+            label8.AutoSize = true;
+            label8.Font = new Font("Verdana", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label8.Location = new Point(187, 435);
+            label8.Name = "label8";
+            label8.Size = new Size(188, 25);
+            label8.TabIndex = 4;
+            label8.Text = "Precio a Pagar:";
+            // 
+            // buttonPagar
+            // 
+            buttonPagar.Location = new Point(19, 430);
+            buttonPagar.Name = "buttonPagar";
+            buttonPagar.Size = new Size(130, 42);
+            buttonPagar.TabIndex = 3;
+            buttonPagar.Text = "Vender";
+            buttonPagar.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(18, 216);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(771, 199);
+            dataGridView1.TabIndex = 2;
+            // 
+            // label3
+            // 
+            label3.AutoSize = true;
+            label3.Font = new Font("Verdana", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label3.Location = new Point(707, 12);
+            label3.Name = "label3";
+            label3.Size = new Size(57, 18);
+            label3.TabIndex = 1;
+            label3.Text = "HORA";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Verdana", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(625, 12);
+            label2.Name = "label2";
+            label2.Size = new Size(63, 18);
+            label2.TabIndex = 1;
+            label2.Text = "FECHA";
+            // 
             // panel2
             // 
             panel2.BackColor = SystemColors.ControlLight;
@@ -96,32 +143,78 @@
             panel2.Size = new Size(772, 164);
             panel2.TabIndex = 0;
             // 
-            // label2
+            // textBox2
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Verdana", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(625, 12);
-            label2.Name = "label2";
-            label2.Size = new Size(63, 18);
-            label2.TabIndex = 1;
-            label2.Text = "FECHA";
+            textBox2.Location = new Point(514, 57);
+            textBox2.Name = "textBox2";
+            textBox2.Size = new Size(71, 23);
+            textBox2.TabIndex = 5;
             // 
-            // label3
+            // button1
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Verdana", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(707, 12);
-            label3.Name = "label3";
-            label3.Size = new Size(57, 18);
-            label3.TabIndex = 1;
-            label3.Text = "HORA";
+            button1.Location = new Point(27, 15);
+            button1.Name = "button1";
+            button1.Size = new Size(103, 23);
+            button1.TabIndex = 4;
+            button1.Text = "Buscar Producto";
+            button1.UseVisualStyleBackColor = true;
+            button1.Click += button1_Click;
             // 
-            // Codigo_txt
+            // buttonAgregar
             // 
-            Codigo_txt.Location = new Point(109, 60);
-            Codigo_txt.Name = "Codigo_txt";
-            Codigo_txt.Size = new Size(100, 23);
-            Codigo_txt.TabIndex = 0;
+            buttonAgregar.Location = new Point(650, 57);
+            buttonAgregar.Name = "buttonAgregar";
+            buttonAgregar.Size = new Size(74, 58);
+            buttonAgregar.TabIndex = 3;
+            buttonAgregar.Text = "Agregar";
+            buttonAgregar.UseVisualStyleBackColor = true;
+            // 
+            // numericUpDown1
+            // 
+            numericUpDown1.Location = new Point(322, 57);
+            numericUpDown1.Name = "numericUpDown1";
+            numericUpDown1.Size = new Size(77, 23);
+            numericUpDown1.TabIndex = 2;
+            // 
+            // label7
+            // 
+            label7.AutoSize = true;
+            label7.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label7.Location = new Point(245, 111);
+            label7.Name = "label7";
+            label7.Size = new Size(52, 20);
+            label7.TabIndex = 1;
+            label7.Text = "Stock:";
+            // 
+            // label9
+            // 
+            label9.AutoSize = true;
+            label9.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label9.Location = new Point(425, 57);
+            label9.Name = "label9";
+            label9.Size = new Size(83, 20);
+            label9.TabIndex = 1;
+            label9.Text = "Descuento";
+            // 
+            // label6
+            // 
+            label6.AutoSize = true;
+            label6.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label6.Location = new Point(245, 59);
+            label6.Name = "label6";
+            label6.Size = new Size(71, 20);
+            label6.TabIndex = 1;
+            label6.Text = "Cantidad";
+            // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label5.Location = new Point(27, 111);
+            label5.Name = "label5";
+            label5.Size = new Size(73, 20);
+            label5.TabIndex = 1;
+            label5.Text = "Producto";
             // 
             // label4
             // 
@@ -140,104 +233,12 @@
             textBox1.Size = new Size(100, 23);
             textBox1.TabIndex = 0;
             // 
-            // label5
+            // Codigo_txt
             // 
-            label5.AutoSize = true;
-            label5.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label5.Location = new Point(27, 111);
-            label5.Name = "label5";
-            label5.Size = new Size(73, 20);
-            label5.TabIndex = 1;
-            label5.Text = "Producto";
-            // 
-            // label6
-            // 
-            label6.AutoSize = true;
-            label6.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label6.Location = new Point(245, 59);
-            label6.Name = "label6";
-            label6.Size = new Size(71, 20);
-            label6.TabIndex = 1;
-            label6.Text = "Cantidad";
-            // 
-            // label7
-            // 
-            label7.AutoSize = true;
-            label7.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label7.Location = new Point(245, 111);
-            label7.Name = "label7";
-            label7.Size = new Size(52, 20);
-            label7.TabIndex = 1;
-            label7.Text = "Stock:";
-            // 
-            // numericUpDown1
-            // 
-            numericUpDown1.Location = new Point(322, 57);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(77, 23);
-            numericUpDown1.TabIndex = 2;
-            // 
-            // buttonAgregar
-            // 
-            buttonAgregar.Location = new Point(650, 57);
-            buttonAgregar.Name = "buttonAgregar";
-            buttonAgregar.Size = new Size(74, 58);
-            buttonAgregar.TabIndex = 3;
-            buttonAgregar.Text = "Agregar";
-            buttonAgregar.UseVisualStyleBackColor = true;
-            // 
-            // dataGridView1
-            // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(18, 216);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(771, 199);
-            dataGridView1.TabIndex = 2;
-            // 
-            // button1
-            // 
-            button1.Location = new Point(27, 15);
-            button1.Name = "button1";
-            button1.Size = new Size(103, 23);
-            button1.TabIndex = 4;
-            button1.Text = "Buscar Producto";
-            button1.UseVisualStyleBackColor = true;
-            // 
-            // buttonPagar
-            // 
-            buttonPagar.Location = new Point(19, 430);
-            buttonPagar.Name = "buttonPagar";
-            buttonPagar.Size = new Size(130, 42);
-            buttonPagar.TabIndex = 3;
-            buttonPagar.Text = "Vender";
-            buttonPagar.UseVisualStyleBackColor = true;
-            // 
-            // label8
-            // 
-            label8.AutoSize = true;
-            label8.Font = new Font("Verdana", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(187, 435);
-            label8.Name = "label8";
-            label8.Size = new Size(188, 25);
-            label8.TabIndex = 4;
-            label8.Text = "Precio a Pagar:";
-            // 
-            // textBox2
-            // 
-            textBox2.Location = new Point(514, 57);
-            textBox2.Name = "textBox2";
-            textBox2.Size = new Size(71, 23);
-            textBox2.TabIndex = 5;
-            // 
-            // label9
-            // 
-            label9.AutoSize = true;
-            label9.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label9.Location = new Point(425, 57);
-            label9.Name = "label9";
-            label9.Size = new Size(83, 20);
-            label9.TabIndex = 1;
-            label9.Text = "Descuento";
+            Codigo_txt.Location = new Point(109, 60);
+            Codigo_txt.Name = "Codigo_txt";
+            Codigo_txt.Size = new Size(100, 23);
+            Codigo_txt.TabIndex = 0;
             // 
             // Sales
             // 
@@ -252,10 +253,10 @@
             Load += Sales_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using LogicLayer.IServices;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,9 +13,18 @@ namespace PresentationLayer
 {
     public partial class emerging_products: Form
     {
+        private readonly IProductServices ProductServices;
+        public emerging_products(IProductServices ProductServices)
+        {
+            InitializeComponent();
+            this.ProductServices = ProductServices;
+        }
+
         public emerging_products()
         {
             InitializeComponent();
         }
+
+
     }
 }
