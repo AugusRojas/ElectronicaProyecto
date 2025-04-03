@@ -10,6 +10,12 @@ namespace DataLayer.Repositories
 {
     public class ProductRepository : IProduct
     {
+        public readonly Db_Context context;
+        public ProductRepository(Db_Context context)
+        {
+            this.context = context;
+        }
+
         public Task AddProduct(Product product)
         {
             throw new NotImplementedException();
@@ -25,9 +31,9 @@ namespace DataLayer.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<Product>> GetProducts()
+        public async Task<List<Product>> GetProducts()
         {
-            throw new NotImplementedException();
+            return await context.Products.Get
         }
 
         public Task UpdateProduct(Product product)
