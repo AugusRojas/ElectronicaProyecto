@@ -3,6 +3,11 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.DependencyInjection;
 using System;
 using DataLayer.Models;
+using DataLayer.Interfaces;
+using DataLayer.Repositories;
+using LogicLayer.ValidationRepositories;
+using LogicLayer.ValidatorService;
+
 namespace PresentationLayer
 {
     internal static class Program
@@ -17,17 +22,31 @@ namespace PresentationLayer
             // Configuración de la base de datos
             var services = new ServiceCollection();
             services.AddDbContext<Db_Context>(options =>
-                options.UseSqlite("Data Source=C:\\Users\\Licha\\source\\repos\\LisandroGabrielReinoso\\ElectronicaProyecto\\DataLayer\\TiendaElectronicaSqlite.db"));
-            services.AddScoped<Form1>(); // se van a ir inyecctando los formularios para que tengan la configuracion completa de la bd y poder acceder a las tablas y a sus metodos 
+                options.UseSqlite("Data Source=\"C:\\Users\\augus\\OneDrive\\Escritorio\\TecnicoOrganizado\\ElectronicaProyecto\\DataLayer\\TiendaElectronicaSqlite.db\""));
 
-            using (var serviceProvider = services.BuildServiceProvider())
-            {
-                using (var context = serviceProvider.GetRequiredService<Db_Context>())
-                {
-                    context.Database.EnsureCreated(); // Crea la BD si no existe
-                    Application.Run(serviceProvider.GetRequiredService<Form1>());
-                }
-            }
+            //Repositorios
+            services.AddScoped<IProduct, ProductRepository>();
+            services.AddScoped<ICategory, CategoryRepository>();
+
+            //Servicios de validacion
+            services.AddScoped<ProductRepositoryValidation>();
+            services.AddScoped<CategoryRepositoryValidation>();
+            services.AddScoped<CategoriesRepositoryValidation>();
+            services.AddScoped<CategoryService>();
+            services.AddScoped<ProductService>();
+
+            //Formularios
+            services.AddScoped<Form1>();
+
+            var serviceProvider = services.BuildServiceProvider();
+
+            // Asegurar que la BD está creada
+            var context = serviceProvider.GetRequiredService<Db_Context>();
+            context.Database.EnsureCreated();
+            
+
+            // Lanzar la aplicación
+            Application.Run(serviceProvider.GetRequiredService<Form1>());
         }
     }
 }

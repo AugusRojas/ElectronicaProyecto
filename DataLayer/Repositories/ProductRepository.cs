@@ -1,5 +1,6 @@
 ﻿using DataLayer.Interfaces;
 using DataLayer.Models;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,29 +11,41 @@ namespace DataLayer.Repositories
 {
     public class ProductRepository : IProduct
     {
+        private readonly Db_Context _context;
+        public ProductRepository(Db_Context context)
+        {
+            _context = context;
+        }
         public Task AddProduct(Product product)
         {
-            throw new NotImplementedException();
+            _context.Products.Add(product);
+            return _context.SaveChangesAsync();
         }
 
-        public Task DeleteProduct(int id)
+        public async Task DeleteProduct(string name)
         {
-            throw new NotImplementedException();
+            var result = await GetProduct(name);
+            _context.Products.Remove(result);
+            await _context.SaveChangesAsync();
         }
 
-        public Task<Product> GetProduct(int id)
+        public Task<Product> GetProduct(string id)
         {
-            throw new NotImplementedException();
+            var result = _context.Products.FirstAsync(p=>p.name == id);
+            return result;
         }
 
-        public Task<IEnumerable<Product>> GetProducts()
+        public async Task<IEnumerable<Product>> GetProducts()
         {
-            throw new NotImplementedException();
+            return await _context.Products.ToListAsync();
+            
         }
 
-        public Task UpdateProduct(Product product)
+        public async Task UpdateProduct(Product product)
         {
-            throw new NotImplementedException();
+            var result = _context.Products.FirstOrDefaultAsync(p => p.name == product.name);
+            _context.Entry(result).State = EntityState.Modified;
+            await _context.SaveChangesAsync();
         }
     }
 }

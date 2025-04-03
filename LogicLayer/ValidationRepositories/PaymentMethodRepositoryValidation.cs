@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace LogicLayer.ValidationRepositories
 {
-    class PaymentMethodRepositoryValidation
+    public class PaymentMethodRepositoryValidation
     {
     }
 }

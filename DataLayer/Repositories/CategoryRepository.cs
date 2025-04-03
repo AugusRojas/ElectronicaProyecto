@@ -1,5 +1,7 @@
 ﻿using DataLayer.Interfaces;
 using DataLayer.Models;
+using DocumentFormat.OpenXml.Office.CustomUI;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -8,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace DataLayer.Repositories
 {
-    class CategoryRepository: ICategory
+    public class CategoryRepository: ICategory
     {
         private readonly Db_Context context;
 

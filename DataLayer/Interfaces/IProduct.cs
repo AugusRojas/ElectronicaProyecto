@@ -10,9 +10,9 @@ namespace DataLayer.Interfaces
     public interface IProduct
     {
         Task<IEnumerable<Product>> GetProducts();
-        Task<Product> GetProduct(int id);
+        Task<Product> GetProduct(string name);
         Task AddProduct(Product product);
         Task UpdateProduct(Product product);
-        Task DeleteProduct(int id);
+        Task DeleteProduct(string name);
     }
 }

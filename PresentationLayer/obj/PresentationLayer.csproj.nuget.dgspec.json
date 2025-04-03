@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\Licha\\source\\repos\\LisandroGabrielReinoso\\ElectronicaProyecto\\PresentationLayer\\PresentationLayer.csproj": {}
+    "C:\\Users\\augus\\OneDrive\\Escritorio\\TecnicoOrganizado\\ElectronicaProyecto\\PresentationLayer\\PresentationLayer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\Licha\\source\\repos\\LisandroGabrielReinoso\\ElectronicaProyecto\\DataLayer\\DataLayer.csproj": {
+    "C:\\Users\\augus\\OneDrive\\Escritorio\\TecnicoOrganizado\\ElectronicaProyecto\\DataLayer\\DataLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Licha\\source\\repos\\LisandroGabrielReinoso\\ElectronicaProyecto\\DataLayer\\DataLayer.csproj",
+        "projectUniqueName": "C:\\Users\\augus\\OneDrive\\Escritorio\\TecnicoOrganizado\\ElectronicaProyecto\\DataLayer\\DataLayer.csproj",
         "projectName": "DataLayer",
-        "projectPath": "C:\\Users\\Licha\\source\\repos\\LisandroGabrielReinoso\\ElectronicaProyecto\\DataLayer\\DataLayer.csproj",
-        "packagesPath": "C:\\Users\\Licha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Licha\\source\\repos\\LisandroGabrielReinoso\\ElectronicaProyecto\\DataLayer\\obj\\",
+        "projectPath": "C:\\Users\\augus\\OneDrive\\Escritorio\\TecnicoOrganizado\\ElectronicaProyecto\\DataLayer\\DataLayer.csproj",
+        "packagesPath": "C:\\Users\\augus\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\augus\\OneDrive\\Escritorio\\TecnicoOrganizado\\ElectronicaProyecto\\DataLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Licha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\augus\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -50,6 +50,10 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "dependencies": {
+            "DocumentFormat.OpenXml": {
+              "target": "Package",
+              "version": "[3.3.0, )"
+            },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
               "suppressParent": "All",
@@ -87,20 +91,20 @@
         }
       }
     },
-    "C:\\Users\\Licha\\source\\repos\\LisandroGabrielReinoso\\ElectronicaProyecto\\PresentationLayer\\PresentationLayer.csproj": {
+    "C:\\Users\\augus\\OneDrive\\Escritorio\\TecnicoOrganizado\\ElectronicaProyecto\\LogicLayer\\LogicLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\Licha\\source\\repos\\LisandroGabrielReinoso\\ElectronicaProyecto\\PresentationLayer\\PresentationLayer.csproj",
-        "projectName": "PresentationLayer",
-        "projectPath": "C:\\Users\\Licha\\source\\repos\\LisandroGabrielReinoso\\ElectronicaProyecto\\PresentationLayer\\PresentationLayer.csproj",
-        "packagesPath": "C:\\Users\\Licha\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\Licha\\source\\repos\\LisandroGabrielReinoso\\ElectronicaProyecto\\PresentationLayer\\obj\\",
+        "projectUniqueName": "C:\\Users\\augus\\OneDrive\\Escritorio\\TecnicoOrganizado\\ElectronicaProyecto\\LogicLayer\\LogicLayer.csproj",
+        "projectName": "LogicLayer",
+        "projectPath": "C:\\Users\\augus\\OneDrive\\Escritorio\\TecnicoOrganizado\\ElectronicaProyecto\\LogicLayer\\LogicLayer.csproj",
+        "packagesPath": "C:\\Users\\augus\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\augus\\OneDrive\\Escritorio\\TecnicoOrganizado\\ElectronicaProyecto\\LogicLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\Licha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\augus\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -115,8 +119,90 @@
           "net8.0-windows7.0": {
             "targetAlias": "net8.0-windows",
             "projectReferences": {
-              "C:\\Users\\Licha\\source\\repos\\LisandroGabrielReinoso\\ElectronicaProyecto\\DataLayer\\DataLayer.csproj": {
-                "projectPath": "C:\\Users\\Licha\\source\\repos\\LisandroGabrielReinoso\\ElectronicaProyecto\\DataLayer\\DataLayer.csproj"
+              "C:\\Users\\augus\\OneDrive\\Escritorio\\TecnicoOrganizado\\ElectronicaProyecto\\DataLayer\\DataLayer.csproj": {
+                "projectPath": "C:\\Users\\augus\\OneDrive\\Escritorio\\TecnicoOrganizado\\ElectronicaProyecto\\DataLayer\\DataLayer.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        },
+        "restoreAuditProperties": {
+          "enableAudit": "true",
+          "auditLevel": "low",
+          "auditMode": "direct"
+        },
+        "SdkAnalysisLevel": "9.0.200"
+      },
+      "frameworks": {
+        "net8.0-windows7.0": {
+          "targetAlias": "net8.0-windows",
+          "dependencies": {
+            "DocumentFormat.OpenXml": {
+              "target": "Package",
+              "version": "[3.3.0, )"
+            },
+            "FluentValidation": {
+              "target": "Package",
+              "version": "[11.11.0, )"
+            }
+          },
+          "imports": [
+            "net461",
+            "net462",
+            "net47",
+            "net471",
+            "net472",
+            "net48",
+            "net481"
+          ],
+          "assetTargetFallback": true,
+          "warn": true,
+          "frameworkReferences": {
+            "Microsoft.NETCore.App": {
+              "privateAssets": "all"
+            }
+          },
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\9.0.200/PortableRuntimeIdentifierGraph.json"
+        }
+      }
+    },
+    "C:\\Users\\augus\\OneDrive\\Escritorio\\TecnicoOrganizado\\ElectronicaProyecto\\PresentationLayer\\PresentationLayer.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "C:\\Users\\augus\\OneDrive\\Escritorio\\TecnicoOrganizado\\ElectronicaProyecto\\PresentationLayer\\PresentationLayer.csproj",
+        "projectName": "PresentationLayer",
+        "projectPath": "C:\\Users\\augus\\OneDrive\\Escritorio\\TecnicoOrganizado\\ElectronicaProyecto\\PresentationLayer\\PresentationLayer.csproj",
+        "packagesPath": "C:\\Users\\augus\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\augus\\OneDrive\\Escritorio\\TecnicoOrganizado\\ElectronicaProyecto\\PresentationLayer\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\augus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "net8.0-windows"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "net8.0-windows7.0": {
+            "targetAlias": "net8.0-windows",
+            "projectReferences": {
+              "C:\\Users\\augus\\OneDrive\\Escritorio\\TecnicoOrganizado\\ElectronicaProyecto\\DataLayer\\DataLayer.csproj": {
+                "projectPath": "C:\\Users\\augus\\OneDrive\\Escritorio\\TecnicoOrganizado\\ElectronicaProyecto\\DataLayer\\DataLayer.csproj"
+              },
+              "C:\\Users\\augus\\OneDrive\\Escritorio\\TecnicoOrganizado\\ElectronicaProyecto\\LogicLayer\\LogicLayer.csproj": {
+                "projectPath": "C:\\Users\\augus\\OneDrive\\Escritorio\\TecnicoOrganizado\\ElectronicaProyecto\\LogicLayer\\LogicLayer.csproj"
               }
             }
           }
