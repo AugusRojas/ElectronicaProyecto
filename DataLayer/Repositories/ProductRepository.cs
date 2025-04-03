@@ -34,13 +34,11 @@ namespace DataLayer.Repositories
             var result = _context.Products.FirstAsync(p=>p.name == id);
             return result;
         }
-
         public async Task<IEnumerable<Product>> GetProducts()
         {
             return await _context.Products.ToListAsync();
             
         }
-
         public async Task UpdateProduct(Product product)
         {
             var result = _context.Products.FirstOrDefaultAsync(p => p.name == product.name);

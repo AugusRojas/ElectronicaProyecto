@@ -1,5 +1,7 @@
 using DataLayer.Models;
 using LogicLayer.ValidatorService;
+using DataLayer.Repositories;
+using System.Threading.Tasks;
 
 namespace PresentationLayer
 {
@@ -41,3 +43,4 @@ namespace PresentationLayer
 
     }
 }
+

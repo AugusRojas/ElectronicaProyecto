@@ -32,6 +32,7 @@
             textBox1 = new TextBox();
             dataGridView1 = new DataGridView();
             comboBox1 = new ComboBox();
+
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
             // 
