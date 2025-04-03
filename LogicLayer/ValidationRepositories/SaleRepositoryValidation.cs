@@ -6,7 +6,8 @@ using System.Threading.Tasks;
 
 namespace LogicLayer.ValidationRepositories
 {
-    class SaleRepositoryValidation
+    public class SaleRepositoryValidation
     {
+
     }
 }
