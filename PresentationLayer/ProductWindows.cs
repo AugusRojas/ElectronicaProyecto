@@ -33,9 +33,15 @@ namespace PresentationLayer
             dataGridViewProduct.Columns[3].HeaderText = "Stock";
             dataGridViewProduct.Columns[4].HeaderText = "Categoría"; // Nombre de la cuarta columna
             var result = await _categoryService.GetComboBox();
-            boxCategory.DataSource = result;
+            //comboBox de Productos
+            boxCategory.DataSource = new List<Category>(result); // clonar la lista
             boxCategory.DisplayMember = "name";
             boxCategory.ValueMember = "idCategory";
+
+            boxDeleteCategory.DataSource = new List<Category>(result); // otra instancia
+            boxDeleteCategory.DisplayMember = "name";
+            boxDeleteCategory.ValueMember = "idCategory";
+
         }
         private async void btnModify_Click_1(object sender, EventArgs e)
         {
@@ -116,7 +122,7 @@ namespace PresentationLayer
             }
         }
 
-        private void dataGridViewProduct_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private async void dataGridViewProduct_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridViewProduct.SelectedRows.Count > 0)
             {
@@ -124,8 +130,8 @@ namespace PresentationLayer
                 txtProduct.Text = selectedRow.Cells[1].Value.ToString();
                 txtPrice.Text = selectedRow.Cells[2].Value.ToString();
                 txtStock.Text = selectedRow.Cells[3].Value.ToString();
-                var nameCategory = selectedRow.Cells[4].Value;
-                boxCategory.Text = nameCategory.ToString();
+                boxCategory.Text = selectedRow.Cells[0].Value.ToString();
+
             }
         }
 
@@ -147,6 +153,90 @@ namespace PresentationLayer
             {
                 dataGridViewProduct.Columns["ID"].Visible = false;
             }
+        }
+
+        private void txtCategoryAdd_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Evitar la entrada de caracteres no válidos
+            }
+        }
+
+        private void txtProduct_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsLetter(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Evitar la entrada de caracteres no válidos
+            }
+        }
+
+        private void txtPrice_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsNumber(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Evitar la entrada de caracteres no válidos
+            }
+        }
+
+        private void txtStock_KeyPress(object sender, KeyPressEventArgs e)
+        {
+            if (!char.IsControl(e.KeyChar) && !char.IsNumber(e.KeyChar) && !char.IsWhiteSpace(e.KeyChar) && e.KeyChar != (char)Keys.Back)
+            {
+                e.Handled = true; // Evitar la entrada de caracteres no válidos
+            }
+        }
+
+        private async void btnDeleteCategory_Click(object sender, EventArgs e)
+        {
+            var resultCategory = await _categoryService.DeleteCategory(boxDeleteCategory.Text);
+            var result = await _categoryService.GetComboBox();
+            if (string.IsNullOrEmpty(resultCategory))
+            {
+                MessageBox.Show("Producto eliminado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //comboBox de Productos
+                boxCategory.DataSource = new List<Category>(result); // clonar la lista
+                boxCategory.DisplayMember = "name";
+                boxCategory.ValueMember = "idCategory";
+
+                boxDeleteCategory.DataSource = new List<Category>(result); // otra instancia
+                boxDeleteCategory.DisplayMember = "name";
+                boxDeleteCategory.ValueMember = "idCategory";
+
+            }
+            else
+            {
+                MessageBox.Show($"{resultCategory}Error al eliminar la categoria.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
+        }
+
+        private async void btnAddCategory_Click(object sender, EventArgs e)
+        {
+            var resultCategory = await _categoryService.AddCategory(new Category()
+            {
+                name = txtCategoryAdd.Text ?? " "
+            });
+            var result = await _categoryService.GetComboBox();
+            if (string.IsNullOrEmpty(resultCategory))
+            {
+                MessageBox.Show("Categoria agregada con exito.", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                //comboBox de Productos
+                boxCategory.DataSource = new List<Category>(result); // clonar la lista
+                boxCategory.DisplayMember = "name";
+                boxCategory.ValueMember = "idCategory";
+
+                boxDeleteCategory.DataSource = new List<Category>(result); // otra instancia
+                boxDeleteCategory.DisplayMember = "name";
+                boxDeleteCategory.ValueMember = "idCategory";
+
+
+            }
+            else
+            {
+                MessageBox.Show($"{resultCategory}Error al agregar la categoria.", "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+
         }
     }
 }

@@ -12,9 +12,8 @@ namespace DataLayer.Interfaces
         Task<List<Category>> GetCategories();
         Task<string> GetCategory(string name);
         Task<string> GetCategoryComboBox(int id);
-
+        Task DeleteCategory(string name);
+        Task<Category> GetCategoryObjectCompleted(string name);
         Task AddCategory(Category category);
-        //Task UpdateCategory(Category category);
-        //Task DeleteCategory(int id);
     }
 }
