@@ -36,12 +36,13 @@
             label3 = new Label();
             label4 = new Label();
             label5 = new Label();
-            dataGridView1 = new DataGridView();
+            dataGridViewProduct = new DataGridView();
             txtProduct = new TextBox();
             txtPrice = new TextBox();
             txtStock = new TextBox();
             boxCategory = new ComboBox();
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            textBox1 = new TextBox();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewProduct).BeginInit();
             SuspendLayout();
             // 
             // btnModify
@@ -52,6 +53,7 @@
             btnModify.TabIndex = 0;
             btnModify.Text = "Modificar";
             btnModify.UseVisualStyleBackColor = true;
+            btnModify.Click += btnModify_Click_1;
             // 
             // btnDelete
             // 
@@ -61,6 +63,7 @@
             btnDelete.TabIndex = 1;
             btnDelete.Text = "Eliminar";
             btnDelete.UseVisualStyleBackColor = true;
+            btnDelete.Click += btnDelete_Click_1;
             // 
             // btnAdd
             // 
@@ -75,7 +78,7 @@
             // label1
             // 
             label1.AutoSize = true;
-            label1.Location = new Point(51, 217);
+            label1.Location = new Point(90, 222);
             label1.Name = "label1";
             label1.Size = new Size(52, 20);
             label1.TabIndex = 3;
@@ -117,14 +120,15 @@
             label5.TabIndex = 7;
             label5.Text = "Categoria";
             // 
-            // dataGridView1
+            // dataGridViewProduct
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(182, 172);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.RowHeadersWidth = 51;
-            dataGridView1.Size = new Size(592, 188);
-            dataGridView1.TabIndex = 8;
+            dataGridViewProduct.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewProduct.Location = new Point(177, 250);
+            dataGridViewProduct.Name = "dataGridViewProduct";
+            dataGridViewProduct.RowHeadersWidth = 51;
+            dataGridViewProduct.Size = new Size(592, 188);
+            dataGridViewProduct.TabIndex = 8;
+            dataGridViewProduct.CellDoubleClick += dataGridViewProduct_CellDoubleClick;
             // 
             // txtProduct
             // 
@@ -155,16 +159,24 @@
             boxCategory.Size = new Size(125, 28);
             boxCategory.TabIndex = 12;
             // 
+            // textBox1
+            // 
+            textBox1.Location = new Point(177, 215);
+            textBox1.Name = "textBox1";
+            textBox1.Size = new Size(178, 27);
+            textBox1.TabIndex = 13;
+            // 
             // ProductWindows
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(999, 450);
+            Controls.Add(textBox1);
             Controls.Add(boxCategory);
             Controls.Add(txtStock);
             Controls.Add(txtPrice);
             Controls.Add(txtProduct);
-            Controls.Add(dataGridView1);
+            Controls.Add(dataGridViewProduct);
             Controls.Add(label5);
             Controls.Add(label4);
             Controls.Add(label3);
@@ -176,7 +188,7 @@
             Name = "ProductWindows";
             Text = "ProductWindows";
             Load += ProductWindows_Load;
-            ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)dataGridViewProduct).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -191,10 +203,11 @@
         private Label label3;
         private Label label4;
         private Label label5;
-        private DataGridView dataGridView1;
+        private DataGridView dataGridViewProduct;
         private TextBox txtProduct;
         private TextBox txtPrice;
         private TextBox txtStock;
         private ComboBox boxCategory;
+        private TextBox textBox1;
     }
 }

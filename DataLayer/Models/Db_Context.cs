@@ -54,6 +54,11 @@ public partial class Db_Context : DbContext
             .HasMany(c => c.Products)
             .WithOne(p => p.Category)
             .HasForeignKey(p => p.idCategory);
+
+        modelBuilder.Entity<Product>()
+            .HasOne(p => p.Category)
+            .WithMany(c => c.Products)
+            .HasForeignKey(p => p.idCategory);
     }
 
 }

@@ -59,8 +59,24 @@ namespace LogicLayer.ValidatorService
 
             // Si la validación es correcta, devuelve la lista de categorías
             return categories;
-
         }
-
+        public async Task<string> GetCategoryComboBox(int id)
+        {
+            var result = await _categoryRepository.GetCategoryComboBox(id);
+            if (result == null)
+            {
+                return "Categoría no encontrada.";
+            }
+            return result;
+        }
+        public async Task<string> GetCategory(string name)
+        {
+            var result = await _categoryRepository.GetCategory(name);
+            if (result == null)
+            {
+                return "Categoría no encontrada.";
+            }
+            return result;
+        }
     }
 }
