@@ -41,7 +41,7 @@
             txtPrice = new TextBox();
             txtStock = new TextBox();
             boxCategory = new ComboBox();
-            textBox1 = new TextBox();
+            btnSearch = new TextBox();
             ((System.ComponentModel.ISupportInitialize)dataGridViewProduct).BeginInit();
             SuspendLayout();
             // 
@@ -159,19 +159,20 @@
             boxCategory.Size = new Size(125, 28);
             boxCategory.TabIndex = 12;
             // 
-            // textBox1
+            // btnSearch
             // 
-            textBox1.Location = new Point(177, 215);
-            textBox1.Name = "textBox1";
-            textBox1.Size = new Size(178, 27);
-            textBox1.TabIndex = 13;
+            btnSearch.Location = new Point(177, 215);
+            btnSearch.Name = "btnSearch";
+            btnSearch.Size = new Size(178, 27);
+            btnSearch.TabIndex = 13;
+            btnSearch.TextChanged += btnSearch_TextChanged;
             // 
             // ProductWindows
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(999, 450);
-            Controls.Add(textBox1);
+            Controls.Add(btnSearch);
             Controls.Add(boxCategory);
             Controls.Add(txtStock);
             Controls.Add(txtPrice);
@@ -208,6 +209,6 @@
         private TextBox txtPrice;
         private TextBox txtStock;
         private ComboBox boxCategory;
-        private TextBox textBox1;
+        private TextBox btnSearch;
     }
 }

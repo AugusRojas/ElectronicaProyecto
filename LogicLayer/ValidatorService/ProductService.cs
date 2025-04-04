@@ -84,5 +84,9 @@ namespace LogicLayer.ValidatorService
         {
             return await _productRepository.GetDataGridView();
         }
+        public async Task<List<object>> GetAllProductsFilters(string name)
+        {
+            return await _productRepository.GetAllProductsFilters(name);
+        }
     }
 }

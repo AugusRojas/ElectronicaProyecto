@@ -26,7 +26,8 @@ namespace PresentationLayer
         private async void ProductWindows_Load(object sender, EventArgs e)
         {
             dataGridViewProduct.DataSource = await _productService.GetDataGridView();
-            dataGridViewProduct.Columns[0].HeaderText = "com";  // Nombre de la primera columna
+            dataGridViewProduct.Columns[0].HeaderText = "ID";  // Nombre de la primera columna
+            dataGridViewProduct.Columns[0].Visible = false; // Ocultar la columna ID
             dataGridViewProduct.Columns[1].HeaderText = "Nombre";       // Nombre de la segunda columna
             dataGridViewProduct.Columns[2].HeaderText = "Precio";       // Nombre de la tercera columna
             dataGridViewProduct.Columns[3].HeaderText = "Stock";
@@ -49,6 +50,12 @@ namespace PresentationLayer
             if (string.IsNullOrEmpty(result))
             {
                 MessageBox.Show("Producto modificado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dataGridViewProduct.DataSource = await _productService.GetDataGridView();
+                dataGridViewProduct.Columns[0].HeaderText = "com";  // Nombre de la primera columna
+                dataGridViewProduct.Columns[1].HeaderText = "Nombre";       // Nombre de la segunda columna
+                dataGridViewProduct.Columns[2].HeaderText = "Precio";       // Nombre de la tercera columna
+                dataGridViewProduct.Columns[3].HeaderText = "Stock";
+                dataGridViewProduct.Columns[4].HeaderText = "Categoría";
             }
             else
             {
@@ -69,6 +76,12 @@ namespace PresentationLayer
             if (string.IsNullOrEmpty(result)) // Si la validación fue exitosa
             {
                 MessageBox.Show("Producto eliminado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dataGridViewProduct.DataSource = await _productService.GetDataGridView();
+                dataGridViewProduct.Columns[0].HeaderText = "com";  // Nombre de la primera columna
+                dataGridViewProduct.Columns[1].HeaderText = "Nombre";       // Nombre de la segunda columna
+                dataGridViewProduct.Columns[2].HeaderText = "Precio";       // Nombre de la tercera columna
+                dataGridViewProduct.Columns[3].HeaderText = "Stock";
+                dataGridViewProduct.Columns[4].HeaderText = "Categoría";
             }
             else // Si hay errores de validación
             {
@@ -90,6 +103,12 @@ namespace PresentationLayer
             if (string.IsNullOrEmpty(result)) // Si la validación fue exitosa
             {
                 MessageBox.Show("Producto agregado con éxito.", "Éxito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                dataGridViewProduct.DataSource = await _productService.GetDataGridView();
+                dataGridViewProduct.Columns[0].HeaderText = "com";  // Nombre de la primera columna
+                dataGridViewProduct.Columns[1].HeaderText = "Nombre";       // Nombre de la segunda columna
+                dataGridViewProduct.Columns[2].HeaderText = "Precio";       // Nombre de la tercera columna
+                dataGridViewProduct.Columns[3].HeaderText = "Stock";
+                dataGridViewProduct.Columns[4].HeaderText = "Categoría";
             }
             else // Si hay errores de validación
             {
@@ -97,7 +116,7 @@ namespace PresentationLayer
             }
         }
 
-        private async void dataGridViewProduct_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
+        private void dataGridViewProduct_CellDoubleClick(object sender, DataGridViewCellEventArgs e)
         {
             if (dataGridViewProduct.SelectedRows.Count > 0)
             {
@@ -105,9 +124,28 @@ namespace PresentationLayer
                 txtProduct.Text = selectedRow.Cells[1].Value.ToString();
                 txtPrice.Text = selectedRow.Cells[2].Value.ToString();
                 txtStock.Text = selectedRow.Cells[3].Value.ToString();
-                var nameCategory = Convert.ToString(selectedRow.Cells[4].Value);
-                var result = _categoryService.GetCategory(nameCategory);
-                boxCategory.SelectedValue = result;
+                var nameCategory = selectedRow.Cells[4].Value;
+                boxCategory.Text = nameCategory.ToString();
+            }
+        }
+
+        private async void btnSearch_TextChanged(object sender, EventArgs e)
+        {
+            var resuslt = await _productService.GetAllProductsFilters(btnSearch.Text);
+            dataGridViewProduct.DataSource = resuslt;
+            int columnCount = dataGridViewProduct.Columns.Count;
+
+            // Modificar las cabeceras si las columnas existen
+            if (columnCount > 0) dataGridViewProduct.Columns[0].HeaderText = "ID";  // Primera columna
+            if (columnCount > 1) dataGridViewProduct.Columns[1].HeaderText = "Nombre"; // Segunda columna
+            if (columnCount > 2) dataGridViewProduct.Columns[2].HeaderText = "Precio"; // Tercera columna
+            if (columnCount > 3) dataGridViewProduct.Columns[3].HeaderText = "Stock";  // Cuarta columna
+            if (columnCount > 4) dataGridViewProduct.Columns[4].HeaderText = "Categoría";  // Quinta columna
+
+            // Ocultar la columna 'ID' si existe
+            if (dataGridViewProduct.Columns.Contains("ID"))
+            {
+                dataGridViewProduct.Columns["ID"].Visible = false;
             }
         }
     }

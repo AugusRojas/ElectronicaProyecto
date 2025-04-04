@@ -15,5 +15,6 @@ namespace DataLayer.Interfaces
         Task UpdateProduct(Product product);
         Task DeleteProduct(Product product);
         Task<List<object>> GetDataGridView();
+        Task<List<object>> GetAllProductsFilters(string name);
     }
 }

@@ -39,7 +39,6 @@ namespace DataLayer.Repositories
         public async Task<List<Product>> GetProducts()
         {
             return await _context.Products.ToListAsync();
-            
         }
         public async Task UpdateProduct(Product product)
         {
@@ -60,7 +59,24 @@ namespace DataLayer.Repositories
             {
                 throw new Exception("Producto no encontrado.");
             }
-
+        }
+        public async Task<List<object>> GetAllProductsFilters(string name)
+        {
+            var objectList = await _context.Products
+                .Include(p => p.Category)  // Asegúrate de incluir la categoría
+                .Where(p => p.name.ToLower().Contains(name.ToLower())) // Filtrar por nombre
+                .Select(p => new
+                {
+                    p.idProduct,                          // ID del producto
+                    p.name,                               // Nombre del producto
+                    p.price,                              // Precio del producto
+                    p.stock,                              // Stock del producto
+                    CategoryName = p.Category.name        // Nombre de la categoría
+                })
+                .ToListAsync();
+            // Convertir la lista de tipos anónimos a una lista de objetos
+            List<object> result = objectList.Cast<object>().ToList();
+            return result;
         }
 
         public async Task<List<object>> GetDataGridView()
@@ -76,12 +92,9 @@ namespace DataLayer.Repositories
                     CategoryName = p.Category.name        // Nombre de la categoría
                 })
                 .ToListAsync();
-
             // Convertir la lista de tipos anónimos a una lista de objetos
             List<object> result = objectList.Cast<object>().ToList();
-
             return result;
         }
-
     }
 }
