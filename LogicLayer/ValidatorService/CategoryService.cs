@@ -1,12 +1,14 @@
 ﻿using DataLayer.Interfaces;
 using DataLayer.Models;
 using DocumentFormat.OpenXml.Office.CustomUI;
+using DocumentFormat.OpenXml.Vml;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+
 
 
 namespace LogicLayer.ValidatorService
@@ -55,6 +57,7 @@ namespace LogicLayer.ValidatorService
             {
                 string errores = string.Join("\n", result.Errors.Select(e => e.ErrorMessage));
                 throw new Exception($"Errores de validación:\n{errores}");
+                
             }
 
             // Si la validación es correcta, devuelve la lista de categorías

@@ -7,6 +7,7 @@ using DataLayer.Interfaces;
 using DataLayer.Repositories;
 using LogicLayer.ValidationRepositories;
 using LogicLayer.ValidatorService;
+using FluentValidation;
 
 namespace PresentationLayer
 {
@@ -22,7 +23,7 @@ namespace PresentationLayer
             // Configuración de la base de datos
             var services = new ServiceCollection();
             services.AddDbContext<Db_Context>(options =>
-                options.UseSqlite("Data Source=\"C:\\Users\\augus\\OneDrive\\Escritorio\\TecnicoOrganizado\\ElectronicaProyecto\\DataLayer\\TiendaElectronicaSqlite.db\""));
+                options.UseSqlite(@"Data Source=C:\Users\Licha\source\repos\AugusRojas\ElectronicaProyecto\DataLayer\TiendaElectronicaSqlite.db"));
 
             //Repositorios
             services.AddScoped<IProduct, ProductRepository>();
@@ -34,9 +35,18 @@ namespace PresentationLayer
             services.AddScoped<CategoriesRepositoryValidation>();
             services.AddScoped<CategoryService>();
             services.AddScoped<ProductService>();
+          
+
+            // Validadores
+            services.AddScoped<IValidator<Category>, CategoryRepositoryValidation>();
+            services.AddScoped<IValidator<List<Category>>, CategoriesRepositoryValidation>();
+            services.AddScoped<IValidator<Product>, ProductRepositoryValidation>();
+
 
             //Formularios
             services.AddScoped<Form1>();
+            services.AddScoped<Sales>();
+            services.AddScoped<ProductWindows>();
 
             var serviceProvider = services.BuildServiceProvider();
 
@@ -46,7 +56,7 @@ namespace PresentationLayer
             
 
             // Lanzar la aplicación
-            Application.Run(serviceProvider.GetRequiredService<Form1>());
+            Application.Run(serviceProvider.GetRequiredService<Sales>());
         }
     }
 }

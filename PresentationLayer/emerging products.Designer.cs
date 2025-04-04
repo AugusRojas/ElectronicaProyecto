@@ -29,9 +29,10 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
+            dataGridView1 = new DataGridView();
             label1 = new Label();
             textBox1 = new TextBox();
-            dataGridView1 = new DataGridView();
+            comboBoxFilter = new ComboBox();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             SuspendLayout();
@@ -45,6 +46,14 @@
             panel1.Size = new Size(816, 344);
             panel1.TabIndex = 0;
             // 
+            // dataGridView1
+            // 
+            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridView1.Location = new Point(35, 22);
+            dataGridView1.Name = "dataGridView1";
+            dataGridView1.Size = new Size(732, 295);
+            dataGridView1.TabIndex = 1;
+            // 
             // label1
             // 
             label1.AutoSize = true;
@@ -57,24 +66,27 @@
             // 
             // textBox1
             // 
-            textBox1.Location = new Point(179, 28);
+            textBox1.Location = new Point(245, 31);
             textBox1.Name = "textBox1";
             textBox1.Size = new Size(100, 23);
             textBox1.TabIndex = 1;
+            textBox1.TextChanged += textBox1_TextChanged;
             // 
-            // dataGridView1
+            // comboBoxFilter
             // 
-            dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Location = new Point(35, 22);
-            dataGridView1.Name = "dataGridView1";
-            dataGridView1.Size = new Size(732, 295);
-            dataGridView1.TabIndex = 1;
+            comboBoxFilter.FormattingEnabled = true;
+            comboBoxFilter.Items.AddRange(new object[] { "Nombre", "Categoria" });
+            comboBoxFilter.Location = new Point(108, 31);
+            comboBoxFilter.Name = "comboBoxFilter";
+            comboBoxFilter.Size = new Size(121, 23);
+            comboBoxFilter.TabIndex = 2;
             // 
             // emerging_products
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(800, 419);
+            Controls.Add(comboBoxFilter);
             Controls.Add(textBox1);
             Controls.Add(label1);
             Controls.Add(panel1);
@@ -92,5 +104,6 @@
         private Label label1;
         private TextBox textBox1;
         private DataGridView dataGridView1;
+        private ComboBox comboBoxFilter;
     }
 }

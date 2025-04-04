@@ -57,5 +57,10 @@ namespace LogicLayer.ValidatorService
             await _productRepository.UpdateProduct(product);
         }
 
+        public async Task<List<Product>> GetProductsFilterAsync(string filter, string value)
+        {
+            return await _productRepository.GetProductsFilter(filter, value);
+        }
+
     }
 }
