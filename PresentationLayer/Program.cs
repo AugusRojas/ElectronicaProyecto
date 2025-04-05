@@ -23,30 +23,30 @@ namespace PresentationLayer
             // Configuración de la base de datos
             var services = new ServiceCollection();
             services.AddDbContext<Db_Context>(options =>
-                options.UseSqlite(@"Data Source=C:\Users\Licha\source\repos\AugusRojas\ElectronicaProyecto\DataLayer\TiendaElectronicaSqlite.db"));
+                options.UseSqlite("Data Source=\"C:\\Users\\augus\\OneDrive\\Escritorio\\TecnicoOrganizado\\ElectronicaProyecto\\DataLayer\\TiendaElectronicaSqlite.db\""));
 
             //Repositorios
             services.AddScoped<IProduct, ProductRepository>();
             services.AddScoped<ICategory, CategoryRepository>();
+            services.AddScoped<IPaymentMethods, PaymentMethodRepository>();
+            services.AddScoped<ISale, SaleRepository>();
 
             //Servicios de validacion
-            services.AddScoped<ProductRepositoryValidation>();
-            services.AddScoped<CategoryRepositoryValidation>();
-            services.AddScoped<CategoriesRepositoryValidation>();
+            services.AddScoped<IValidator<Category>, CategoryRepositoryValidation>();  // Registra el validador de Category
+            services.AddScoped<IValidator<List<Category>>, CategoriesRepositoryValidation>();
+            services.AddScoped<IValidator<Product>, ProductRepositoryValidation>();  // Registra el validador de Product
+            services.AddScoped<IValidator<Sale>, SaleRepositoryValidation> ();  // Registra el validador de Sale
+
+            //Servicios
             services.AddScoped<CategoryService>();
             services.AddScoped<ProductService>();
-          
-
-            // Validadores
-            services.AddScoped<IValidator<Category>, CategoryRepositoryValidation>();
-            services.AddScoped<IValidator<List<Category>>, CategoriesRepositoryValidation>();
-            services.AddScoped<IValidator<Product>, ProductRepositoryValidation>();
-
+            services.AddScoped<PaymentMethodService>();
+            services.AddScoped<SaleService>();
 
             //Formularios
             services.AddScoped<Form1>();
-            services.AddScoped<Sales>();
             services.AddScoped<ProductWindows>();
+            services.AddScoped<Sales>();
 
             var serviceProvider = services.BuildServiceProvider();
 
@@ -56,7 +56,7 @@ namespace PresentationLayer
             
 
             // Lanzar la aplicación
-            Application.Run(serviceProvider.GetRequiredService<Sales>());
+            Application.Run(serviceProvider.GetRequiredService<ProductWindows>());
         }
     }
 }

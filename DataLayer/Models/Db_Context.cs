@@ -6,8 +6,8 @@ namespace DataLayer.Models;
 
 public partial class Db_Context : DbContext
 {
-    public DbSet<Product> Product { get; set; }
-    public DbSet<Sale> Sale { get; set; }
+    public DbSet<Product> Products { get; set; }
+    public DbSet<Sale> Sales { get; set; }
     public DbSet<PaymentMethod> PaymentMethods { get; set; }
     public DbSet<ProductsXSales> ProductsXSales { get; set; }
 
@@ -53,6 +53,11 @@ public partial class Db_Context : DbContext
         modelBuilder.Entity<Category>()
             .HasMany(c => c.Products)
             .WithOne(p => p.Category)
+            .HasForeignKey(p => p.idCategory);
+
+        modelBuilder.Entity<Product>()
+            .HasOne(p => p.Category)
+            .WithMany(c => c.Products)
             .HasForeignKey(p => p.idCategory);
     }
 
