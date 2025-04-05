@@ -1,4 +1,5 @@
 ﻿using DataLayer.Interfaces;
+using DataLayer.Models;
 using DataLayer.Repositories;
 using LogicLayer.ValidatorService;
 using System;
@@ -33,11 +34,11 @@ namespace PresentationLayer
             switch (decision)
             {
                 case "Nombre":
-                    filter = "name";
+                    filter = "Product.name";
                     break;
 
                 case "Categoria":
-                    filter = "category";
+                    filter = "Category.name";
                     break;
             }
 
@@ -45,11 +46,6 @@ namespace PresentationLayer
             {
                 
                 dataGridView1.DataSource = await ProductService.GetProductsFilterAsync(filter, value);
-
-                dataGridView1.AutoGenerateColumns = true;
-                //dataGridView1.Columns["Category"].DataPropertyName = "Category.name";
-                //dataGridView1.Columns["Category"].HeaderText = "Categoría";
-
 
             }
         }

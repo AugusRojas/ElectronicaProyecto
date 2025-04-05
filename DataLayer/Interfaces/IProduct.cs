@@ -11,7 +11,7 @@ namespace DataLayer.Interfaces
     {
         Task<IEnumerable<Product>> GetProducts();
         Task<Product> GetProduct(string name);
-        Task<List<Product>> GetProductsFilter(string filter, string value);
+        Task<List<object>> GetProductsFilter(string filter, string value);
         Task AddProduct(Product product);
         Task UpdateProduct(Product product);
         Task DeleteProduct(string name);
