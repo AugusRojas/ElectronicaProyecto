@@ -11,10 +11,8 @@ namespace DataLayer.Interfaces
     {
         Task<List<Product>> GetProducts();
         Task<Product> GetProduct(string name);
-<<<<<<< HEAD
-        Task<List<object>> GetProductsFilter(string filter, string value);
-=======
->>>>>>> f8647f7fce283195b8606c0230feec1a8ab6b961
+        Task<List<string>> Autocomplete(string name);
+        Task<Product> GetProductByNameAsync(string name);
         Task AddProduct(Product product);
         Task UpdateProduct(Product product);
         Task DeleteProduct(Product product);

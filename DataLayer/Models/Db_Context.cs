@@ -6,8 +6,8 @@ namespace DataLayer.Models;
 
 public partial class Db_Context : DbContext
 {
-    public DbSet<Product> Products { get; set; }
-    public DbSet<Sale> Sales { get; set; }
+    public DbSet<Product> Product { get; set; }
+    public DbSet<Sale> Sale { get; set; }
     public DbSet<PaymentMethod> PaymentMethods { get; set; }
     public DbSet<ProductsXSales> ProductsXSales { get; set; }
 

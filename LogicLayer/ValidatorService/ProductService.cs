@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
 namespace LogicLayer.ValidatorService
@@ -80,18 +81,29 @@ namespace LogicLayer.ValidatorService
                 }
             } 
         }
-<<<<<<< HEAD
 
-        public async Task<List<object>> GetProductsFilterAsync(string filter, string value)
-=======
         public async Task<List<object>> GetDataGridView()
->>>>>>> f8647f7fce283195b8606c0230feec1a8ab6b961
         {
             return await _productRepository.GetDataGridView();
         }
         public async Task<List<object>> GetAllProductsFilters(string name)
         {
             return await _productRepository.GetAllProductsFilters(name);
+        }
+
+        public async Task<List<string>> AutocompleteAsync(string name)
+        {
+            return await _productRepository.Autocomplete(name);
+        }
+
+        public async Task<Product> GetProductByNameAsync(string name)
+        {
+            if (string.IsNullOrWhiteSpace(name) || name.Length < 3 || name.Length > 50 || !Regex.IsMatch(name, @"^[a-zA-Z0-9áéíóúÁÉÍÓÚñÑ\s\-]+$"))
+            {
+                return null; 
+            }
+
+            return await _productRepository.GetProductByNameAsync(name);
         }
     }
 }

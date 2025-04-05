@@ -26,52 +26,26 @@ namespace DataLayer.Repositories
 
         public async Task DeleteProduct(Product product)
         {
-<<<<<<< HEAD
-            var result = await GetProduct(name);
-            _context.Product.Remove(result);
-=======
             var result = await GetProduct(product.name);
-            _context.Products.Remove(result);
->>>>>>> f8647f7fce283195b8606c0230feec1a8ab6b961
+            _context.Product.Remove(result);
             await _context.SaveChangesAsync();
         }
 
         public async Task<Product> GetProduct(string name)
         {
-<<<<<<< HEAD
-            var result = _context.Product.FirstAsync(p=>p.name == id);
-=======
-            var result = await _context.Products.FirstOrDefaultAsync(p=>p.name == name);
->>>>>>> f8647f7fce283195b8606c0230feec1a8ab6b961
+            var result = await _context.Product.FirstOrDefaultAsync(p=>p.name == name);
             return result;
         }
         public async Task<List<Product>> GetProducts()
         {
-<<<<<<< HEAD
             return await _context.Product.ToListAsync();
-            
-=======
-            return await _context.Products.ToListAsync();
->>>>>>> f8647f7fce283195b8606c0230feec1a8ab6b961
         }
 
-        public async Task<List<Object>> GetProductsFilter(string filter, string value)
-        {
-            string query = $@"SELECT Product.idProduct, Product.name AS ProductName, Product.price, Product.stock, Category.name AS CategoryName, Category.idCategory 
-                              FROM Product 
-                              JOIN Category ON Product.idCategory = Category.idCategory 
-                              WHERE {filter} LIKE '%{value}%'";
-            return await _context.Product.FromSqlRaw(query).ToListAsync<object>();
-        }
+       
 
         public async Task UpdateProduct(Product product)
         {
-<<<<<<< HEAD
-            var result = _context.Product.FirstOrDefaultAsync(p => p.name == product.name);
-            _context.Entry(result).State = EntityState.Modified;
-            await _context.SaveChangesAsync();
-=======
-            var result = await _context.Products.FirstOrDefaultAsync(p => p.name == product.name);
+            var result = await _context.Product.FirstOrDefaultAsync(p => p.name == product.name);
 
             if (result != null)
             {
@@ -91,7 +65,7 @@ namespace DataLayer.Repositories
         }
         public async Task<List<object>> GetAllProductsFilters(string name)
         {
-            var objectList = await _context.Products
+            var objectList = await _context.Product
                 .Include(p => p.Category)  // Asegúrate de incluir la categoría
                 .Where(p => p.name.ToLower().Contains(name.ToLower())) // Filtrar por nombre
                 .Select(p => new
@@ -110,7 +84,7 @@ namespace DataLayer.Repositories
 
         public async Task<List<object>> GetDataGridView()
         {
-            var objectList = await _context.Products
+            var objectList = await _context.Product
                 .Include(p => p.Category)  // Asegúrate de incluir la categoría
                 .Select(p => new
                 {
@@ -124,7 +98,22 @@ namespace DataLayer.Repositories
             // Convertir la lista de tipos anónimos a una lista de objetos
             List<object> result = objectList.Cast<object>().ToList();
             return result;
->>>>>>> f8647f7fce283195b8606c0230feec1a8ab6b961
         }
+
+        public async Task<List<string>> Autocomplete(string name)
+        {
+            return await _context.Product
+                .Where(p => EF.Functions.Like(p.name, $"%{name}%"))
+                .Select(p => p.name)
+                .ToListAsync();
+        }
+
+        public async Task<Product> GetProductByNameAsync(string name)
+        {
+            return await _context.Product
+                 .FirstOrDefaultAsync(p => p.name.ToLower() == name.ToLower());
+        }
+
     }
+
 }
