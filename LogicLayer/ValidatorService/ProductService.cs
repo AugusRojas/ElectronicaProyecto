@@ -20,47 +20,78 @@ namespace LogicLayer.ValidatorService
             _productValidation = productValidation;
         }
 
-        public async Task AddProduct(Product product)
+        public async Task<string> AddProduct(Product product)
         {
             var result = _productValidation.Validate(product);
 
             if(!result.IsValid) // Si la validación falla, no seguimos
             {
                 string errores = string.Join("\n", result.Errors.Select(e => e.ErrorMessage));
-                throw new Exception($"Errores de validación:\n{errores}");
+                return errores;
             }
             await _productRepository.AddProduct(product);
+            return "";
         }
 
-        public async Task DeleteProduct(string name)
+
+
+        public async Task<string> DeleteProduct(Product product)
         {
-            var productDelete = await _productRepository.GetProduct(name);
-            var result = _productValidation.Validate(productDelete);
-            if (!result.IsValid) // Si la validación falla, no seguimos
+            var productDelete = await _productRepository.GetProduct(product.name);
+            if(productDelete == null)
             {
-                string errores = string.Join("\n", result.Errors.Select(e => e.ErrorMessage));
-                throw new Exception($"Errores de validación:\n{errores}");
+                return "El producto no existe";
             }
-            await _productRepository.DeleteProduct(name);
-
+            else
+            {   
+                var result = _productValidation.Validate(productDelete);
+                if (!result.IsValid) // Si la validación falla, no seguimos
+                {
+                    string errores = string.Join("\n", result.Errors.Select(e => e.ErrorMessage));
+                    return errores;
+                }
+                else
+                {
+                    await _productRepository.DeleteProduct(productDelete);
+                    return "";
+                }
+            }
         }
 
-        public async Task ModifyProduct(Product product)
+        public async Task<string> ModifyProduct(Product product)
         {
             var producModify = await _productRepository.GetProduct(product.name);
-            var result = _productValidation.Validate(producModify);
-            if (result.IsValid) // Si la validación falla, no seguimos
+            if (producModify == null)
             {
-                string errores = string.Join("\n", result.Errors.Select(e => e.ErrorMessage));
-                throw new Exception($"Errores de validación:\n{errores}");
+                return "El Producto no existe";
             }
-            await _productRepository.UpdateProduct(product);
+            else
+            {
+                var result = _productValidation.Validate(producModify);
+                if (!result.IsValid) // Si la validación falla, no seguimos
+                {
+                    string errores = string.Join("\n", result.Errors.Select(e => e.ErrorMessage));
+                    return errores;
+                }
+                else
+                {
+                    await _productRepository.UpdateProduct(product);
+                    return "";
+                }
+            } 
         }
+<<<<<<< HEAD
 
         public async Task<List<object>> GetProductsFilterAsync(string filter, string value)
+=======
+        public async Task<List<object>> GetDataGridView()
+>>>>>>> f8647f7fce283195b8606c0230feec1a8ab6b961
         {
-            return await _productRepository.GetProductsFilter(filter, value);
+            return await _productRepository.GetDataGridView();
         }
-
+        public async Task<List<object>> GetAllProductsFilters(string name)
+        {
+            return await _productRepository.GetAllProductsFilters(name);
+        }
     }
 }

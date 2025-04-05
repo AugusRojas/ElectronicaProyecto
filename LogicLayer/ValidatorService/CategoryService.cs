@@ -1,14 +1,12 @@
 ﻿using DataLayer.Interfaces;
 using DataLayer.Models;
 using DocumentFormat.OpenXml.Office.CustomUI;
-using DocumentFormat.OpenXml.Vml;
 using FluentValidation;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
 
 
 namespace LogicLayer.ValidatorService
@@ -26,17 +24,18 @@ namespace LogicLayer.ValidatorService
             _categoryValidationList = categoryValidationList;
         }
 
-        public async Task AddCategory(Category category)
+        public async Task<string> AddCategory(Category category)
         {
             var result = _categoryValidation.Validate(category);
 
             if (!result.IsValid) // Si la validación falla, no seguimos
             {
                 string errores = string.Join("\n", result.Errors.Select(e => e.ErrorMessage));
-                throw new Exception($"Errores de validación:\n{errores}");
+                return errores;
             }
 
             await _categoryRepository.AddCategory(category);
+            return " ";
         }
 
         public async Task<List<Category>> GetCategories()
@@ -57,13 +56,51 @@ namespace LogicLayer.ValidatorService
             {
                 string errores = string.Join("\n", result.Errors.Select(e => e.ErrorMessage));
                 throw new Exception($"Errores de validación:\n{errores}");
-                
             }
 
             // Si la validación es correcta, devuelve la lista de categorías
             return categories;
+        }
+        public async Task<string> GetCategoryComboBox(int id)
+        {
+            var result = await _categoryRepository.GetCategoryComboBox(id);
+            if (result == null)
+            {
+                return "Categoría no encontrada.";
+            }
+            return result;
+        }
+        public async Task<string> GetCategory(string name)
+        {
+            var result = await _categoryRepository.GetCategory(name);
+            if (result == null)
+            {
+                return "Categoría no encontrada.";
+            }
+            return result;
+        }
+        public async Task<Category> GetCategoryCompleted(string name)
+        {
+            var result = await _categoryRepository.GetCategoryObjectCompleted(name);
+            if (result == null)
+            {
+                return null;
+            }
+            return result;
+        }
+        public async Task<string> DeleteCategory(string name)
+        {
+            var result = await _categoryRepository.GetCategoryObjectCompleted(name);
+            if (result == null)
+            {
+                return "Categoría no encontrada.";
+            }
+            else
+            {
+                return " ";
+            }
 
         }
-
     }
 }
+
