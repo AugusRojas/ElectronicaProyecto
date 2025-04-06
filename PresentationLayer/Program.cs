@@ -36,6 +36,7 @@ namespace PresentationLayer
             services.AddScoped<IValidator<List<Category>>, CategoriesRepositoryValidation>();
             services.AddScoped<IValidator<Product>, ProductRepositoryValidation>();  // Registra el validador de Product
             //services.AddScoped<IValidator<Sale>, SaleRepositoryValidation> ();  // Registra el validador de Sale
+            services.AddScoped<IValidator<PaymentMethod>, PaymentMethodRepositoryValidation>();
 
             //Servicios
             services.AddScoped<CategoryService>();

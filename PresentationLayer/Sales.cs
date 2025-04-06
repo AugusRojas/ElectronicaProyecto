@@ -13,17 +13,19 @@ namespace PresentationLayer
 {
     public partial class Sales : Form
     {
+        private readonly PaymentMethodService PaymentMethodService;
         private readonly ProductService ProductServices;
         SaleService services = new SaleService();
-        public Sales(ProductService ProductServices)
+        public Sales(ProductService ProductServices, PaymentMethodService PaymentMethodService)
         {
             InitializeComponent();
             this.ProductServices = ProductServices;
+            this.PaymentMethodService = PaymentMethodService;
         }
 
         System.Windows.Forms.Timer debounceTimer;
 
-        private void Sales_Load(object sender, EventArgs e)
+        private async void  Sales_Load(object sender, EventArgs e)
         {
             label_date.Text = DateTime.Now.ToString("d");
 
@@ -38,6 +40,9 @@ namespace PresentationLayer
                 debounceTimer.Stop();
                 await LoadAutocomplete();
             };
+
+            var PaymentMethods = await PaymentMethodService.GetPayMethodsAsync();
+            comboBoxMethod.DataSource = PaymentMethods;
         }
 
         private string lastQuery = "";
@@ -138,5 +143,9 @@ namespace PresentationLayer
             }
         }
 
+        private void buttonPagar_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

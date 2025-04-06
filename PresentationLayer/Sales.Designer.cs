@@ -60,6 +60,8 @@
             txt_price = new TextBox();
             Codigo_txt = new TextBox();
             timer1 = new System.Windows.Forms.Timer(components);
+            comboBoxMethod = new ComboBox();
+            label2 = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel2.SuspendLayout();
@@ -79,11 +81,13 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.GradientActiveCaption;
+            panel1.Controls.Add(comboBoxMethod);
             panel1.Controls.Add(label_Total);
             panel1.Controls.Add(label8);
             panel1.Controls.Add(buttonPagar);
             panel1.Controls.Add(dataGridView1);
             panel1.Controls.Add(label_hour);
+            panel1.Controls.Add(label2);
             panel1.Controls.Add(label_date);
             panel1.Controls.Add(panel2);
             panel1.Location = new Point(-6, 90);
@@ -95,7 +99,7 @@
             // 
             label_Total.AutoSize = true;
             label_Total.Font = new Font("Verdana", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label_Total.Location = new Point(374, 447);
+            label_Total.Location = new Point(357, 445);
             label_Total.Name = "label_Total";
             label_Total.Size = new Size(20, 25);
             label_Total.TabIndex = 4;
@@ -105,7 +109,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Verdana", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(180, 447);
+            label8.Location = new Point(163, 445);
             label8.Name = "label8";
             label8.Size = new Size(188, 25);
             label8.TabIndex = 4;
@@ -113,12 +117,13 @@
             // 
             // buttonPagar
             // 
-            buttonPagar.Location = new Point(19, 430);
+            buttonPagar.Location = new Point(17, 438);
             buttonPagar.Name = "buttonPagar";
             buttonPagar.Size = new Size(130, 42);
             buttonPagar.TabIndex = 3;
             buttonPagar.Text = "Vender";
             buttonPagar.UseVisualStyleBackColor = true;
+            buttonPagar.Click += buttonPagar_Click;
             // 
             // dataGridView1
             // 
@@ -349,6 +354,24 @@
             timer1.Interval = 1000;
             timer1.Tick += timer1_Tick;
             // 
+            // comboBoxMethod
+            // 
+            comboBoxMethod.FormattingEnabled = true;
+            comboBoxMethod.Location = new Point(667, 445);
+            comboBoxMethod.Name = "comboBoxMethod";
+            comboBoxMethod.Size = new Size(121, 23);
+            comboBoxMethod.TabIndex = 5;
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(538, 445);
+            label2.Name = "label2";
+            label2.Size = new Size(124, 20);
+            label2.TabIndex = 1;
+            label2.Text = "Metodo de Pago";
+            // 
             // Sales
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -403,5 +426,7 @@
         private DataGridViewButtonColumn X;
         private Label label_Total;
         private System.Windows.Forms.Timer timer1;
+        private ComboBox comboBoxMethod;
+        private Label label2;
     }
 }
