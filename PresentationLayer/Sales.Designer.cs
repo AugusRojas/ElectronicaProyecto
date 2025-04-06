@@ -28,19 +28,28 @@
         /// </summary>
         private void InitializeComponent()
         {
+            components = new System.ComponentModel.Container();
             label1 = new Label();
             panel1 = new Panel();
+            label_Total = new Label();
             label8 = new Label();
             buttonPagar = new Button();
             dataGridView1 = new DataGridView();
-            label3 = new Label();
-            label2 = new Label();
+            Id = new DataGridViewTextBoxColumn();
+            Producto = new DataGridViewTextBoxColumn();
+            Precio = new DataGridViewTextBoxColumn();
+            Cantidad_a_verder = new DataGridViewTextBoxColumn();
+            Descuento = new DataGridViewTextBoxColumn();
+            Subtotal = new DataGridViewTextBoxColumn();
+            X = new DataGridViewButtonColumn();
+            label_hour = new Label();
+            label_date = new Label();
             panel2 = new Panel();
             label_stock = new Label();
             txtDiscount = new TextBox();
             button1 = new Button();
             buttonAgregar = new Button();
-            numericUpDown1 = new NumericUpDown();
+            numericUpDownquantity = new NumericUpDown();
             label7 = new Label();
             label9 = new Label();
             label6 = new Label();
@@ -50,17 +59,11 @@
             txt_nameProduct = new TextBox();
             txt_price = new TextBox();
             Codigo_txt = new TextBox();
-            Id = new DataGridViewTextBoxColumn();
-            Producto = new DataGridViewTextBoxColumn();
-            Precio = new DataGridViewTextBoxColumn();
-            Cantidad_a_verder = new DataGridViewTextBoxColumn();
-            Subtotal = new DataGridViewTextBoxColumn();
-            Descuento = new DataGridViewTextBoxColumn();
-            X = new DataGridViewButtonColumn();
+            timer1 = new System.Windows.Forms.Timer(components);
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel2.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownquantity).BeginInit();
             SuspendLayout();
             // 
             // label1
@@ -76,22 +79,33 @@
             // panel1
             // 
             panel1.BackColor = SystemColors.GradientActiveCaption;
+            panel1.Controls.Add(label_Total);
             panel1.Controls.Add(label8);
             panel1.Controls.Add(buttonPagar);
             panel1.Controls.Add(dataGridView1);
-            panel1.Controls.Add(label3);
-            panel1.Controls.Add(label2);
+            panel1.Controls.Add(label_hour);
+            panel1.Controls.Add(label_date);
             panel1.Controls.Add(panel2);
             panel1.Location = new Point(-6, 90);
             panel1.Name = "panel1";
             panel1.Size = new Size(808, 517);
             panel1.TabIndex = 1;
             // 
+            // label_Total
+            // 
+            label_Total.AutoSize = true;
+            label_Total.Font = new Font("Verdana", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label_Total.Location = new Point(374, 447);
+            label_Total.Name = "label_Total";
+            label_Total.Size = new Size(20, 25);
+            label_Total.TabIndex = 4;
+            label_Total.Text = ".";
+            // 
             // label8
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Verdana", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(187, 435);
+            label8.Location = new Point(180, 447);
             label8.Name = "label8";
             label8.Size = new Size(188, 25);
             label8.TabIndex = 4;
@@ -109,32 +123,75 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Id, Producto, Precio, Cantidad_a_verder, Subtotal, Descuento, X });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Id, Producto, Precio, Cantidad_a_verder, Descuento, Subtotal, X });
             dataGridView1.Location = new Point(18, 216);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.Size = new Size(771, 199);
             dataGridView1.TabIndex = 2;
+            dataGridView1.CellContentClick += dataGridView1_CellContentClick;
             // 
-            // label3
+            // Id
             // 
-            label3.AutoSize = true;
-            label3.Font = new Font("Verdana", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label3.Location = new Point(707, 12);
-            label3.Name = "label3";
-            label3.Size = new Size(57, 18);
-            label3.TabIndex = 1;
-            label3.Text = "HORA";
+            Id.HeaderText = "Id";
+            Id.Name = "Id";
+            Id.ReadOnly = true;
             // 
-            // label2
+            // Producto
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Verdana", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(625, 12);
-            label2.Name = "label2";
-            label2.Size = new Size(63, 18);
-            label2.TabIndex = 1;
-            label2.Text = "FECHA";
+            Producto.HeaderText = "Producto";
+            Producto.Name = "Producto";
+            Producto.ReadOnly = true;
+            // 
+            // Precio
+            // 
+            Precio.HeaderText = "Precio";
+            Precio.Name = "Precio";
+            Precio.ReadOnly = true;
+            // 
+            // Cantidad_a_verder
+            // 
+            Cantidad_a_verder.HeaderText = "Cantidad_a_vender";
+            Cantidad_a_verder.Name = "Cantidad_a_verder";
+            Cantidad_a_verder.ReadOnly = true;
+            // 
+            // Descuento
+            // 
+            Descuento.HeaderText = "Descuento";
+            Descuento.Name = "Descuento";
+            Descuento.ReadOnly = true;
+            // 
+            // Subtotal
+            // 
+            Subtotal.HeaderText = "Subtotal";
+            Subtotal.Name = "Subtotal";
+            Subtotal.ReadOnly = true;
+            // 
+            // X
+            // 
+            X.HeaderText = "X";
+            X.Name = "X";
+            X.ReadOnly = true;
+            // 
+            // label_hour
+            // 
+            label_hour.AutoSize = true;
+            label_hour.Font = new Font("Verdana", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label_hour.Location = new Point(707, 12);
+            label_hour.Name = "label_hour";
+            label_hour.Size = new Size(57, 18);
+            label_hour.TabIndex = 1;
+            label_hour.Text = "HORA";
+            // 
+            // label_date
+            // 
+            label_date.AutoSize = true;
+            label_date.Font = new Font("Verdana", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label_date.Location = new Point(596, 12);
+            label_date.Name = "label_date";
+            label_date.Size = new Size(63, 18);
+            label_date.TabIndex = 1;
+            label_date.Text = "FECHA";
             // 
             // panel2
             // 
@@ -143,7 +200,7 @@
             panel2.Controls.Add(txtDiscount);
             panel2.Controls.Add(button1);
             panel2.Controls.Add(buttonAgregar);
-            panel2.Controls.Add(numericUpDown1);
+            panel2.Controls.Add(numericUpDownquantity);
             panel2.Controls.Add(label7);
             panel2.Controls.Add(label9);
             panel2.Controls.Add(label6);
@@ -194,12 +251,12 @@
             buttonAgregar.UseVisualStyleBackColor = true;
             buttonAgregar.Click += buttonAgregar_Click;
             // 
-            // numericUpDown1
+            // numericUpDownquantity
             // 
-            numericUpDown1.Location = new Point(322, 57);
-            numericUpDown1.Name = "numericUpDown1";
-            numericUpDown1.Size = new Size(77, 23);
-            numericUpDown1.TabIndex = 2;
+            numericUpDownquantity.Location = new Point(322, 57);
+            numericUpDownquantity.Name = "numericUpDownquantity";
+            numericUpDownquantity.Size = new Size(77, 23);
+            numericUpDownquantity.TabIndex = 2;
             // 
             // label7
             // 
@@ -274,6 +331,7 @@
             // 
             txt_price.Location = new Point(486, 111);
             txt_price.Name = "txt_price";
+            txt_price.ReadOnly = true;
             txt_price.Size = new Size(100, 23);
             txt_price.TabIndex = 0;
             // 
@@ -281,50 +339,15 @@
             // 
             Codigo_txt.Location = new Point(109, 60);
             Codigo_txt.Name = "Codigo_txt";
+            Codigo_txt.ReadOnly = true;
             Codigo_txt.Size = new Size(100, 23);
             Codigo_txt.TabIndex = 0;
             // 
-            // Id
+            // timer1
             // 
-            Id.HeaderText = "Id";
-            Id.Name = "Id";
-            Id.ReadOnly = true;
-            // 
-            // Producto
-            // 
-            Producto.HeaderText = "Producto";
-            Producto.Name = "Producto";
-            Producto.ReadOnly = true;
-            // 
-            // Precio
-            // 
-            Precio.HeaderText = "Precio";
-            Precio.Name = "Precio";
-            Precio.ReadOnly = true;
-            // 
-            // Cantidad_a_verder
-            // 
-            Cantidad_a_verder.HeaderText = "Cantidad_a_vender";
-            Cantidad_a_verder.Name = "Cantidad_a_verder";
-            Cantidad_a_verder.ReadOnly = true;
-            // 
-            // Subtotal
-            // 
-            Subtotal.HeaderText = "Subtotal";
-            Subtotal.Name = "Subtotal";
-            Subtotal.ReadOnly = true;
-            // 
-            // Descuento
-            // 
-            Descuento.HeaderText = "Descuento";
-            Descuento.Name = "Descuento";
-            Descuento.ReadOnly = true;
-            // 
-            // X
-            // 
-            X.HeaderText = "X";
-            X.Name = "X";
-            X.ReadOnly = true;
+            timer1.Enabled = true;
+            timer1.Interval = 1000;
+            timer1.Tick += timer1_Tick;
             // 
             // Sales
             // 
@@ -342,7 +365,7 @@
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel2.ResumeLayout(false);
             panel2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)numericUpDown1).EndInit();
+            ((System.ComponentModel.ISupportInitialize)numericUpDownquantity).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -352,15 +375,15 @@
         private Label label1;
         private Panel panel1;
         private Panel panel2;
-        private Label label3;
-        private Label label2;
+        private Label label_hour;
+        private Label label_date;
         private Label label5;
         private Label label4;
         private TextBox txt_nameProduct;
         private TextBox Codigo_txt;
         private Label label7;
         private Label label6;
-        private NumericUpDown numericUpDown1;
+        private NumericUpDown numericUpDownquantity;
         private DataGridView dataGridView1;
         private Button buttonAgregar;
         private Button button1;
@@ -375,8 +398,10 @@
         private DataGridViewTextBoxColumn Producto;
         private DataGridViewTextBoxColumn Precio;
         private DataGridViewTextBoxColumn Cantidad_a_verder;
-        private DataGridViewTextBoxColumn Subtotal;
         private DataGridViewTextBoxColumn Descuento;
+        private DataGridViewTextBoxColumn Subtotal;
         private DataGridViewButtonColumn X;
+        private Label label_Total;
+        private System.Windows.Forms.Timer timer1;
     }
 }
