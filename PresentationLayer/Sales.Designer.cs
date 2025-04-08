@@ -31,18 +31,13 @@
             components = new System.ComponentModel.Container();
             label1 = new Label();
             panel1 = new Panel();
+            comboBoxMethod = new ComboBox();
             label_Total = new Label();
             label8 = new Label();
             buttonPagar = new Button();
             dataGridView1 = new DataGridView();
-            Id = new DataGridViewTextBoxColumn();
-            Producto = new DataGridViewTextBoxColumn();
-            Precio = new DataGridViewTextBoxColumn();
-            Cantidad_a_verder = new DataGridViewTextBoxColumn();
-            Descuento = new DataGridViewTextBoxColumn();
-            Subtotal = new DataGridViewTextBoxColumn();
-            X = new DataGridViewButtonColumn();
             label_hour = new Label();
+            label2 = new Label();
             label_date = new Label();
             panel2 = new Panel();
             label_stock = new Label();
@@ -60,8 +55,13 @@
             txt_price = new TextBox();
             Codigo_txt = new TextBox();
             timer1 = new System.Windows.Forms.Timer(components);
-            comboBoxMethod = new ComboBox();
-            label2 = new Label();
+            Id = new DataGridViewTextBoxColumn();
+            Producto = new DataGridViewTextBoxColumn();
+            Precio = new DataGridViewTextBoxColumn();
+            Cantidad_a_vender = new DataGridViewTextBoxColumn();
+            Descuento = new DataGridViewTextBoxColumn();
+            Subtotal = new DataGridViewTextBoxColumn();
+            X = new DataGridViewButtonColumn();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel2.SuspendLayout();
@@ -94,6 +94,14 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(808, 517);
             panel1.TabIndex = 1;
+            // 
+            // comboBoxMethod
+            // 
+            comboBoxMethod.FormattingEnabled = true;
+            comboBoxMethod.Location = new Point(667, 445);
+            comboBoxMethod.Name = "comboBoxMethod";
+            comboBoxMethod.Size = new Size(121, 23);
+            comboBoxMethod.TabIndex = 5;
             // 
             // label_Total
             // 
@@ -128,55 +136,13 @@
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Id, Producto, Precio, Cantidad_a_verder, Descuento, Subtotal, X });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Id, Producto, Precio, Cantidad_a_vender, Descuento, Subtotal, X });
             dataGridView1.Location = new Point(18, 216);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.Size = new Size(771, 199);
             dataGridView1.TabIndex = 2;
             dataGridView1.CellContentClick += dataGridView1_CellContentClick;
-            // 
-            // Id
-            // 
-            Id.HeaderText = "Id";
-            Id.Name = "Id";
-            Id.ReadOnly = true;
-            // 
-            // Producto
-            // 
-            Producto.HeaderText = "Producto";
-            Producto.Name = "Producto";
-            Producto.ReadOnly = true;
-            // 
-            // Precio
-            // 
-            Precio.HeaderText = "Precio";
-            Precio.Name = "Precio";
-            Precio.ReadOnly = true;
-            // 
-            // Cantidad_a_verder
-            // 
-            Cantidad_a_verder.HeaderText = "Cantidad_a_vender";
-            Cantidad_a_verder.Name = "Cantidad_a_verder";
-            Cantidad_a_verder.ReadOnly = true;
-            // 
-            // Descuento
-            // 
-            Descuento.HeaderText = "Descuento";
-            Descuento.Name = "Descuento";
-            Descuento.ReadOnly = true;
-            // 
-            // Subtotal
-            // 
-            Subtotal.HeaderText = "Subtotal";
-            Subtotal.Name = "Subtotal";
-            Subtotal.ReadOnly = true;
-            // 
-            // X
-            // 
-            X.HeaderText = "X";
-            X.Name = "X";
-            X.ReadOnly = true;
             // 
             // label_hour
             // 
@@ -187,6 +153,16 @@
             label_hour.Size = new Size(57, 18);
             label_hour.TabIndex = 1;
             label_hour.Text = "HORA";
+            // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(538, 445);
+            label2.Name = "label2";
+            label2.Size = new Size(124, 20);
+            label2.TabIndex = 1;
+            label2.Text = "Metodo de Pago";
             // 
             // label_date
             // 
@@ -354,23 +330,47 @@
             timer1.Interval = 1000;
             timer1.Tick += timer1_Tick;
             // 
-            // comboBoxMethod
+            // Id
             // 
-            comboBoxMethod.FormattingEnabled = true;
-            comboBoxMethod.Location = new Point(667, 445);
-            comboBoxMethod.Name = "comboBoxMethod";
-            comboBoxMethod.Size = new Size(121, 23);
-            comboBoxMethod.TabIndex = 5;
+            Id.HeaderText = "Id";
+            Id.Name = "Id";
+            Id.ReadOnly = true;
             // 
-            // label2
+            // Producto
             // 
-            label2.AutoSize = true;
-            label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label2.Location = new Point(538, 445);
-            label2.Name = "label2";
-            label2.Size = new Size(124, 20);
-            label2.TabIndex = 1;
-            label2.Text = "Metodo de Pago";
+            Producto.HeaderText = "Producto";
+            Producto.Name = "Producto";
+            Producto.ReadOnly = true;
+            // 
+            // Precio
+            // 
+            Precio.HeaderText = "Precio";
+            Precio.Name = "Precio";
+            Precio.ReadOnly = true;
+            // 
+            // Cantidad_a_vender
+            // 
+            Cantidad_a_vender.HeaderText = "Cantidad_a_vender";
+            Cantidad_a_vender.Name = "Cantidad_a_vender";
+            Cantidad_a_vender.ReadOnly = true;
+            // 
+            // Descuento
+            // 
+            Descuento.HeaderText = "Descuento";
+            Descuento.Name = "Descuento";
+            Descuento.ReadOnly = true;
+            // 
+            // Subtotal
+            // 
+            Subtotal.HeaderText = "Subtotal";
+            Subtotal.Name = "Subtotal";
+            Subtotal.ReadOnly = true;
+            // 
+            // X
+            // 
+            X.HeaderText = "X";
+            X.Name = "X";
+            X.ReadOnly = true;
             // 
             // Sales
             // 
@@ -417,16 +417,16 @@
         private Label label10;
         private TextBox txt_price;
         private Label label_stock;
-        private DataGridViewTextBoxColumn Id;
-        private DataGridViewTextBoxColumn Producto;
-        private DataGridViewTextBoxColumn Precio;
-        private DataGridViewTextBoxColumn Cantidad_a_verder;
-        private DataGridViewTextBoxColumn Descuento;
-        private DataGridViewTextBoxColumn Subtotal;
-        private DataGridViewButtonColumn X;
         private Label label_Total;
         private System.Windows.Forms.Timer timer1;
         private ComboBox comboBoxMethod;
         private Label label2;
+        private DataGridViewTextBoxColumn Id;
+        private DataGridViewTextBoxColumn Producto;
+        private DataGridViewTextBoxColumn Precio;
+        private DataGridViewTextBoxColumn Cantidad_a_vender;
+        private DataGridViewTextBoxColumn Descuento;
+        private DataGridViewTextBoxColumn Subtotal;
+        private DataGridViewButtonColumn X;
     }
 }

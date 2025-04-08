@@ -30,6 +30,7 @@ namespace PresentationLayer
             services.AddScoped<ICategory, CategoryRepository>();
             services.AddScoped<IPaymentMethods, PaymentMethodRepository>();
             services.AddScoped<ISale, SaleRepository>();
+            services.AddScoped<IProductsXSales, ProductsXSalesRepository>();
 
             //Servicios de validacion
             services.AddScoped<IValidator<Category>, CategoryRepositoryValidation>();  // Registra el validador de Category
@@ -43,6 +44,7 @@ namespace PresentationLayer
             services.AddScoped<ProductService>();
             services.AddScoped<PaymentMethodService>();
             services.AddScoped<SaleService>();
+            services.AddScoped<ProductsXSalesService>();
 
             //Formularios
             services.AddScoped<Form1>();

@@ -19,7 +19,7 @@ namespace LogicLayer.ValidatorService
             this.PmValidation = PmValidation;
         }
 
-        public async Task<List<string>> GetPayMethodsAsync()
+        public async Task<List<PaymentMethod>> GetPayMethodsAsync()
         {
             return await RepositoryPayMethod.GetPayMethods();
         }

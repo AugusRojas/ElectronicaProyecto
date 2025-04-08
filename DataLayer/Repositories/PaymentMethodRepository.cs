@@ -33,11 +33,9 @@ namespace DataLayer.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<List<string>> GetPayMethods()
+        public Task<List<PaymentMethod>> GetPayMethods()
         {
-            return context.PaymentMethod
-                .Select(pm => pm.name)
-                .ToListAsync();
+            return context.PaymentMethod.ToListAsync();
         }
 
         public Task UpdatePayMethod(PaymentMethod payMethod)

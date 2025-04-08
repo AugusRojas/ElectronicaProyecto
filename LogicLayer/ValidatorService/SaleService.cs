@@ -1,4 +1,7 @@
-﻿using System;
+﻿using DataLayer.Interfaces;
+using DataLayer.Models;
+using DataLayer.Repositories;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -8,6 +11,16 @@ namespace LogicLayer.ValidatorService
 {
     public class SaleService
     {
+        private readonly ISale SaleRepository;
+        public SaleService(ISale SaleRepository)
+        {
+            this.SaleRepository = SaleRepository;
+        }
+        public Task<int> AddSale(Sale sale)
+        {
+            return SaleRepository.AddSale(sale);
+        }
+
         public double TotalProduct(string price, string quantity, string discount)
         {
             double sub = (double.Parse(price) * int.Parse(quantity));

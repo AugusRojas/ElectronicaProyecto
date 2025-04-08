@@ -1,4 +1,6 @@
-﻿using LogicLayer.ValidatorService;
+﻿using DataLayer.Models;
+using DataLayer.Repositories;
+using LogicLayer.ValidatorService;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,19 +17,24 @@ namespace PresentationLayer
     {
         private readonly PaymentMethodService PaymentMethodService;
         private readonly ProductService ProductServices;
-        SaleService services = new SaleService();
-        public Sales(ProductService ProductServices, PaymentMethodService PaymentMethodService)
+        private readonly SaleService SaleService;
+        private readonly ProductsXSalesService ProductsXSalesService;
+       
+        public Sales(ProductService ProductServices, PaymentMethodService PaymentMethodService, SaleService SaleService, ProductsXSalesService ProductsXSalesService)
         {
             InitializeComponent();
             this.ProductServices = ProductServices;
             this.PaymentMethodService = PaymentMethodService;
+            this.SaleService = SaleService;
+            this.ProductsXSalesService = ProductsXSalesService;
         }
 
         System.Windows.Forms.Timer debounceTimer;
 
         private async void  Sales_Load(object sender, EventArgs e)
         {
-            label_date.Text = DateTime.Now.ToString("d");
+            dataGridView1.AllowUserToAddRows = false;
+            label_date.Text = DateTime.Now.ToString("yyyy-MM-dd");
 
             txtDiscount.Text = 0.ToString();
             txt_nameProduct.AutoCompleteMode = AutoCompleteMode.Suggest;
@@ -43,6 +50,8 @@ namespace PresentationLayer
 
             var PaymentMethods = await PaymentMethodService.GetPayMethodsAsync();
             comboBoxMethod.DataSource = PaymentMethods;
+            comboBoxMethod.DisplayMember = "name";
+            comboBoxMethod.ValueMember = "idPaymentMethod";
         }
 
         private string lastQuery = "";
@@ -77,7 +86,7 @@ namespace PresentationLayer
         private async void buttonAgregar_Click(object sender, EventArgs e)
         {
             //Agrega los productos al datagridview
-            double Subtotal = services.TotalProduct(txt_price.Text, numericUpDownquantity.Value.ToString(), txtDiscount.Text);
+            double Subtotal = SaleService.TotalProduct(txt_price.Text, numericUpDownquantity.Value.ToString(), txtDiscount.Text);
 
             dataGridView1.Rows.Add(Codigo_txt.Text, txt_nameProduct.Text, txt_price.Text, numericUpDownquantity.Value.ToString(), txtDiscount.Text, Subtotal.ToString());
 
@@ -124,17 +133,17 @@ namespace PresentationLayer
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            label_hour.Text = DateTime.Now.ToString("T");
+            label_hour.Text = DateTime.Now.ToString("HH:mm:ss");
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
             if (e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "X")
             {
                 double ValueEliminate = 0;
                 double.TryParse(dataGridView1.Rows[e.RowIndex].Cells["Subtotal"].Value?.ToString(), out ValueEliminate);
 
-                // Eliminar de la lista (por valor exacto)
                 subtotales.RemoveAll(x => x == ValueEliminate);
 
                 dataGridView1.Rows.RemoveAt(e.RowIndex);
@@ -143,9 +152,34 @@ namespace PresentationLayer
             }
         }
 
-        private void buttonPagar_Click(object sender, EventArgs e)
+        private async void buttonPagar_Click(object sender, EventArgs e)
         {
+            int idPM = (int)comboBoxMethod.SelectedValue;
+             
+            var sale = new Sale {idPaymentMethod = idPM, totalAmount = decimal.Parse(label_Total.Text), 
+                hour = TimeSpan.Parse(label_hour.Text),
+                date = DateTime.Now.ToString("yyyy-MM-dd")
+            };
 
+            int idSale = await SaleService.AddSale(sale);
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
+            {
+                if (row.IsNewRow) continue;
+
+                var pxs = new ProductsXSales
+                {
+                    idProduct = Convert.ToInt32(row.Cells["Id"].Value),
+                    idSale = idSale,
+                    amount = Convert.ToInt32(row.Cells["Cantidad_a_vender"].Value),
+                    subtotal = Convert.ToDecimal(row.Cells["Subtotal"].Value),
+                    discount = Convert.ToInt32(row.Cells["Descuento"].Value)
+                };
+
+                await ProductsXSalesService.AddPXSAsync(pxs);
+            }
+
+            dataGridView1.Rows.Clear();
         }
     }
 }

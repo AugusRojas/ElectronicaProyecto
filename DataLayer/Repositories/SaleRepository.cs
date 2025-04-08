@@ -1,5 +1,6 @@
 ﻿using DataLayer.Interfaces;
 using DataLayer.Models;
+using DocumentFormat.OpenXml.Drawing;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -10,9 +11,18 @@ namespace DataLayer.Repositories
 {
     public class SaleRepository : ISale
     {
-        public Task AddSale(Sale sale)
+        private readonly Db_Context context;
+
+        public SaleRepository(Db_Context context)
         {
-            throw new NotImplementedException();
+            this.context = context;
+        }
+
+        public async Task<int> AddSale(Sale sale)
+        {
+            await context.Sale.AddAsync(sale);
+            await context.SaveChangesAsync();
+            return sale.idSale;
         }
 
         public Task DeleteSale(int id)

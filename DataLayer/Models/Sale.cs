@@ -11,8 +11,9 @@ namespace DataLayer.Models
         public int idSale { get; set; }
         public int idPaymentMethod { get; set; }
         public PaymentMethod PaymentMethod { get; set; }
-        public decimal total { get; set; }
-        public DateTime date { get; set; }
+        public decimal totalAmount { get; set; }
+        public TimeSpan hour { get; set; }
+        public string date { get; set; }
         public List<ProductsXSales> ProductsXSales { get; set; }
     }
 }

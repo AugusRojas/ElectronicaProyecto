@@ -11,7 +11,7 @@ namespace DataLayer.Interfaces
     {
         //Task<IEnumerable<Sale>> GetSales();
         //Task<Sale> GetSale(int id);
-        Task AddSale(Sale sale);
+        Task<int> AddSale(Sale sale);
         //Task UpdateSale(Sale sale);
         //Task DeleteSale(int id);
     }
