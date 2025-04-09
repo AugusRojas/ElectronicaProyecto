@@ -20,10 +20,21 @@ namespace DataLayer.Repositories
             _context = context;
         }
 
-        public async Task AddCategory(Category category)
+        public async Task<string> AddCategory(Category category)
         {
-            _context.Category.Add(category);
-            await _context.SaveChangesAsync();
+            //verificar si existe primero 
+            var existingCategory = await GetCategory(category.name);
+            if (existingCategory == null)
+            {
+                return "Categoria ya existente.";
+            }
+            else
+            {
+                _context.Category.Add(category);
+                await _context.SaveChangesAsync();
+                return "";
+            }
+           
         }
 
         public Task<List<Category>> GetAllCategories()
@@ -38,8 +49,15 @@ namespace DataLayer.Repositories
 
         public async Task<string> GetCategory(string name)
         {
-            var result = await _context.Category.FirstOrDefaultAsync(c => c.name == name);
-            return result.name;
+            var result = await _context.Category.FirstOrDefaultAsync(c => c.name.ToLower() == name.ToLower());
+            if (result == null)
+            {
+                return "Error";
+            }
+            else
+            {
+                return result.name;
+            }
         }
         public async Task<string> GetCategoryComboBox(int id)
         {
@@ -68,16 +86,25 @@ namespace DataLayer.Repositories
                 }
             }
         }
-        public async Task<Category> GetCategoryObjectCompleted(string name)
+        public async Task<Category> GetCategoryObjectCompleted(int id)
         {
-            var result = await _context.Category.FirstOrDefaultAsync(c => c.name == name);
+            var result = await _context.Category.FirstOrDefaultAsync(c => c.idCategory == id);
             return result;
         }
-        public async Task DeleteCategory(string name)
+        public async Task<string> DeleteCategory(int id)
         {
-            var result = await GetCategoryObjectCompleted(name);
-            _context.Category.Remove(result);
-            await _context.SaveChangesAsync();
+            var result = await GetCategoryObjectCompleted(id);
+            if(result == null)
+            {
+                return "No se encontro la categoria";
+            }
+            else
+            {
+                _context.Category.Remove(result);
+                await _context.SaveChangesAsync();
+                return "";
+            }
+
         }
     }
 }

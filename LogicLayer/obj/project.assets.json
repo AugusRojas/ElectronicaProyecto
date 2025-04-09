@@ -1493,23 +1493,23 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\Licha\\.nuget\\packages\\": {},
+    "C:\\Users\\augus\\.nuget\\packages\\": {},
     "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Users\\Licha\\source\\repos\\AugusRojas\\ElectronicaProyecto\\LogicLayer\\LogicLayer.csproj",
+      "projectUniqueName": "C:\\Users\\augus\\OneDrive\\Escritorio\\Nueva carpeta\\ElectronicaProyecto\\LogicLayer\\LogicLayer.csproj",
       "projectName": "LogicLayer",
-      "projectPath": "C:\\Users\\Licha\\source\\repos\\AugusRojas\\ElectronicaProyecto\\LogicLayer\\LogicLayer.csproj",
-      "packagesPath": "C:\\Users\\Licha\\.nuget\\packages\\",
-      "outputPath": "C:\\Users\\Licha\\source\\repos\\AugusRojas\\ElectronicaProyecto\\LogicLayer\\obj\\",
+      "projectPath": "C:\\Users\\augus\\OneDrive\\Escritorio\\Nueva carpeta\\ElectronicaProyecto\\LogicLayer\\LogicLayer.csproj",
+      "packagesPath": "C:\\Users\\augus\\.nuget\\packages\\",
+      "outputPath": "C:\\Users\\augus\\OneDrive\\Escritorio\\Nueva carpeta\\ElectronicaProyecto\\LogicLayer\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
       ],
       "configFilePaths": [
-        "C:\\Users\\Licha\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Users\\augus\\AppData\\Roaming\\NuGet\\NuGet.Config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
         "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
@@ -1524,8 +1524,8 @@
         "net8.0-windows7.0": {
           "targetAlias": "net8.0-windows",
           "projectReferences": {
-            "C:\\Users\\Licha\\source\\repos\\AugusRojas\\ElectronicaProyecto\\DataLayer\\DataLayer.csproj": {
-              "projectPath": "C:\\Users\\Licha\\source\\repos\\AugusRojas\\ElectronicaProyecto\\DataLayer\\DataLayer.csproj"
+            "C:\\Users\\augus\\OneDrive\\Escritorio\\Nueva carpeta\\ElectronicaProyecto\\DataLayer\\DataLayer.csproj": {
+              "projectPath": "C:\\Users\\augus\\OneDrive\\Escritorio\\Nueva carpeta\\ElectronicaProyecto\\DataLayer\\DataLayer.csproj"
             }
           }
         }

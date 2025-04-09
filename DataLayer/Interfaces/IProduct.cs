@@ -13,7 +13,7 @@ namespace DataLayer.Interfaces
         Task<Product> GetProduct(string name);
         Task<List<string>> Autocomplete(string name);
         Task<Product> GetProductByNameAsync(string name);
-        Task AddProduct(Product product);
+        Task<string> AddProduct(Product product);
         Task UpdateProduct(Product product);
         Task DeleteProduct(Product product);
         Task<List<object>> GetDataGridView();

@@ -1,4 +1,5 @@
-﻿using LogicLayer.ValidatorService;
+﻿using DataLayer.Interfaces;
+using LogicLayer.ValidatorService;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -8,17 +9,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.VisualStyles;
 
 namespace PresentationLayer
 {
     public partial class Sales : Form
     {
         private readonly ProductService ProductServices;
-        SaleService services = new SaleService();
-        public Sales(ProductService ProductServices)
+        private readonly CategoryService CategoryServices;
+        private ProductWindows _productForm;
+        private SaleService services;
+        DateTime hour;
+        public Sales(ProductService ProductServices, ISale saleRepository,SaleService services,CategoryService CategoryServices)
         {
             InitializeComponent();
             this.ProductServices = ProductServices;
+            this.services = services;
+            this.CategoryServices = CategoryServices;
+
         }
 
         System.Windows.Forms.Timer debounceTimer;
@@ -30,7 +38,7 @@ namespace PresentationLayer
             txtDiscount.Text = 0.ToString();
             txt_nameProduct.AutoCompleteMode = AutoCompleteMode.Suggest;
             txt_nameProduct.AutoCompleteSource = AutoCompleteSource.CustomSource;
-
+            hour = DateTime.Now;
             debounceTimer = new System.Windows.Forms.Timer();
             debounceTimer.Interval = 300;
             debounceTimer.Tick += async (s, ev) =>
@@ -138,5 +146,30 @@ namespace PresentationLayer
             }
         }
 
+        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+            if (_productForm == null || _productForm.IsDisposed)
+            {
+                // Si no existe o ya fue cerrado, crealo de nuevo
+                _productForm = new ProductWindows(ProductServices, CategoryServices);
+                _productForm.FormClosed += (s, args) => _productForm = null; // Reiniciar cuando se cierre
+                _productForm.Show();
+            }
+            else
+            {
+                _productForm.BringToFront(); // Llevalo al frente si ya está abierto
+            }
+        }
+
+        private async void btnCashClosing_Click(object sender, EventArgs e)
+        {
+            string card = await services.GetCard()??0.ToString();
+            string cash = await services.GetCash()??0.ToString();
+            string transfer = await services.GetTransfer()??0.ToString();
+            CashClosing cashClosing = new CashClosing(cash, card, transfer, hour.ToString(), DateTime.Now.ToString(),services);
+            this.Hide();
+            cashClosing.Show();
+        }
     }
 }

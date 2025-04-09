@@ -9,7 +9,7 @@ namespace DataLayer.Models
     public class PaymentMethod
     {
         public int idPaymentMethod { get; set; }
-        public string name { get; set; }
+        public string namePaymentMethod { get; set; }
         public List<Sale> Sales { get; set; }
     }
 }

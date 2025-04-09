@@ -75,3 +75,18 @@ C:\Users\Licha\source\repos\AugusRojas\ElectronicaProyecto\DataLayer\obj\Debug\n
 C:\Users\Licha\source\repos\AugusRojas\ElectronicaProyecto\DataLayer\obj\Debug\net8.0-windows\DataLayer.genruntimeconfig.cache
 C:\Users\Licha\source\repos\AugusRojas\ElectronicaProyecto\DataLayer\obj\Debug\net8.0-windows\ref\DataLayer.dll
 >>>>>>> 8f50bf5ac3869c42f75da37ae561d6a6705eadbf
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\DataLayer\bin\Debug\net8.0-windows\DataLayer.deps.json
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\DataLayer\bin\Debug\net8.0-windows\DataLayer.runtimeconfig.json
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\DataLayer\bin\Debug\net8.0-windows\DataLayer.dll
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\DataLayer\bin\Debug\net8.0-windows\DataLayer.pdb
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\DataLayer\obj\Debug\net8.0-windows\DataLayer.csproj.AssemblyReference.cache
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\DataLayer\obj\Debug\net8.0-windows\DataLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\DataLayer\obj\Debug\net8.0-windows\DataLayer.AssemblyInfoInputs.cache
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\DataLayer\obj\Debug\net8.0-windows\DataLayer.AssemblyInfo.cs
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\DataLayer\obj\Debug\net8.0-windows\DataLayer.csproj.CoreCompileInputs.cache
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\DataLayer\obj\Debug\net8.0-windows\DataLayer.sourcelink.json
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\DataLayer\obj\Debug\net8.0-windows\DataLayer.dll
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\DataLayer\obj\Debug\net8.0-windows\refint\DataLayer.dll
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\DataLayer\obj\Debug\net8.0-windows\DataLayer.pdb
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\DataLayer\obj\Debug\net8.0-windows\DataLayer.genruntimeconfig.cache
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\DataLayer\obj\Debug\net8.0-windows\ref\DataLayer.dll

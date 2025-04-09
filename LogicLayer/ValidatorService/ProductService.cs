@@ -30,8 +30,8 @@ namespace LogicLayer.ValidatorService
                 string errores = string.Join("\n", result.Errors.Select(e => e.ErrorMessage));
                 return errores;
             }
-            await _productRepository.AddProduct(product);
-            return "";
+            var resultProduct=await _productRepository.AddProduct(product);
+            return resultProduct;
         }
 
 
