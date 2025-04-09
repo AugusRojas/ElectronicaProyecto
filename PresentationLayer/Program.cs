@@ -19,6 +19,8 @@ namespace PresentationLayer
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            QuestPDF.Settings.License = QuestPDF.Infrastructure.LicenseType.Community;
+
 
             // Configuración de la base de datos
             var services = new ServiceCollection();
@@ -38,6 +40,7 @@ namespace PresentationLayer
             services.AddScoped<IValidator<Product>, ProductRepositoryValidation>();  // Registra el validador de Product
             //services.AddScoped<IValidator<Sale>, SaleRepositoryValidation> ();  // Registra el validador de Sale
             services.AddScoped<IValidator<PaymentMethod>, PaymentMethodRepositoryValidation>();
+            services.AddScoped<IValidator<Sale>, SaleRepositoryValidation>();
 
             //Servicios
             services.AddScoped<CategoryService>();

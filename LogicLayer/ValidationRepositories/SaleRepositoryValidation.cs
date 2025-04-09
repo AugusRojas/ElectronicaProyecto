@@ -10,6 +10,9 @@ namespace LogicLayer.ValidationRepositories
 {
     public class SaleRepositoryValidation : AbstractValidator<Sale>
     {
+        public SaleRepositoryValidation()
+        { 
+        }
 
     }
 }

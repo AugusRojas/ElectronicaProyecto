@@ -1,6 +1,7 @@
 ﻿using DataLayer.Interfaces;
 using DataLayer.Models;
 using DocumentFormat.OpenXml.Drawing;
+using Microsoft.EntityFrameworkCore;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -24,25 +25,26 @@ namespace DataLayer.Repositories
             await context.SaveChangesAsync();
             return sale.idSale;
         }
-
-        public Task DeleteSale(int id)
+        
+        public async Task<Sale> GeneratePdf(int idSale)
         {
-            throw new NotImplementedException();
+            return await context.Sale
+                .Include(s => s.PaymentMethod)
+                .Include(s => s.ProductsXSales)
+                    .ThenInclude(pxs => pxs.product)
+                .FirstOrDefaultAsync(s => s.idSale == idSale);
         }
 
-        public Task<Sale> GetSale(int id)
+        public async Task StockDiscount(List<Product> products)
         {
-            throw new NotImplementedException();
-        }
+             foreach(var pr in products)
+             {
+                var product = await context.Product.FirstOrDefaultAsync(p => p.idProduct == pr.idProduct);
 
-        public Task<IEnumerable<Sale>> GetSales()
-        {
-            throw new NotImplementedException();
-        }
+                product.stock = pr.stock;
+             }
 
-        public Task UpdateSale(Sale sale)
-        {
-            throw new NotImplementedException();
+            await context.SaveChangesAsync();
         }
     }
 }

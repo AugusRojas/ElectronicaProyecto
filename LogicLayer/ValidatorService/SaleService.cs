@@ -1,6 +1,8 @@
 ﻿using DataLayer.Interfaces;
 using DataLayer.Models;
 using DataLayer.Repositories;
+using FluentValidation;
+using QuestPDF.Fluent;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -12,13 +14,55 @@ namespace LogicLayer.ValidatorService
     public class SaleService
     {
         private readonly ISale SaleRepository;
-        public SaleService(ISale SaleRepository)
+        private readonly IValidator<Sale> SaleValidation;
+        private readonly IValidator<Product> ProductValidation;
+        public SaleService(ISale SaleRepository, IValidator<Sale> SaleValidation, IValidator<Product> ProductValidation)
         {
             this.SaleRepository = SaleRepository;
+            this.SaleValidation = SaleValidation;
+            this.ProductValidation = ProductValidation;
         }
         public Task<int> AddSale(Sale sale)
         {
             return SaleRepository.AddSale(sale);
+        }
+
+        public async Task<List<string>> StockDiscountAsync(List<Product> products)
+        {
+            var errores = new List<string>();
+
+            foreach (var producto in products)
+            {
+                var result = await ProductValidation.ValidateAsync(producto);
+                if (!result.IsValid)
+                {
+                    errores.AddRange(result.Errors.Select(e => $"Producto: {producto.name} - {e.ErrorMessage}"));
+                }
+            }
+
+            if (errores.Any())
+                return errores;
+
+            await SaleRepository.StockDiscount(products);
+            return new List<string>();
+        }
+
+
+        public async Task<string> GeneratePdfAsync(int idSale)
+        {
+            var sale = await SaleRepository.GeneratePdf(idSale);
+
+            var folderPath = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments), "ComprobantesVentas");
+
+            if (!Directory.Exists(folderPath))
+                Directory.CreateDirectory(folderPath);
+
+            var documentoPath = Path.Combine(folderPath, $"Comprobante_{sale.idSale}.pdf");
+
+            var document = new ProofDocument(sale);
+            document.GeneratePdf(documentoPath);
+
+            return documentoPath;
         }
 
         public double TotalProduct(string price, string quantity, string discount)

@@ -73,6 +73,10 @@
               "suppressParent": "All",
               "target": "Package",
               "version": "[9.0.3, )"
+            },
+            "QuestPDF": {
+              "target": "Package",
+              "version": "[2025.4.0, )"
             }
           },
           "imports": [

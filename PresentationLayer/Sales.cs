@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -179,7 +180,45 @@ namespace PresentationLayer
                 await ProductsXSalesService.AddPXSAsync(pxs);
             }
 
+
+            //Limpiar y actualizar el label total
+
             dataGridView1.Rows.Clear();
+            subtotales.Clear();
+            subtotales.Add(0);
+            label_Total.Text = subtotales[0].ToString();
+
+            /////
+            ///
+            //
+            //
+
+            string path = await SaleService.GeneratePdfAsync(idSale);
+
+            // si la opcion es si, redirecciona al navegador
+            var result = MessageBox.Show("¿Desea imprimir el comprobante?", "Comprobante generado", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                Process.Start("explorer", path); 
+            }
+
+
+
+
+
+            //var errores = await SaleService.StockDiscountAsync();
+
+            //if (errores.Any())
+            //{
+            //    // Mostrarlos en un MessageBox, panel, o similar
+            //    string me = string.Join("\n", errores);
+            //    MessageBox.Show(me, "Errores de validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Stock actualizado correctamente");
+            //}
+
         }
     }
 }

@@ -9,10 +9,8 @@ namespace DataLayer.Interfaces
 {
     public interface ISale
     {
-        //Task<IEnumerable<Sale>> GetSales();
-        //Task<Sale> GetSale(int id);
         Task<int> AddSale(Sale sale);
-        //Task UpdateSale(Sale sale);
-        //Task DeleteSale(int id);
+        Task<Sale> GeneratePdf(int idSale);
+        Task StockDiscount(List<Product> products);
     }
 }
