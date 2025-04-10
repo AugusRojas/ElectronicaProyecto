@@ -14,8 +14,8 @@ namespace DataLayer.Models
         public decimal totalAmount { get; set; }
         public decimal discount { get; set; }
         public decimal subtotal { get; set; }
-        public DateTime hour { get; set; }
-        public DateTime date { get; set; }
+        public string hour { get; set; }
+        public string date { get; set; }
         public List<ProductsXSales> ProductsXSales { get; set; }
     }
 }

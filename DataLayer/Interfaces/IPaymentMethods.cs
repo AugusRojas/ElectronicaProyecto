@@ -9,10 +9,10 @@ namespace DataLayer.Interfaces
 {
     public interface IPaymentMethods
     {
-        Task<IEnumerable<PaymentMethod>> GetPayMethods();
-        Task<PaymentMethod> GetPayMethod(int id);
-        Task AddPayMethod(PaymentMethod payMethod);
-        Task UpdatePayMethod(PaymentMethod payMethod);
-        Task DeletePayMethod(int id);
+        Task<List<PaymentMethod>> GetPayMethods();
+        //Task<PaymentMethod> GetPayMethod(int id);
+        //Task AddPayMethod(PaymentMethod payMethod);
+        //Task UpdatePayMethod(PaymentMethod payMethod);
+        //Task DeletePayMethod(int id);
     }
 }

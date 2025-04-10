@@ -5,11 +5,19 @@ using System.Text;
 using System.Threading.Tasks;
 using DataLayer.Interfaces;
 using DataLayer.Models;
+using Microsoft.EntityFrameworkCore;
 
 namespace DataLayer.Repositories
 {
     public class PaymentMethodRepository : IPaymentMethods
     {
+        private readonly Db_Context context;
+
+        public PaymentMethodRepository(Db_Context context)
+        {
+            this.context = context;
+        }
+
         public Task AddPayMethod(PaymentMethod payMethod)
         {
             throw new NotImplementedException();
@@ -25,9 +33,9 @@ namespace DataLayer.Repositories
             throw new NotImplementedException();
         }
 
-        public Task<IEnumerable<PaymentMethod>> GetPayMethods()
+        public Task<List<PaymentMethod>> GetPayMethods()
         {
-            throw new NotImplementedException();
+            return context.PaymentMethod.ToListAsync();
         }
 
         public Task UpdatePayMethod(PaymentMethod payMethod)

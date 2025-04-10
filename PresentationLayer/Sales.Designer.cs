@@ -31,6 +31,8 @@
             components = new System.ComponentModel.Container();
             label1 = new Label();
             panel1 = new Panel();
+            btnCashClosing = new Button();
+            comboBoxMethod = new ComboBox();
             label_Total = new Label();
             label8 = new Label();
             buttonPagar = new Button();
@@ -38,11 +40,12 @@
             Id = new DataGridViewTextBoxColumn();
             Producto = new DataGridViewTextBoxColumn();
             Precio = new DataGridViewTextBoxColumn();
-            Cantidad_a_verder = new DataGridViewTextBoxColumn();
+            Cantidad_a_vender = new DataGridViewTextBoxColumn();
             Descuento = new DataGridViewTextBoxColumn();
             Subtotal = new DataGridViewTextBoxColumn();
             X = new DataGridViewButtonColumn();
             label_hour = new Label();
+            label2 = new Label();
             label_date = new Label();
             panel2 = new Panel();
             label_stock = new Label();
@@ -61,8 +64,7 @@
             Codigo_txt = new TextBox();
             timer1 = new System.Windows.Forms.Timer(components);
             menuStrip1 = new MenuStrip();
-            productosToolStripMenuItem = new ToolStripMenuItem();
-            btnCashClosing = new Button();
+            productsToolStripMenuItem = new ToolStripMenuItem();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel2.SuspendLayout();
@@ -84,11 +86,13 @@
             // 
             panel1.BackColor = SystemColors.GradientActiveCaption;
             panel1.Controls.Add(btnCashClosing);
+            panel1.Controls.Add(comboBoxMethod);
             panel1.Controls.Add(label_Total);
             panel1.Controls.Add(label8);
             panel1.Controls.Add(buttonPagar);
             panel1.Controls.Add(dataGridView1);
             panel1.Controls.Add(label_hour);
+            panel1.Controls.Add(label2);
             panel1.Controls.Add(label_date);
             panel1.Controls.Add(panel2);
             panel1.Location = new Point(-7, 120);
@@ -97,11 +101,29 @@
             panel1.Size = new Size(923, 689);
             panel1.TabIndex = 1;
             // 
+            // btnCashClosing
+            // 
+            btnCashClosing.Location = new Point(829, 630);
+            btnCashClosing.Name = "btnCashClosing";
+            btnCashClosing.Size = new Size(94, 29);
+            btnCashClosing.TabIndex = 6;
+            btnCashClosing.Text = "Cerrar caja";
+            btnCashClosing.UseVisualStyleBackColor = true;
+            btnCashClosing.Click += btnCashClosing_Click;
+            // 
+            // comboBoxMethod
+            // 
+            comboBoxMethod.FormattingEnabled = true;
+            comboBoxMethod.Location = new Point(780, 558);
+            comboBoxMethod.Name = "comboBoxMethod";
+            comboBoxMethod.Size = new Size(121, 28);
+            comboBoxMethod.TabIndex = 5;
+            // 
             // label_Total
             // 
             label_Total.AutoSize = true;
             label_Total.Font = new Font("Verdana", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label_Total.Location = new Point(427, 596);
+            label_Total.Location = new Point(430, 578);
             label_Total.Name = "label_Total";
             label_Total.Size = new Size(24, 32);
             label_Total.TabIndex = 4;
@@ -111,7 +133,7 @@
             // 
             label8.AutoSize = true;
             label8.Font = new Font("Verdana", 15.75F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label8.Location = new Point(206, 596);
+            label8.Location = new Point(180, 578);
             label8.Name = "label8";
             label8.Size = new Size(244, 32);
             label8.TabIndex = 4;
@@ -119,20 +141,19 @@
             // 
             // buttonPagar
             // 
-            buttonPagar.Location = new Point(22, 573);
-            buttonPagar.Margin = new Padding(3, 4, 3, 4);
+            buttonPagar.Location = new Point(18, 558);
             buttonPagar.Name = "buttonPagar";
             buttonPagar.Size = new Size(149, 56);
             buttonPagar.TabIndex = 3;
             buttonPagar.Text = "Vender";
             buttonPagar.UseVisualStyleBackColor = true;
+            buttonPagar.Click += buttonPagar_Click;
             // 
             // dataGridView1
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Id, Producto, Precio, Cantidad_a_verder, Descuento, Subtotal, X });
-            dataGridView1.Location = new Point(21, 288);
-            dataGridView1.Margin = new Padding(3, 4, 3, 4);
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Id, Producto, Precio, Cantidad_a_vender, Descuento, Subtotal, X });
+            dataGridView1.Location = new Point(23, 287);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 51;
@@ -164,13 +185,13 @@
             Precio.ReadOnly = true;
             Precio.Width = 125;
             // 
-            // Cantidad_a_verder
+            // Cantidad_a_vender
             // 
-            Cantidad_a_verder.HeaderText = "Cantidad_a_vender";
-            Cantidad_a_verder.MinimumWidth = 6;
-            Cantidad_a_verder.Name = "Cantidad_a_verder";
-            Cantidad_a_verder.ReadOnly = true;
-            Cantidad_a_verder.Width = 125;
+            Cantidad_a_vender.HeaderText = "Cantidad_a_vender";
+            Cantidad_a_vender.MinimumWidth = 6;
+            Cantidad_a_vender.Name = "Cantidad_a_vender";
+            Cantidad_a_vender.ReadOnly = true;
+            Cantidad_a_vender.Width = 125;
             // 
             // Descuento
             // 
@@ -206,11 +227,21 @@
             label_hour.TabIndex = 1;
             label_hour.Text = "HORA";
             // 
+            // label2
+            // 
+            label2.AutoSize = true;
+            label2.Font = new Font("Segoe UI", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
+            label2.Location = new Point(538, 445);
+            label2.Name = "label2";
+            label2.Size = new Size(161, 25);
+            label2.TabIndex = 1;
+            label2.Text = "Metodo de Pago";
+            // 
             // label_date
             // 
             label_date.AutoSize = true;
             label_date.Font = new Font("Verdana", 11.25F, FontStyle.Bold, GraphicsUnit.Point, 0);
-            label_date.Location = new Point(681, 16);
+            label_date.Location = new Point(619, 16);
             label_date.Name = "label_date";
             label_date.Size = new Size(80, 23);
             label_date.TabIndex = 1;
@@ -269,7 +300,7 @@
             // 
             // buttonAgregar
             // 
-            buttonAgregar.Location = new Point(743, 76);
+            buttonAgregar.Location = new Point(789, 76);
             buttonAgregar.Margin = new Padding(3, 4, 3, 4);
             buttonAgregar.Name = "buttonAgregar";
             buttonAgregar.Size = new Size(85, 77);
@@ -383,29 +414,19 @@
             // menuStrip1
             // 
             menuStrip1.ImageScalingSize = new Size(20, 20);
-            menuStrip1.Items.AddRange(new ToolStripItem[] { productosToolStripMenuItem });
+            menuStrip1.Items.AddRange(new ToolStripItem[] { productsToolStripMenuItem });
             menuStrip1.Location = new Point(0, 0);
             menuStrip1.Name = "menuStrip1";
             menuStrip1.Size = new Size(909, 28);
             menuStrip1.TabIndex = 2;
             menuStrip1.Text = "menuStrip1";
             // 
-            // productosToolStripMenuItem
+            // productsToolStripMenuItem
             // 
-            productosToolStripMenuItem.Name = "productosToolStripMenuItem";
-            productosToolStripMenuItem.Size = new Size(89, 24);
-            productosToolStripMenuItem.Text = "Productos";
-            productosToolStripMenuItem.Click += productosToolStripMenuItem_Click;
-            // 
-            // btnCashClosing
-            // 
-            btnCashClosing.Location = new Point(770, 572);
-            btnCashClosing.Name = "btnCashClosing";
-            btnCashClosing.Size = new Size(131, 56);
-            btnCashClosing.TabIndex = 5;
-            btnCashClosing.Text = "Cierre de caja";
-            btnCashClosing.UseVisualStyleBackColor = true;
-            btnCashClosing.Click += btnCashClosing_Click;
+            productsToolStripMenuItem.Name = "productsToolStripMenuItem";
+            productsToolStripMenuItem.Size = new Size(89, 24);
+            productsToolStripMenuItem.Text = "Productos";
+            productsToolStripMenuItem.Click += productsToolStripMenuItem_Click;
             // 
             // Sales
             // 
@@ -457,17 +478,19 @@
         private Label label10;
         private TextBox txt_price;
         private Label label_stock;
+        private Label label_Total;
+        private System.Windows.Forms.Timer timer1;
+        private ComboBox comboBoxMethod;
+        private Label label2;
         private DataGridViewTextBoxColumn Id;
         private DataGridViewTextBoxColumn Producto;
         private DataGridViewTextBoxColumn Precio;
-        private DataGridViewTextBoxColumn Cantidad_a_verder;
+        private DataGridViewTextBoxColumn Cantidad_a_vender;
         private DataGridViewTextBoxColumn Descuento;
         private DataGridViewTextBoxColumn Subtotal;
         private DataGridViewButtonColumn X;
-        private Label label_Total;
-        private System.Windows.Forms.Timer timer1;
-        private MenuStrip menuStrip1;
-        private ToolStripMenuItem productosToolStripMenuItem;
         private Button btnCashClosing;
+        private MenuStrip menuStrip1;
+        private ToolStripMenuItem productsToolStripMenuItem;
     }
 }

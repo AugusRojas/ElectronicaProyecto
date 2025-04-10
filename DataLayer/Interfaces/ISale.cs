@@ -12,12 +12,15 @@ namespace DataLayer.Interfaces
     {
         Task<IEnumerable<Sale>> GetSales();
         Task<Sale> GetSale(int id);
-        Task AddSale(Sale sale);
         Task UpdateSale(Sale sale);
         Task DeleteSale(int id);
-        Task<string> GetCash();
-        Task<string> GetCard();
-        Task<string> GetTransfer();
-        Task<List<object>> GetSummaryProducts();
+        Task<string> GetCash(string label_hour, string hour, string label_date);
+        Task<string> GetCard(string label_hour, string hour, string label_date);
+        Task<string> GetTransfer(string label_hour, string hour, string label_date);
+        Task<List<object>> GetSummaryProducts(string hourClosing,string hourOpening, string date);
+        Task<int> AddSale(Sale sale);
+        Task<Sale> GeneratePdf(int idSale);
+        Task StockDiscount(List<Product> products);
+
     }
 }

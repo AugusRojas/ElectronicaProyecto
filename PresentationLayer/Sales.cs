@@ -1,44 +1,57 @@
-﻿using DataLayer.Interfaces;
+using DataLayer.Interfaces;
+using DataLayer.Models;
+using DataLayer.Repositories;
 using LogicLayer.ValidatorService;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Windows.Forms.VisualStyles;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace PresentationLayer
 {
     public partial class Sales : Form
     {
+        private readonly PaymentMethodService PaymentMethodService;
         private readonly ProductService ProductServices;
+        private readonly SaleService SaleService;
+        private readonly ProductsXSalesService ProductsXSalesService;
         private readonly CategoryService CategoryServices;
-        private ProductWindows _productForm;
-        private SaleService services;
-        DateTime hour;
-        public Sales(ProductService ProductServices, ISale saleRepository,SaleService services,CategoryService CategoryServices)
+
+
+
+        public string hour { get; set; }
+
+        public Sales(ProductService ProductServices, PaymentMethodService PaymentMethodService, SaleService SaleService, ProductsXSalesService ProductsXSalesService, CategoryService categoryService)
         {
             InitializeComponent();
             this.ProductServices = ProductServices;
-            this.services = services;
-            this.CategoryServices = CategoryServices;
-
+            this.PaymentMethodService = PaymentMethodService;
+            this.SaleService = SaleService;
+            this.ProductsXSalesService = ProductsXSalesService;
+            CategoryServices = categoryService;
         }
 
         System.Windows.Forms.Timer debounceTimer;
 
-        private void Sales_Load(object sender, EventArgs e)
+        private async void Sales_Load(object sender, EventArgs e)
         {
-            label_date.Text = DateTime.Now.ToString("d");
+            dataGridView1.AllowUserToAddRows = false;
+            label_date.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            hour = DateTime.Now.ToString("HH:mm:ss");
 
             txtDiscount.Text = 0.ToString();
+            label_Total.Text = 0.ToString();
             txt_nameProduct.AutoCompleteMode = AutoCompleteMode.Suggest;
             txt_nameProduct.AutoCompleteSource = AutoCompleteSource.CustomSource;
-            hour = DateTime.Now;
+
             debounceTimer = new System.Windows.Forms.Timer();
             debounceTimer.Interval = 300;
             debounceTimer.Tick += async (s, ev) =>
@@ -46,6 +59,11 @@ namespace PresentationLayer
                 debounceTimer.Stop();
                 await LoadAutocomplete();
             };
+
+            var PaymentMethods = await PaymentMethodService.GetPayMethodsAsync();
+            comboBoxMethod.DataSource = PaymentMethods;
+            comboBoxMethod.DisplayMember = "namePaymentMethod";
+            comboBoxMethod.ValueMember = "idPaymentMethod";
         }
 
         private string lastQuery = "";
@@ -80,7 +98,8 @@ namespace PresentationLayer
         private async void buttonAgregar_Click(object sender, EventArgs e)
         {
             //Agrega los productos al datagridview
-            double Subtotal = services.TotalProduct(txt_price.Text, numericUpDownquantity.Value.ToString(), txtDiscount.Text);
+            subtotales = [];
+            double Subtotal = SaleService.TotalProduct(txt_price.Text, numericUpDownquantity.Value.ToString(), txtDiscount.Text);
 
             dataGridView1.Rows.Add(Codigo_txt.Text, txt_nameProduct.Text, txt_price.Text, numericUpDownquantity.Value.ToString(), txtDiscount.Text, Subtotal.ToString());
 
@@ -93,7 +112,7 @@ namespace PresentationLayer
                     subtotales.Add(double.Parse(row.Cells["Subtotal"].Value.ToString()));
                 }
             }
-
+            label_Total.Text = 0.ToString();
             label_Total.Text = subtotales.Sum().ToString("0.00");
 
             //limpia los textboxs
@@ -127,17 +146,17 @@ namespace PresentationLayer
 
         private void timer1_Tick(object sender, EventArgs e)
         {
-            label_hour.Text = DateTime.Now.ToString("T");
+            label_hour.Text = DateTime.Now.ToString("HH:mm:ss");
         }
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
+
             if (e.RowIndex >= 0 && dataGridView1.Columns[e.ColumnIndex].Name == "X")
             {
                 double ValueEliminate = 0;
                 double.TryParse(dataGridView1.Rows[e.RowIndex].Cells["Subtotal"].Value?.ToString(), out ValueEliminate);
 
-                // Eliminar de la lista (por valor exacto)
                 subtotales.RemoveAll(x => x == ValueEliminate);
 
                 dataGridView1.Rows.RemoveAt(e.RowIndex);
@@ -146,30 +165,94 @@ namespace PresentationLayer
             }
         }
 
-        private void productosToolStripMenuItem_Click(object sender, EventArgs e)
+        private async void buttonPagar_Click(object sender, EventArgs e)
         {
+            int idPM = (int)comboBoxMethod.SelectedValue;
 
-            if (_productForm == null || _productForm.IsDisposed)
+            var sale = new Sale
             {
-                // Si no existe o ya fue cerrado, crealo de nuevo
-                _productForm = new ProductWindows(ProductServices, CategoryServices);
-                _productForm.FormClosed += (s, args) => _productForm = null; // Reiniciar cuando se cierre
-                _productForm.Show();
-            }
-            else
+                idPaymentMethod = idPM,
+                totalAmount = decimal.Parse(label_Total.Text),
+                hour = label_hour.Text,
+                date = DateTime.Now.ToString("dd/MM/yyyy")
+            };
+
+            int idSale = await SaleService.AddSale(sale);
+
+            foreach (DataGridViewRow row in dataGridView1.Rows)
             {
-                _productForm.BringToFront(); // Llevalo al frente si ya está abierto
+                if (row.IsNewRow) continue;
+
+                var pxs = new ProductsXSales
+                {
+                    idProduct = Convert.ToInt32(row.Cells["Id"].Value),
+                    idSale = idSale,
+                    amount = Convert.ToInt32(row.Cells["Cantidad_a_vender"].Value),
+                    subtotal = Convert.ToDecimal(row.Cells["Subtotal"].Value),
+                    discount = Convert.ToInt32(row.Cells["Descuento"].Value)
+                };
+
+                await ProductsXSalesService.AddPXSAsync(pxs);
             }
+
+
+            //Limpiar y actualizar el label total
+
+            dataGridView1.Rows.Clear();
+            subtotales.Clear();
+            subtotales.Add(0);
+            label_Total.Text = subtotales[0].ToString();
+
+            /////
+            ///
+            //
+            //
+
+            string path = await SaleService.GeneratePdfAsync(idSale);
+
+            // si la opcion es si, redirecciona al navegador
+            var result = MessageBox.Show("¿Desea imprimir el comprobante?", "Comprobante generado", MessageBoxButtons.YesNo);
+            if (result == DialogResult.Yes)
+            {
+                Process.Start("explorer", path);
+            }
+
+
+
+
+
+            //var errores = await SaleService.StockDiscountAsync();
+
+            //if (errores.Any())
+            //{
+            //    // Mostrarlos en un MessageBox, panel, o similar
+            //    string me = string.Join("\n", errores);
+            //    MessageBox.Show(me, "Errores de validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            //}
+            //else
+            //{
+            //    MessageBox.Show("Stock actualizado correctamente");
+            //}
+
         }
-
+        
         private async void btnCashClosing_Click(object sender, EventArgs e)
         {
-            string card = await services.GetCard()??0.ToString();
-            string cash = await services.GetCash()??0.ToString();
-            string transfer = await services.GetTransfer()??0.ToString();
-            CashClosing cashClosing = new CashClosing(cash, card, transfer, hour.ToString(), DateTime.Now.ToString(),services);
+            string cash = await SaleService.GetCash(label_hour.Text,hour,label_date.Text);
+            string card = await SaleService.GetCard(label_hour.Text, hour, label_date.Text);
+            string trasnfer = await SaleService.GetTransfer(label_hour.Text, hour, label_date.Text);
+            CashClosing cashClosing = new CashClosing(cash, card, trasnfer, label_hour.Text, label_date.Text, SaleService,hour);
             this.Hide();
             cashClosing.Show();
+            
+
+        }
+
+        private void productsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProductWindows ProductWindows = new ProductWindows(ProductServices, CategoryServices);
+            this.Hide();
+            ProductWindows.Show();
         }
     }
 }

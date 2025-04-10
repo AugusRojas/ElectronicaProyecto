@@ -19,6 +19,8 @@ namespace PresentationLayer
             Application.SetHighDpiMode(HighDpiMode.SystemAware);
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            QuestPDF.Settings.License = QuestPDF.Infrastructure.LicenseType.Community;
+
 
             // Configuración de la base de datos
             var services = new ServiceCollection();
@@ -30,18 +32,23 @@ namespace PresentationLayer
             services.AddScoped<ICategory, CategoryRepository>();
             services.AddScoped<IPaymentMethods, PaymentMethodRepository>();
             services.AddScoped<ISale, SaleRepository>();
+            services.AddScoped<IProductsXSales, ProductsXSalesRepository>();
+            services.AddScoped<ProductsXSales>();
 
             //Servicios de validacion
             services.AddScoped<IValidator<Category>, CategoryRepositoryValidation>();  // Registra el validador de Category
             services.AddScoped<IValidator<List<Category>>, CategoriesRepositoryValidation>();
             services.AddScoped<IValidator<Product>, ProductRepositoryValidation>();  // Registra el validador de Product
             //services.AddScoped<IValidator<Sale>, SaleRepositoryValidation> ();  // Registra el validador de Sale
+            services.AddScoped<IValidator<PaymentMethod>, PaymentMethodRepositoryValidation>();
+            services.AddScoped<IValidator<Sale>, SaleRepositoryValidation>();
 
             //Servicios
             services.AddScoped<CategoryService>();
             services.AddScoped<ProductService>();
             services.AddScoped<PaymentMethodService>();
             services.AddScoped<SaleService>();
+            services.AddScoped<ProductsXSalesService>();
 
             //Formularios
             services.AddScoped<ProductWindows>();
