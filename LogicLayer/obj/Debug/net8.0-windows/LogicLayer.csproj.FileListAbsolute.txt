@@ -42,6 +42,25 @@ C:\Users\Licha\source\repos\AugusRojas\ElectronicaProyecto\LogicLayer\obj\Debug\
 C:\Users\Licha\source\repos\AugusRojas\ElectronicaProyecto\LogicLayer\obj\Debug\net8.0-windows\LogicLayer.pdb
 C:\Users\Licha\source\repos\AugusRojas\ElectronicaProyecto\LogicLayer\obj\Debug\net8.0-windows\ref\LogicLayer.dll
 C:\Users\Licha\source\repos\AugusRojas\ElectronicaProyecto\LogicLayer\obj\Debug\net8.0-windows\LogicLayer.csproj.ResolveComReference.cache
+<<<<<<< HEAD
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LogicLayer.deps.json
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LogicLayer.dll
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LogicLayer.pdb
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\DataLayer.dll
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\DataLayer.pdb
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\obj\Debug\net8.0-windows\LogicLayer.csproj.AssemblyReference.cache
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\obj\Debug\net8.0-windows\LogicLayer.csproj.ResolveComReference.cache
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\obj\Debug\net8.0-windows\LogicLayer.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\obj\Debug\net8.0-windows\LogicLayer.AssemblyInfoInputs.cache
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\obj\Debug\net8.0-windows\LogicLayer.AssemblyInfo.cs
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\obj\Debug\net8.0-windows\LogicLayer.csproj.CoreCompileInputs.cache
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\obj\Debug\net8.0-windows\LogicLayer.sourcelink.json
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\obj\Debug\net8.0-windows\LogicLayer.csproj.Up2Date
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\obj\Debug\net8.0-windows\LogicLayer.dll
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\obj\Debug\net8.0-windows\refint\LogicLayer.dll
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\obj\Debug\net8.0-windows\LogicLayer.pdb
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\obj\Debug\net8.0-windows\ref\LogicLayer.dll
+=======
 C:\Users\Licha\source\repos\AugusRojas\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LatoFont\Lato-Black.ttf
 C:\Users\Licha\source\repos\AugusRojas\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LatoFont\Lato-BlackItalic.ttf
 C:\Users\Licha\source\repos\AugusRojas\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LatoFont\Lato-Bold.ttf
@@ -61,3 +80,23 @@ C:\Users\Licha\source\repos\AugusRojas\ElectronicaProyecto\LogicLayer\bin\Debug\
 C:\Users\Licha\source\repos\AugusRojas\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LatoFont\Lato-Thin.ttf
 C:\Users\Licha\source\repos\AugusRojas\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LatoFont\Lato-ThinItalic.ttf
 C:\Users\Licha\source\repos\AugusRojas\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LatoFont\OFL.txt
+>>>>>>> fb0bef1e3a1042d7e526cc65d461cfbc162c1fa1
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LatoFont\Lato-Black.ttf
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LatoFont\Lato-BlackItalic.ttf
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LatoFont\Lato-Bold.ttf
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LatoFont\Lato-BoldItalic.ttf
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LatoFont\Lato-ExtraBold.ttf
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LatoFont\Lato-ExtraBoldItalic.ttf
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LatoFont\Lato-ExtraLight.ttf
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LatoFont\Lato-ExtraLightItalic.ttf
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LatoFont\Lato-Italic.ttf
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LatoFont\Lato-Light.ttf
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LatoFont\Lato-LightItalic.ttf
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LatoFont\Lato-Medium.ttf
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LatoFont\Lato-MediumItalic.ttf
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LatoFont\Lato-Regular.ttf
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LatoFont\Lato-SemiBold.ttf
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LatoFont\Lato-SemiBoldItalic.ttf
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LatoFont\Lato-Thin.ttf
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LatoFont\Lato-ThinItalic.ttf
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LatoFont\OFL.txt

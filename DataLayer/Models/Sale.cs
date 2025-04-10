@@ -12,7 +12,9 @@ namespace DataLayer.Models
         public int idPaymentMethod { get; set; }
         public PaymentMethod PaymentMethod { get; set; }
         public decimal totalAmount { get; set; }
-        public TimeSpan hour { get; set; }
+        public decimal discount { get; set; }
+        public decimal subtotal { get; set; }
+        public string hour { get; set; }
         public string date { get; set; }
         public List<ProductsXSales> ProductsXSales { get; set; }
     }

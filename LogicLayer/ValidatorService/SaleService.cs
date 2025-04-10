@@ -1,4 +1,5 @@
 ﻿using DataLayer.Interfaces;
+using DataLayer.Repositories;
 using DataLayer.Models;
 using DataLayer.Repositories;
 using FluentValidation;
@@ -84,6 +85,53 @@ namespace LogicLayer.ValidatorService
             return 0;
         }
 
-        
+        public async Task<string> GetCash(string label_hour, string hour, string label_date)
+        {
+            var result = await SaleRepository.GetCash(label_hour, hour, label_date);
+            if (result == null)
+            {
+                return "0";
+            }
+            else
+            {
+                return result.ToString();
+            }
+        }
+        public async Task<string> GetCard(string label_hour,string hour,string label_date)
+        {
+            var result = await SaleRepository.GetCard(label_hour, hour, label_date);
+            if (result == null)
+            {
+                return "0";
+            }
+            else
+            {
+                return result.ToString();
+            }
+        }
+        public async Task<string> GetTransfer(string label_hour, string hour, string label_date)
+        {
+            var result = await SaleRepository.GetTransfer(label_hour, hour, label_date);
+            if (result == null)
+            {
+                return "0";
+            }
+            else
+            {
+                return result.ToString();
+            }
+        }
+        public async Task<List<object>> GetSummaryProducts(string hourClosgin,string hourOpening ,string date)
+        {
+            var result = await SaleRepository.GetSummaryProducts(hourClosgin,hourOpening,date);
+            if (result == null)
+            {
+                return null;
+            }
+            else
+            {
+                return result;
+            }
+        }
     }
 }

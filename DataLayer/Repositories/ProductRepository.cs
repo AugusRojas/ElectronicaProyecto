@@ -18,10 +18,21 @@ namespace DataLayer.Repositories
         {
             _context = context;
         }
-        public Task AddProduct(Product product)
+        public async Task<string> AddProduct(Product product)
         {
-            _context.Product.Add(product);
-            return _context.SaveChangesAsync();
+            // Verificar si el producto ya existe
+            var existingProduct = await GetProduct(product.name);
+            if (existingProduct != null)
+            {
+                return "El producto ya existe.";
+            }
+            else
+            {
+                _context.Product.Add(product);
+                await _context.SaveChangesAsync();
+                return "";
+            }
+            
         }
 
         public async Task DeleteProduct(Product product)

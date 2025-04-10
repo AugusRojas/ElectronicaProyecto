@@ -15,7 +15,7 @@ namespace LogicLayer.ValidatorService
     public class ProofDocument : IDocument
     {
         //clase para determinar la estructura del comprobante
-        private readonly Sale sale;
+        private  Sale sale;
         public ProofDocument(Sale sale)
         {
             this.sale = sale;
@@ -36,7 +36,7 @@ namespace LogicLayer.ValidatorService
                     col.Item().Text($"Comprobante de Venta N° {sale.idSale}").Bold().FontSize(18);
                     col.Item().Text($"Fecha: {sale.date:dd/MM/yyyy}");
                     col.Item().Text($"Hora: {sale.hour}");
-                    col.Item().Text($"Método de pago: {sale.PaymentMethod.name}");
+                    col.Item().Text($"Método de pago: {sale.PaymentMethod.namePaymentMethod}");
                     col.Item().Text(""); 
                     col.Item().Text("");
                     col.Item().Text("");

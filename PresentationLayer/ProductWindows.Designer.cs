@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             components = new System.ComponentModel.Container();
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(ProductWindows));
             btnModify = new Button();
             btnDelete = new Button();
             btnAdd = new Button();
@@ -44,7 +45,12 @@
             boxCategory = new ComboBox();
             btnSearch = new TextBox();
             groupProduct = new GroupBox();
+            pictureBox5 = new PictureBox();
+            pictureBox4 = new PictureBox();
+            pictureBox3 = new PictureBox();
             groupCategory = new GroupBox();
+            pictureBox2 = new PictureBox();
+            pictureBox1 = new PictureBox();
             boxDeleteCategory = new ComboBox();
             txtCategoryAdd = new TextBox();
             label7 = new Label();
@@ -54,7 +60,12 @@
             contextMenuStrip1 = new ContextMenuStrip(components);
             ((System.ComponentModel.ISupportInitialize)dataGridViewProduct).BeginInit();
             groupProduct.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).BeginInit();
             groupCategory.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).BeginInit();
             SuspendLayout();
             // 
             // btnModify
@@ -184,6 +195,9 @@
             // 
             // groupProduct
             // 
+            groupProduct.Controls.Add(pictureBox5);
+            groupProduct.Controls.Add(pictureBox4);
+            groupProduct.Controls.Add(pictureBox3);
             groupProduct.Controls.Add(txtProduct);
             groupProduct.Controls.Add(label4);
             groupProduct.Controls.Add(btnAdd);
@@ -202,8 +216,43 @@
             groupProduct.TabStop = false;
             groupProduct.Text = "Productos";
             // 
+            // pictureBox5
+            // 
+            pictureBox5.Image = (Image)resources.GetObject("pictureBox5.Image");
+            pictureBox5.Location = new Point(419, 147);
+            pictureBox5.Name = "pictureBox5";
+            pictureBox5.Size = new Size(39, 27);
+            pictureBox5.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox5.TabIndex = 20;
+            pictureBox5.TabStop = false;
+            pictureBox5.Click += pictureBox5_Click;
+            // 
+            // pictureBox4
+            // 
+            pictureBox4.Image = (Image)resources.GetObject("pictureBox4.Image");
+            pictureBox4.Location = new Point(419, 88);
+            pictureBox4.Name = "pictureBox4";
+            pictureBox4.Size = new Size(39, 27);
+            pictureBox4.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox4.TabIndex = 19;
+            pictureBox4.TabStop = false;
+            pictureBox4.Click += pictureBox4_Click;
+            // 
+            // pictureBox3
+            // 
+            pictureBox3.Image = (Image)resources.GetObject("pictureBox3.Image");
+            pictureBox3.Location = new Point(419, 31);
+            pictureBox3.Name = "pictureBox3";
+            pictureBox3.Size = new Size(39, 27);
+            pictureBox3.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox3.TabIndex = 18;
+            pictureBox3.TabStop = false;
+            pictureBox3.Click += pictureBox3_Click;
+            // 
             // groupCategory
             // 
+            groupCategory.Controls.Add(pictureBox2);
+            groupCategory.Controls.Add(pictureBox1);
             groupCategory.Controls.Add(boxDeleteCategory);
             groupCategory.Controls.Add(txtCategoryAdd);
             groupCategory.Controls.Add(label7);
@@ -216,6 +265,29 @@
             groupCategory.TabIndex = 15;
             groupCategory.TabStop = false;
             groupCategory.Text = "Categorias";
+            groupCategory.Enter += groupCategory_Enter;
+            // 
+            // pictureBox2
+            // 
+            pictureBox2.Image = (Image)resources.GetObject("pictureBox2.Image");
+            pictureBox2.Location = new Point(313, 97);
+            pictureBox2.Name = "pictureBox2";
+            pictureBox2.Size = new Size(39, 27);
+            pictureBox2.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox2.TabIndex = 17;
+            pictureBox2.TabStop = false;
+            pictureBox2.Click += pictureBox2_Click;
+            // 
+            // pictureBox1
+            // 
+            pictureBox1.Image = (Image)resources.GetObject("pictureBox1.Image");
+            pictureBox1.Location = new Point(313, 36);
+            pictureBox1.Name = "pictureBox1";
+            pictureBox1.Size = new Size(39, 27);
+            pictureBox1.SizeMode = PictureBoxSizeMode.StretchImage;
+            pictureBox1.TabIndex = 16;
+            pictureBox1.TabStop = false;
+            pictureBox1.Click += pictureBox1_Click;
             // 
             // boxDeleteCategory
             // 
@@ -263,11 +335,12 @@
             // 
             // btnAddCategory
             // 
-            btnAddCategory.Location = new Point(347, 54);
+            btnAddCategory.Location = new Point(347, 36);
             btnAddCategory.Name = "btnAddCategory";
-            btnAddCategory.Size = new Size(94, 29);
+            btnAddCategory.Size = new Size(94, 27);
             btnAddCategory.TabIndex = 13;
             btnAddCategory.Text = "Agregar";
+            btnAddCategory.TextImageRelation = TextImageRelation.ImageBeforeText;
             btnAddCategory.UseVisualStyleBackColor = true;
             btnAddCategory.Click += btnAddCategory_Click;
             // 
@@ -289,12 +362,18 @@
             Controls.Add(label1);
             Name = "ProductWindows";
             Text = "ProductWindows";
+            FormClosing += ProductWindows_FormClosing;
             Load += ProductWindows_Load;
             ((System.ComponentModel.ISupportInitialize)dataGridViewProduct).EndInit();
             groupProduct.ResumeLayout(false);
             groupProduct.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox5).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox4).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox3).EndInit();
             groupCategory.ResumeLayout(false);
             groupCategory.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)pictureBox2).EndInit();
+            ((System.ComponentModel.ISupportInitialize)pictureBox1).EndInit();
             ResumeLayout(false);
             PerformLayout();
         }
@@ -322,7 +401,12 @@
         private Label label7;
         private Label label6;
         private Button btnDeleteCategory;
-        private Button btnAddCategory;
         private ContextMenuStrip contextMenuStrip1;
+        private PictureBox pictureBox1;
+        private PictureBox pictureBox5;
+        private PictureBox pictureBox4;
+        private PictureBox pictureBox3;
+        private PictureBox pictureBox2;
+        private Button btnAddCategory;
     }
 }

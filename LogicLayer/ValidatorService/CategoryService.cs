@@ -34,8 +34,8 @@ namespace LogicLayer.ValidatorService
                 return errores;
             }
 
-            await _categoryRepository.AddCategory(category);
-            return " ";
+            var resultCategory = await _categoryRepository.AddCategory(category);
+            return resultCategory;
         }
 
         public async Task<List<Category>> GetCategories()
@@ -79,25 +79,25 @@ namespace LogicLayer.ValidatorService
             }
             return result;
         }
-        public async Task<Category> GetCategoryCompleted(string name)
+        public async Task<Category> GetCategoryCompleted(int id)
         {
-            var result = await _categoryRepository.GetCategoryObjectCompleted(name);
+            var result = await _categoryRepository.GetCategoryObjectCompleted(id);
             if (result == null)
             {
                 return null;
             }
             return result;
         }
-        public async Task<string> DeleteCategory(string name)
+        public async Task<string> DeleteCategory(int id)
         {
-            var result = await _categoryRepository.GetCategoryObjectCompleted(name);
+            var result = await _categoryRepository.DeleteCategory(id);
             if (result == null)
             {
                 return "Categoría no encontrada.";
             }
             else
             {
-                return " ";
+                return "";
             }
 
         }

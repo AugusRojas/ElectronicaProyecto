@@ -1,4 +1,5 @@
-﻿using DataLayer.Models;
+using DataLayer.Interfaces;
+using DataLayer.Models;
 using DataLayer.Repositories;
 using LogicLayer.ValidatorService;
 using System;
@@ -8,9 +9,11 @@ using System.Data;
 using System.Diagnostics;
 using System.Drawing;
 using System.Linq;
+using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace PresentationLayer
 {
@@ -20,24 +23,32 @@ namespace PresentationLayer
         private readonly ProductService ProductServices;
         private readonly SaleService SaleService;
         private readonly ProductsXSalesService ProductsXSalesService;
-       
-        public Sales(ProductService ProductServices, PaymentMethodService PaymentMethodService, SaleService SaleService, ProductsXSalesService ProductsXSalesService)
+        private readonly CategoryService CategoryServices;
+
+
+
+        public string hour { get; set; }
+
+        public Sales(ProductService ProductServices, PaymentMethodService PaymentMethodService, SaleService SaleService, ProductsXSalesService ProductsXSalesService, CategoryService categoryService)
         {
             InitializeComponent();
             this.ProductServices = ProductServices;
             this.PaymentMethodService = PaymentMethodService;
             this.SaleService = SaleService;
             this.ProductsXSalesService = ProductsXSalesService;
+            CategoryServices = categoryService;
         }
 
         System.Windows.Forms.Timer debounceTimer;
 
-        private async void  Sales_Load(object sender, EventArgs e)
+        private async void Sales_Load(object sender, EventArgs e)
         {
             dataGridView1.AllowUserToAddRows = false;
-            label_date.Text = DateTime.Now.ToString("yyyy-MM-dd");
+            label_date.Text = DateTime.Now.ToString("dd/MM/yyyy");
+            hour = DateTime.Now.ToString("HH:mm:ss");
 
             txtDiscount.Text = 0.ToString();
+            label_Total.Text = 0.ToString();
             txt_nameProduct.AutoCompleteMode = AutoCompleteMode.Suggest;
             txt_nameProduct.AutoCompleteSource = AutoCompleteSource.CustomSource;
 
@@ -51,7 +62,7 @@ namespace PresentationLayer
 
             var PaymentMethods = await PaymentMethodService.GetPayMethodsAsync();
             comboBoxMethod.DataSource = PaymentMethods;
-            comboBoxMethod.DisplayMember = "name";
+            comboBoxMethod.DisplayMember = "namePaymentMethod";
             comboBoxMethod.ValueMember = "idPaymentMethod";
         }
 
@@ -87,6 +98,7 @@ namespace PresentationLayer
         private async void buttonAgregar_Click(object sender, EventArgs e)
         {
             //Agrega los productos al datagridview
+            subtotales = [];
             double Subtotal = SaleService.TotalProduct(txt_price.Text, numericUpDownquantity.Value.ToString(), txtDiscount.Text);
 
             dataGridView1.Rows.Add(Codigo_txt.Text, txt_nameProduct.Text, txt_price.Text, numericUpDownquantity.Value.ToString(), txtDiscount.Text, Subtotal.ToString());
@@ -100,7 +112,7 @@ namespace PresentationLayer
                     subtotales.Add(double.Parse(row.Cells["Subtotal"].Value.ToString()));
                 }
             }
-
+            label_Total.Text = 0.ToString();
             label_Total.Text = subtotales.Sum().ToString("0.00");
 
             //limpia los textboxs
@@ -157,10 +169,13 @@ namespace PresentationLayer
         {
             List<Product> StockDiscount = new List<Product>();
             int idPM = (int)comboBoxMethod.SelectedValue;
-             
-            var sale = new Sale {idPaymentMethod = idPM, totalAmount = decimal.Parse(label_Total.Text), 
-                hour = TimeSpan.Parse(label_hour.Text),
-                date = DateTime.Now.ToString("yyyy-MM-dd")
+
+            var sale = new Sale
+            {
+                idPaymentMethod = idPM,
+                totalAmount = decimal.Parse(label_Total.Text),
+                hour = label_hour.Text,
+                date = DateTime.Now.ToString("dd/MM/yyyy")
             };
 
             int idSale = await SaleService.AddSale(sale);
@@ -205,7 +220,7 @@ namespace PresentationLayer
             var result = MessageBox.Show("¿Desea imprimir el comprobante?", "Comprobante generado", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                Process.Start("explorer", path); 
+                Process.Start("explorer", path);
             }
 
 
@@ -225,6 +240,25 @@ namespace PresentationLayer
             //    MessageBox.Show("Stock actualizado correctamente");
             //}
 
+        }
+        
+        private async void btnCashClosing_Click(object sender, EventArgs e)
+        {
+            string cash = await SaleService.GetCash(label_hour.Text,hour,label_date.Text);
+            string card = await SaleService.GetCard(label_hour.Text, hour, label_date.Text);
+            string trasnfer = await SaleService.GetTransfer(label_hour.Text, hour, label_date.Text);
+            CashClosing cashClosing = new CashClosing(cash, card, trasnfer, label_hour.Text, label_date.Text, SaleService,hour);
+            this.Hide();
+            cashClosing.Show();
+            
+
+        }
+
+        private void productsToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ProductWindows ProductWindows = new ProductWindows(ProductServices, CategoryServices);
+            this.Hide();
+            ProductWindows.Show();
         }
     }
 }
