@@ -61,7 +61,7 @@ namespace PresentationLayer
         {
             string name = txt_nameProduct.Text;
 
-            if (string.IsNullOrWhiteSpace(name) || name.Length < 1 || name == lastQuery) return;
+            if (string.IsNullOrWhiteSpace(name) || name == lastQuery) return;
 
             lastQuery = name;
 
@@ -74,7 +74,7 @@ namespace PresentationLayer
             var autoComplete = new AutoCompleteStringCollection();
             autoComplete.AddRange(names.ToArray());
 
-            txt_nameProduct.AutoCompleteCustomSource = autoComplete;
+            txt_nameProduct.AutoCompleteCustomSource = autoComplete; 
         }
 
         private void txt_nameProduct_TextChanged(object sender, EventArgs e)
@@ -155,6 +155,7 @@ namespace PresentationLayer
 
         private async void buttonPagar_Click(object sender, EventArgs e)
         {
+            List<Product> StockDiscount = new List<Product>();
             int idPM = (int)comboBoxMethod.SelectedValue;
              
             var sale = new Sale {idPaymentMethod = idPM, totalAmount = decimal.Parse(label_Total.Text), 
@@ -163,6 +164,8 @@ namespace PresentationLayer
             };
 
             int idSale = await SaleService.AddSale(sale);
+
+
 
             foreach (DataGridViewRow row in dataGridView1.Rows)
             {
@@ -178,6 +181,9 @@ namespace PresentationLayer
                 };
 
                 await ProductsXSalesService.AddPXSAsync(pxs);
+
+                var product = new Product {stock = Convert.ToInt32(row.Cells["Cantidad_a_vender"].Value)};
+                StockDiscount.Add(product);
             }
 
 
@@ -206,8 +212,8 @@ namespace PresentationLayer
 
 
 
-            //var errores = await SaleService.StockDiscountAsync();
-
+            //List<string> errores = new List<string>(); 
+            //errores = await SaleService.StockDiscountAsync();
             //if (errores.Any())
             //{
             //    // Mostrarlos en un MessageBox, panel, o similar
