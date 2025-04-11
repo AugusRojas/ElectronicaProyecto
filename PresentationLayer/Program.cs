@@ -25,7 +25,7 @@ namespace PresentationLayer
             // Configuración de la base de datos
             var services = new ServiceCollection();
             services.AddDbContext<Db_Context>(options =>
-                options.UseSqlite(@"Data Source=C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\DataLayer\TiendaElectronicaSqlite.db"));
+                options.UseSqlite(@"Data Source=C:\Users\Licha\source\repos\AugusRojas\ElectronicaProyecto\DataLayer\TiendaElectronicaSqlite.db"));
 
             //Repositorios
             services.AddScoped<IProduct, ProductRepository>();
@@ -41,7 +41,7 @@ namespace PresentationLayer
             services.AddScoped<IValidator<Product>, ProductRepositoryValidation>();  // Registra el validador de Product
             //services.AddScoped<IValidator<Sale>, SaleRepositoryValidation> ();  // Registra el validador de Sale
             services.AddScoped<IValidator<PaymentMethod>, PaymentMethodRepositoryValidation>();
-            services.AddScoped<IValidator<Sale>, SaleRepositoryValidation>();
+            services.AddScoped<IValidator<Product>, SaleRepositoryValidation>();
 
             //Servicios
             services.AddScoped<CategoryService>();

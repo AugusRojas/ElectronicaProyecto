@@ -1,6 +1,7 @@
 using DataLayer.Interfaces;
 using DataLayer.Models;
 using DataLayer.Repositories;
+using LogicLayer.ValidationRepositories;
 using LogicLayer.ValidatorService;
 using System;
 using System.Collections.Generic;
@@ -24,7 +25,6 @@ namespace PresentationLayer
         private readonly SaleService SaleService;
         private readonly ProductsXSalesService ProductsXSalesService;
         private readonly CategoryService CategoryServices;
-
 
 
         public string hour { get; set; }
@@ -97,11 +97,39 @@ namespace PresentationLayer
         List<double> subtotales = new List<double>();
         private async void buttonAgregar_Click(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(label_stock.Text) || string.IsNullOrWhiteSpace(txt_nameProduct.Text) || string.IsNullOrWhiteSpace(txtDiscount.Text))
+            {
+                MessageBox.Show("Complete los campos para agregar");
+                return;
+            }
+
+            int stock = int.Parse(label_stock.Text);
+
+            var producto = new Product
+            {
+                idProduct = int.Parse(Codigo_txt.Text),
+                name = txt_nameProduct.Text,
+                stock = (int)numericUpDownquantity.Value,
+                price = decimal.Parse(txt_price.Text)
+            };
+
+            var errores = await SaleService.ValidationAdd(producto);
+
+            if (producto.stock > stock)
+                errores.Add("La cantidad a vender no puede superar el stock disponible.");
+
+            if (errores.Any())
+            {
+                MessageBox.Show(string.Join("\n", errores), "Errores de validación");
+                return;
+            }
+
+
             //Agrega los productos al datagridview
             subtotales = [];
             double Subtotal = SaleService.TotalProduct(txt_price.Text, numericUpDownquantity.Value.ToString(), txtDiscount.Text);
 
-            dataGridView1.Rows.Add(Codigo_txt.Text, txt_nameProduct.Text, txt_price.Text, numericUpDownquantity.Value.ToString(), txtDiscount.Text, Subtotal.ToString());
+            dataGridView1.Rows.Add(Codigo_txt.Text, txt_nameProduct.Text, txt_price.Text, numericUpDownquantity.Value.ToString(), txtDiscount.Text, Subtotal.ToString("0.00"));
 
             //Carlcular el total a vender por que esa libreria de mierda no la puedo importar
 
@@ -167,7 +195,15 @@ namespace PresentationLayer
 
         private async void buttonPagar_Click(object sender, EventArgs e)
         {
-            List<Product> StockDiscount = new List<Product>();
+            if (dataGridView1.Rows.Count == 0)
+            {
+                MessageBox.Show("Debe agregar al menos un producto");
+                return;
+            }
+
+
+            List<Product> ListStockDiscount = new List<Product>();
+            List<ProductsXSales> ListProductsXSales = new List<ProductsXSales>();
             int idPM = (int)comboBoxMethod.SelectedValue;
 
             var sale = new Sale
@@ -194,13 +230,31 @@ namespace PresentationLayer
                     subtotal = Convert.ToDecimal(row.Cells["Subtotal"].Value),
                     discount = Convert.ToInt32(row.Cells["Descuento"].Value)
                 };
+                ListProductsXSales.Add(pxs);
 
-                await ProductsXSalesService.AddPXSAsync(pxs);
+                var ProductDiscountStock = new Product {idProduct = Convert.ToInt32(row.Cells["Id"].Value),
+                                           stock = Convert.ToInt32(row.Cells["Cantidad_a_vender"].Value)};
+                ListStockDiscount.Add(ProductDiscountStock);
 
-                var product = new Product {stock = Convert.ToInt32(row.Cells["Cantidad_a_vender"].Value)};
-                StockDiscount.Add(product);
+                
             }
 
+            await ProductsXSalesService.AddPXSAsync(ListProductsXSales);
+
+            List<string> errores = new List<string>();
+            
+            errores = await SaleService.StockDiscountAsync(ListStockDiscount);
+            if (errores.Any())
+            {
+                // Mostrarlos en un MessageBox, panel, o similar
+                string me = string.Join("\n", errores);
+                MessageBox.Show(me, "Errores de validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                return;
+            }
+            else
+            {
+                MessageBox.Show("Stock actualizado correctamente");
+            }
 
             //Limpiar y actualizar el label total
 
@@ -209,6 +263,7 @@ namespace PresentationLayer
             subtotales.Add(0);
             label_Total.Text = subtotales[0].ToString();
 
+          
             /////
             ///
             //
@@ -221,27 +276,9 @@ namespace PresentationLayer
             if (result == DialogResult.Yes)
             {
                 Process.Start("explorer", path);
-            }
-
-
-
-
-
-            //List<string> errores = new List<string>(); 
-            //errores = await SaleService.StockDiscountAsync();
-            //if (errores.Any())
-            //{
-            //    // Mostrarlos en un MessageBox, panel, o similar
-            //    string me = string.Join("\n", errores);
-            //    MessageBox.Show(me, "Errores de validación", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-            //}
-            //else
-            //{
-            //    MessageBox.Show("Stock actualizado correctamente");
-            //}
-
+            } 
         }
-        
+
         private async void btnCashClosing_Click(object sender, EventArgs e)
         {
             string cash = await SaleService.GetCash(label_hour.Text,hour,label_date.Text);
@@ -250,8 +287,6 @@ namespace PresentationLayer
             CashClosing cashClosing = new CashClosing(cash, card, trasnfer, label_hour.Text, label_date.Text, SaleService,hour);
             this.Hide();
             cashClosing.Show();
-            
-
         }
 
         private void productsToolStripMenuItem_Click(object sender, EventArgs e)

@@ -26,8 +26,7 @@ namespace LogicLayer.ValidationRepositories
                 .NotEmpty().WithMessage("El stock del producto no puede ser vacio")
                 .GreaterThan(0).WithMessage("El stock del producto no puede ser menor o igual a 0")
                 .LessThan(1000).WithMessage("El stock del producto no puede ser mayor a 1,000 unidades")
-                .NotNull().WithMessage("El stock no puede ser null")
-                .Must(s => s % 1 == 0).WithMessage("El stock debe ser un número entero");
+                .NotNull().WithMessage("El stock no puede ser null");
 
 
             RuleFor(p => p.idCategory)

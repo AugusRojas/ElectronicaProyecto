@@ -9,6 +9,6 @@ namespace DataLayer.Interfaces
 {
     public interface IProductsXSales
     {
-        Task AddPXS(ProductsXSales productsXSales);
+        Task AddPXS(List<ProductsXSales> productsXSales);
     }
 }

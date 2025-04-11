@@ -701,3 +701,5 @@ C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\Presentatio
 C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\PresentationLayer\bin\Debug\net8.0-windows\runtimes\win-x86\native\libstdc++-6.dll
 C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\PresentationLayer\bin\Debug\net8.0-windows\runtimes\win-x86\native\libwinpthread-1.dll
 C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\PresentationLayer\bin\Debug\net8.0-windows\runtimes\win-x86\native\qpdf.dll
+C:\Users\Licha\source\repos\AugusRojas\ElectronicaProyecto\PresentationLayer\obj\Debug\net8.0-windows\PresentationLayer.CashClosing.resources
+C:\Users\Licha\source\repos\AugusRojas\ElectronicaProyecto\PresentationLayer\obj\Debug\net8.0-windows\PresentationLayer.Properties.Resources.resources

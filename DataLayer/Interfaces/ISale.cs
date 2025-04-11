@@ -21,6 +21,7 @@ namespace DataLayer.Interfaces
         Task<int> AddSale(Sale sale);
         Task<Sale> GeneratePdf(int idSale);
         Task StockDiscount(List<Product> products);
+        Task<List<Product>> OriginalStock();
 
     }
 }

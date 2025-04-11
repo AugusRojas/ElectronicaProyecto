@@ -1,23 +1,23 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\augus\\OneDrive\\Escritorio\\Nueva carpeta\\ElectronicaProyecto\\DataLayer\\DataLayer.csproj": {}
+    "C:\\Users\\Licha\\source\\repos\\AugusRojas\\ElectronicaProyecto\\DataLayer\\DataLayer.csproj": {}
   },
   "projects": {
-    "C:\\Users\\augus\\OneDrive\\Escritorio\\Nueva carpeta\\ElectronicaProyecto\\DataLayer\\DataLayer.csproj": {
+    "C:\\Users\\Licha\\source\\repos\\AugusRojas\\ElectronicaProyecto\\DataLayer\\DataLayer.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\augus\\OneDrive\\Escritorio\\Nueva carpeta\\ElectronicaProyecto\\DataLayer\\DataLayer.csproj",
+        "projectUniqueName": "C:\\Users\\Licha\\source\\repos\\AugusRojas\\ElectronicaProyecto\\DataLayer\\DataLayer.csproj",
         "projectName": "DataLayer",
-        "projectPath": "C:\\Users\\augus\\OneDrive\\Escritorio\\Nueva carpeta\\ElectronicaProyecto\\DataLayer\\DataLayer.csproj",
-        "packagesPath": "C:\\Users\\augus\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\augus\\OneDrive\\Escritorio\\Nueva carpeta\\ElectronicaProyecto\\DataLayer\\obj\\",
+        "projectPath": "C:\\Users\\Licha\\source\\repos\\AugusRojas\\ElectronicaProyecto\\DataLayer\\DataLayer.csproj",
+        "packagesPath": "C:\\Users\\Licha\\.nuget\\packages\\",
+        "outputPath": "C:\\Users\\Licha\\source\\repos\\AugusRojas\\ElectronicaProyecto\\DataLayer\\obj\\",
         "projectStyle": "PackageReference",
         "fallbackFolders": [
           "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
         ],
         "configFilePaths": [
-          "C:\\Users\\augus\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Licha\\AppData\\Roaming\\NuGet\\NuGet.Config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
@@ -53,6 +53,10 @@
             "DocumentFormat.OpenXml": {
               "target": "Package",
               "version": "[3.3.0, )"
+            },
+            "Microsoft.EntityFrameworkCore": {
+              "target": "Package",
+              "version": "[9.0.4, )"
             },
             "Microsoft.EntityFrameworkCore.Design": {
               "include": "Runtime, Build, Native, ContentFiles, Analyzers, BuildTransitive",
