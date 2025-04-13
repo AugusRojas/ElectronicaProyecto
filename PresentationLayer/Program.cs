@@ -25,7 +25,7 @@ namespace PresentationLayer
             // Configuración de la base de datos
             var services = new ServiceCollection();
             services.AddDbContext<Db_Context>(options =>
-                options.UseSqlite(@"Data Source=C:\Users\Licha\source\repos\AugusRojas\ElectronicaProyecto\DataLayer\TiendaElectronicaSqlite.db"));
+                options.UseSqlite(@"Data Source=C:\Users\Licha\source\repos\AugusRojas\ElectronicaProyecto\DataLayer\TiendaElectronicaSqlite2.db"));
 
             //Repositorios
             services.AddScoped<IProduct, ProductRepository>();

@@ -16,10 +16,11 @@ namespace DataLayer.Repositories
             this.context = context;
         }
 
-        public async Task AddPXS(List<ProductsXSales> productsXSales)
+        public async Task AddPXS(ProductsXSales pxs)
         {
-            await context.AddRangeAsync(productsXSales);
+            await context.ProductsXSales.AddAsync(pxs);
             await context.SaveChangesAsync();
         }
+
     }
 }
