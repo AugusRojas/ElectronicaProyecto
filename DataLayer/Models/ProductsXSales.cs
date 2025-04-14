@@ -8,8 +8,8 @@ namespace DataLayer.Models
 {
     public class ProductsXSales
     {
+        public int idPxs { get; set; }
         public int idProduct { get; set; }
-        public int iDSale { get; set; }
         public Product product { get; set; }
         public int idSale { get; set; }
         public Sale sale { get; set; }

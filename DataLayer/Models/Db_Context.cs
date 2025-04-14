@@ -31,7 +31,7 @@ public partial class Db_Context : DbContext
             .HasKey(s => s.idSale);
 
         modelBuilder.Entity<ProductsXSales>()
-            .HasKey(ps => new { ps.idProduct, ps.idSale });
+            .HasKey(ps => ps.idPxs); 
 
 
         //Definiendo las relaciones entre tablas

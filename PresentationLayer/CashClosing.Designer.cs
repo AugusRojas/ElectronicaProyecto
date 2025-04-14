@@ -41,6 +41,8 @@
             labelHour = new Label();
             labelDate = new Label();
             dataGridViewProducts = new DataGridView();
+            label5 = new Label();
+            txtTotalDay = new Label();
             panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)dataGridViewProducts).BeginInit();
             SuspendLayout();
@@ -164,12 +166,32 @@
             dataGridViewProducts.Size = new Size(727, 266);
             dataGridViewProducts.TabIndex = 42;
             // 
+            // label5
+            // 
+            label5.AutoSize = true;
+            label5.Location = new Point(772, 372);
+            label5.Name = "label5";
+            label5.Size = new Size(96, 20);
+            label5.TabIndex = 43;
+            label5.Text = "Total Del Dia";
+            // 
+            // txtTotalDay
+            // 
+            txtTotalDay.AutoSize = true;
+            txtTotalDay.Location = new Point(963, 372);
+            txtTotalDay.Name = "txtTotalDay";
+            txtTotalDay.Size = new Size(17, 20);
+            txtTotalDay.TabIndex = 44;
+            txtTotalDay.Text = "0";
+            // 
             // CashClosing
             // 
             AutoScaleDimensions = new SizeF(8F, 20F);
             AutoScaleMode = AutoScaleMode.Font;
             BackColor = SystemColors.GradientActiveCaption;
             ClientSize = new Size(1059, 450);
+            Controls.Add(txtTotalDay);
+            Controls.Add(label5);
             Controls.Add(dataGridViewProducts);
             Controls.Add(labelDate);
             Controls.Add(labelHour);
@@ -201,5 +223,7 @@
         private Label labelHour;
         private Label labelDate;
         private DataGridView dataGridViewProducts;
+        private Label label5;
+        private Label txtTotalDay;
     }
 }

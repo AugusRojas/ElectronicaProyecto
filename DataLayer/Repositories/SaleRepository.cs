@@ -138,6 +138,12 @@ namespace DataLayer.Repositories
                 .FirstOrDefaultAsync(s => s.idSale == idSale);
         }
 
+        public async Task<List<Product>> OriginalStock()
+        {
+            return await _context.Product
+                .Select(p => new Product{idProduct = p.idProduct,stock = p.stock})
+                .ToListAsync();
+        }
         public async Task StockDiscount(List<Product> products)
         {
              foreach(var pr in products)

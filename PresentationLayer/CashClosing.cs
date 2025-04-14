@@ -41,6 +41,7 @@ namespace PresentationLayer
 
         private async void CashClosing_Load(object sender, EventArgs e)
         {
+            double sum = 0;
             txtCard.Text = _card;
             txtCash.Text = _cash;
             txtTrasnfer.Text = _trasnfer;
@@ -75,7 +76,10 @@ namespace PresentationLayer
                 dataGridViewProducts.Columns[9].HeaderText = "Metodo de pago"; // Nombre de la cuarta column                                                                               // Ajusta las columnas automáticamente al contenido
                 dataGridViewProducts.AutoSizeColumnsMode = DataGridViewAutoSizeColumnsMode.AllCells;
 
-
+                foreach (DataGridViewRow row in dataGridViewProducts.Rows)
+                {
+                    sum+= row.Cells[5].Value == null ? 0 : Convert.ToDouble(row.Cells[5].Value);
+                }
             }
         }
 

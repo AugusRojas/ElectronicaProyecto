@@ -8,10 +8,15 @@ using System.Threading.Tasks;
 
 namespace LogicLayer.ValidationRepositories
 {
-    public class SaleRepositoryValidation : AbstractValidator<Sale>
+    public class SaleRepositoryValidation : AbstractValidator<Product>
     {
         public SaleRepositoryValidation()
-        { 
+        {
+            RuleFor(p => p.stock)
+            .NotEmpty().WithMessage("La cantidad no puede estar vacía")
+            .GreaterThan(0).WithMessage("La cantidad debe ser mayor a cero")
+            .Must(c => c % 1 == 0).WithMessage("La cantidad no puede tener decimales");
+
         }
 
     }

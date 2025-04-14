@@ -702,3 +702,6 @@ C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\Presentatio
 C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\PresentationLayer\bin\Debug\net8.0-windows\runtimes\win-x86\native\libwinpthread-1.dll
 C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\PresentationLayer\bin\Debug\net8.0-windows\runtimes\win-x86\native\qpdf.dll
 C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\PresentationLayer\bin\Debug\net8.0-windows\TiendaElectronicaSqlite.db
+C:\Users\Licha\source\repos\AugusRojas\ElectronicaProyecto\PresentationLayer\obj\Debug\net8.0-windows\PresentationLayer.CashClosing.resources
+C:\Users\Licha\source\repos\AugusRojas\ElectronicaProyecto\PresentationLayer\obj\Debug\net8.0-windows\PresentationLayer.Properties.Resources.resources
+>>>>>>> d3f3ee6a3a04016a9d71db1bff6ddca7bfab9fb2

@@ -17,9 +17,13 @@ namespace LogicLayer.ValidatorService
             this.PXSRepository = PXSRepository;
         }
 
-        public async Task AddPXSAsync(ProductsXSales productsXSales)
+        public async Task AddPXSAsync(List<ProductsXSales> productsXSales)
         {
-            await PXSRepository.AddPXS(productsXSales);
+            foreach (var pxs in productsXSales)
+            {
+                await PXSRepository.AddPXS(pxs);
+            }
         }
+
     }
 }

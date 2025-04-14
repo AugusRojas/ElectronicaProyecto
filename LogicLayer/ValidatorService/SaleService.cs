@@ -9,42 +9,72 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using LogicLayer.ValidationRepositories;
 
 namespace LogicLayer.ValidatorService
 {
     public class SaleService
     {
         private readonly ISale SaleRepository;
-        private readonly IValidator<Sale> SaleValidation;
-        private readonly IValidator<Product> ProductValidation;
-        public SaleService(ISale SaleRepository, IValidator<Sale> SaleValidation, IValidator<Product> ProductValidation)
+        private readonly IValidator<Product> SaleValidation;
+        private readonly IValidator<Product> SaleValidationAdd;
+        public SaleService(ISale SaleRepository, IValidator<Product> SaleValidation, IValidator<Product> SaleValidationAdd)
         {
             this.SaleRepository = SaleRepository;
             this.SaleValidation = SaleValidation;
-            this.ProductValidation = ProductValidation;
+            this.SaleValidationAdd = SaleValidationAdd;
         }
         public Task<int> AddSale(Sale sale)
         {
             return SaleRepository.AddSale(sale);
         }
 
-        public async Task<List<string>> StockDiscountAsync(List<Product> products)
+        public async Task<List<string>> ValidationAdd(Product product)
         {
             var errores = new List<string>();
 
-            foreach (var producto in products)
+            var result = SaleValidationAdd.Validate(product);
+            if (!result.IsValid)
             {
-                var result = await ProductValidation.ValidateAsync(producto);
-                if (!result.IsValid)
+                errores.AddRange(result.Errors.Select(e => e.ErrorMessage));
+            }
+
+            return errores;
+        }
+
+        public async Task<List<string>> StockDiscountAsync(List<Product> ProductDiscountStock)
+        {
+            var errores = new List<string>();
+
+            foreach (var product in ProductDiscountStock)
+            {
+                var result = SaleValidation.Validate(product);
+                if (!result.IsValid) errores.AddRange(result.Errors.Select(e => $"Producto: {product.name} - {e.ErrorMessage}"));
+            }
+
+            if (errores.Any()) return errores;
+
+            List<Product> OriginalStock = await SaleRepository.OriginalStock();
+
+            var NewProductDiscountStock = ProductDiscountStock
+                  .GroupBy(p => p.idProduct)
+                  .Select(g => new Product
+                  {
+                      idProduct = g.Key,
+                      stock = g.Sum(p => p.stock)
+                  }).ToList();
+
+            foreach (var sn in NewProductDiscountStock)
+            {
+                var Stockoriginal = OriginalStock.FirstOrDefault(o => o.idProduct == sn.idProduct);
+
+                if (Stockoriginal != null)
                 {
-                    errores.AddRange(result.Errors.Select(e => $"Producto: {producto.name} - {e.ErrorMessage}"));
+                    Stockoriginal.stock -= sn.stock;
                 }
             }
 
-            if (errores.Any())
-                return errores;
-
-            await SaleRepository.StockDiscount(products);
+            await SaleRepository.StockDiscount(OriginalStock);
             return new List<string>();
         }
 
