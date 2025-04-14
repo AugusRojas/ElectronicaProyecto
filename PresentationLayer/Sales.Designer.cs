@@ -441,6 +441,7 @@
             Margin = new Padding(3, 4, 3, 4);
             Name = "Sales";
             Text = "Sales";
+            FormClosing += Sales_FormClosing;
             Load += Sales_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

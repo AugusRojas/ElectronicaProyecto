@@ -235,24 +235,29 @@ namespace PresentationLayer
             //}
 
         }
-        
+
         private async void btnCashClosing_Click(object sender, EventArgs e)
         {
-            string cash = await SaleService.GetCash(label_hour.Text,hour,label_date.Text);
+            string cash = await SaleService.GetCash(label_hour.Text, hour, label_date.Text);
             string card = await SaleService.GetCard(label_hour.Text, hour, label_date.Text);
             string trasnfer = await SaleService.GetTransfer(label_hour.Text, hour, label_date.Text);
-            CashClosing cashClosing = new CashClosing(cash, card, trasnfer, label_hour.Text, label_date.Text, SaleService,hour);
+            CashClosing cashClosing = new CashClosing(cash, card, trasnfer, label_hour.Text, label_date.Text, SaleService, hour);
             this.Hide();
             cashClosing.Show();
-            
+
 
         }
 
         private void productsToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            ProductWindows ProductWindows = new ProductWindows(ProductServices, CategoryServices);
+            ProductWindows ProductWindows = new ProductWindows(ProductServices, CategoryServices,this);
             this.Hide();
             ProductWindows.Show();
+        }
+
+        private void Sales_FormClosing(object sender, FormClosingEventArgs e)
+        {
+
         }
     }
 }

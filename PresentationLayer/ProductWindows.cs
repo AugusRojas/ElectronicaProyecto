@@ -16,11 +16,13 @@ namespace PresentationLayer
     {
         private readonly ProductService _productService;
         private readonly CategoryService _categoryService;
-        public ProductWindows(ProductService productService, CategoryService categoryService)
+        private readonly Form _saleForm;
+        public ProductWindows(ProductService productService, CategoryService categoryService,Form SalesForm)
         {
             InitializeComponent();
             _productService = productService;
             _categoryService = categoryService;
+            _saleForm = SalesForm;
         }
 
         private async void ProductWindows_Load(object sender, EventArgs e)
@@ -248,7 +250,7 @@ namespace PresentationLayer
 
         private void ProductWindows_FormClosing(object sender, FormClosingEventArgs e)
         {
-
+            _saleForm.Show();
         }
 
         private void groupCategory_Enter(object sender, EventArgs e)
