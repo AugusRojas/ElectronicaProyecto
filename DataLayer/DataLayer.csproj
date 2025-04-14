@@ -21,4 +21,10 @@
     <PackageReference Include="QuestPDF" Version="2025.4.0" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="TiendaElectronicaSqlite.db">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

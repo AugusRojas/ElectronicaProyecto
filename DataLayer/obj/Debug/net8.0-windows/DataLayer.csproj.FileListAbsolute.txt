@@ -129,3 +129,4 @@ C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\DataLayer\b
 C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\DataLayer\bin\Debug\net8.0-windows\LatoFont\Lato-Thin.ttf
 C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\DataLayer\bin\Debug\net8.0-windows\LatoFont\Lato-ThinItalic.ttf
 C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\DataLayer\bin\Debug\net8.0-windows\LatoFont\OFL.txt
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\DataLayer\bin\Debug\net8.0-windows\TiendaElectronicaSqlite.db

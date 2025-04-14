@@ -125,7 +125,7 @@ namespace PresentationLayer
             var result = MessageBox.Show("¿Desea imprimir el comprobante?", "Comprobante generado", MessageBoxButtons.YesNo);
             if (result == DialogResult.Yes)
             {
-                Process.Start("explorer");
+                Process.Start("explorer",documentoPath);
             }
 
 

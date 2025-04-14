@@ -100,3 +100,4 @@ C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\
 C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LatoFont\Lato-Thin.ttf
 C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LatoFont\Lato-ThinItalic.ttf
 C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\LatoFont\OFL.txt
+C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\LogicLayer\bin\Debug\net8.0-windows\TiendaElectronicaSqlite.db

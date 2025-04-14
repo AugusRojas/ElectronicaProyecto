@@ -24,8 +24,11 @@ namespace PresentationLayer
 
             // Configuración de la base de datos
             var services = new ServiceCollection();
+            var documentosPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments);
+            var dbPath = Path.Combine(AppDomain.CurrentDomain.BaseDirectory, "TiendaElectronicaSqlite.db");
             services.AddDbContext<Db_Context>(options =>
-                options.UseSqlite(@"Data Source=C:\Users\augus\OneDrive\Escritorio\Nueva carpeta\ElectronicaProyecto\DataLayer\TiendaElectronicaSqlite.db"));
+                options.UseSqlite($"Data Source={dbPath};"));
+
 
             //Repositorios
             services.AddScoped<IProduct, ProductRepository>();
@@ -57,10 +60,13 @@ namespace PresentationLayer
 
             var serviceProvider = services.BuildServiceProvider();
 
-            // Asegurar que la BD está creada
+            //Asegurar que la BD está creada
             var context = serviceProvider.GetRequiredService<Db_Context>();
-            context.Database.EnsureCreated();
-            
+            if (!context.Database.CanConnect())
+            {
+                MessageBox.Show("No se pudo conectar a la base de datos.");
+            }
+
 
             // Lanzar la aplicación
             Application.Run(serviceProvider.GetRequiredService<Sales>());
